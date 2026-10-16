@@ -1,0 +1,76 @@
+365-TAGE-KALENDER NACH MONATEN – DRUCKLISTE
+============================================
+
+Fertig zusammengebaut: ca. 83 × 57 × 5,5 cm (4 Module breit, 3 hoch), mit Abschlussleisten ca. 84 × 58 cm
+Getestet: Schubladen, Rastung, Verbinder (mittlere Passung)
+
+
+WAS DU DRUCKST
+--------------
+[ ] 1_Module         je 1×   modul_01_januar.stl … modul_12_dezember.stl   (12 Drucke)
+                     Je 4 Nuten auf ALLEN vier Seiten → Module frei umsteckbar
+                     Englisch: stattdessen 1_Module_EN/module_01_january.stl … module_12_december.stl
+[ ] 2_Schubladen     12×     schubladen_tag_01-31_12x_drucken.stl          (alle Tage 1–31 auf einer Platte)
+                     12× gedruckt reicht für alle Monate. Übrig bleiben ein paar 29/30/31 –
+                     die 29 brauchst du im Schaltjahr für den Februar.
+                     Die Fächer nach dem letzten Tag bleiben einfach leer.
+[ ] 3_Verbinder      1×      verbinder_68x.stl                              (68 Stück)
+[ ] 4_Abschlussleisten (optional, für einen glatten Rand):
+        8×  leiste_oben_unten_8x.stl      oben über Jan–Apr, umgedreht unten unter Sep–Dez
+        1×  leiste_links_oben_ecke.stl    links an Januar
+        1×  leiste_links_mitte.stl        links an Mai
+        1×  leiste_links_unten_ecke.stl   links an September
+        1×  leiste_rechts_oben_ecke.stl   rechts an April
+        1×  leiste_rechts_mitte.stl       rechts an August
+        1×  leiste_rechts_unten_ecke.stl  rechts an Dezember
+        Flach drucken, Sichtseite unten (wie in der Datei). Zusammen ca. 400 g.
+
+Abhaken:
+  Module:            [ ] Jan  [ ] Feb  [ ] Mär  [ ] Apr  [ ] Mai  [ ] Jun
+                     [ ] Jul  [ ] Aug  [ ] Sep  [ ] Okt  [ ] Nov  [ ] Dez
+  Platte 1–31:       [ ] 1  [ ] 2  [ ] 3  [ ] 4  [ ] 5  [ ] 6  [ ] 7  [ ] 8  [ ] 9  [ ] 10  [ ] 11  [ ] 12
+  Verbinder:         [ ]
+
+
+DRUCKEINSTELLUNGEN (Prusa Core One L)
+--------------------------------------
+- Drucker:   CORE One L 0.6 nozzle
+- Druckprofil: ein Profil mit "@COREONE L 0.6" (z. B. 0.32mm SPEED)  ← nicht das 0.4er!
+- Filament:  dein Filamentprofil (z. B. ESD-PETG)
+- Kein Stützmaterial, kein Rand nötig
+- Infill 10–15 %
+- Module: liegend auf dem Rücken drucken (Monatsname zeigt nach oben) – so wie sie in der Datei liegen
+- Schubladen: so wie sie in der Datei liegen (Boden unten, Zahl vorne)
+- Bei ESD-/Carbon-Filament über mehrere Kilo: gehärtete Düse empfohlen
+
+
+ZUSAMMENBAU
+-----------
+1. Module in 3 Reihen legen (jede andere Anordnung geht auch, z. B. 3 breit × 4 hoch):
+
+        Januar     Februar    März       April
+        Mai        Juni       Juli       August
+        September  Oktober    November   Dezember
+
+2. Verbinder von vorne in die Nuten zwischen zwei Modulen schieben
+   (4 pro Kante; geht stramm – ggf. mit Holzstück + Hammer leicht nachklopfen).
+3. Schubladen 1–31 einsetzen: Tag 1 oben links, dann zeilenweise nach rechts.
+   Fächer nach dem letzten Tag bleiben leer. Schubladen rasten hörbar ein.
+4. Abschlussleisten von vorne in die äußeren Nuten schieben (stramm, wie die Verbinder).
+   Die Eckleisten links/rechts sind 2,5 mm länger und decken die Ecken ab.
+5. Kalender wiegt leer ca. 8–9 kg: an die Wand nur mit stabilen Dübeln/Haltern,
+   oder auf eine Kommode stellen und anlehnen.
+
+
+EINSTELLUNGEN IM SKRIPT (falls nötig, skripte/basis/kalender.py)
+-------------------------------------------------------------------
+RAST_H   = 0.75   Rastung: 0.6 = leichter, 0.9 = fester
+V_SPIEL  = 0.10   Verbinder: 0.05 = stramm, 0.15 = locker
+TIEFE    = 48     Tiefe von Modul + Schubladen
+Neu erzeugen: im Ordner skripte  python3 alles_erzeugen.py   (braucht: pip install -r requirements.txt)
+
+
+GROBE MENGEN
+------------
+Filament gesamt ca. 8–9,5 kg (je nach Slicer-Einstellung)
+Druckzeit ca. 2 Wochen reine Druckzeit (mit 0,6er-Düse)

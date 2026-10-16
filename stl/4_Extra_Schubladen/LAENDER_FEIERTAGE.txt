@@ -1,0 +1,310 @@
+LÄNDER-FEIERTAGE  ·  COUNTRY HOLIDAYS
+====================================
+
+Platte / plate: schubladen_laender_feiertage_21x.stl  (Platz zählt von vorne links, Reihe für Reihe)
+
+   1. Gründonnerstag                     Maundy Thursday
+   2. Gedenktag (Mohnblume)              Remembrance (poppy)
+   3. Befreiung / Frieden                Liberation / Peace
+   4. Verfassungstag                     Constitution Day
+   5. Gedenktag (Lorbeer)                Commemoration (laurel)
+   6. Bank Holiday (freier Tag)          Bank Holiday
+   7. Rosenmontag (orthodox)             Clean Monday
+   8. Europatag                          Europe Day
+   9. Feiertag (allgemein)               Public holiday (general)
+  10. Nationalfeiertag Liechtenstein     National Day Liechtenstein
+  11. Nationalfeiertag Luxemburg         National Day Luxembourg
+  12. Nationalfeiertag Belgien           National Day Belgium
+  13. Nationalfeiertag Spanien           National Day Spain
+  14. Nationalfeiertag Griechenland      National Day Greece
+  15. Nationalfeiertag Polen             National Day Poland
+  16. Nationalfeiertag Italien           National Day Italy
+  17. Nationalfeiertag Portugal          National Day Portugal
+  18. Nationalfeiertag Türkei            National Day Türkiye
+  19. Nationalfeiertag Tschechien        National Day Czechia
+  20. Nationalfeiertag Kroatien          National Day Croatia
+  21. Nationalfeiertag Kanada            National Day Canada
+
+Platte / plate: schubladen_flaggen_9x.stl  – Flaggen für die übrigen Länder / flags for the other countries
+
+   1. Nationalfeiertag Deutschland       National Day Germany
+   2. Nationalfeiertag Österreich        National Day Austria
+   3. Nationalfeiertag Schweiz           National Day Switzerland
+   4. Nationalfeiertag Niederlande       National Day Netherlands
+   5. Nationalfeiertag Frankreich        National Day France
+   6. Nationalfeiertag Dänemark          National Day Denmark
+   7. Nationalfeiertag Großbritannien    National Day United Kingdom
+   8. Nationalfeiertag Irland            National Day Ireland
+   9. Nationalfeiertag USA               National Day USA
+
+Gesetzliche Feiertage 2027 je Land (Motiv in Klammern)  ·  Public holidays 2027 per country (motif in brackets)
+
+Österreich / Austria
+    1. 1.  Neujahr                                      (Neujahr)
+    6. 1.  Heilige Drei Könige                          (Heilige Drei Könige)
+   29. 3.  Ostermontag                                  (Ostermontag)
+    1. 5.  Tag der Arbeit                               (Tag der Arbeit)
+    6. 5.  Christi Himmelfahrt / Vatertag               (Christi Himmelfahrt / Vatertag)
+   17. 5.  Pfingstmontag                                (Pfingstmontag)
+   27. 5.  Fronleichnam (DE regional, AT, CH)           (Fronleichnam (DE regional, AT, CH))
+   15. 8.  Mariä Himmelfahrt (AT, BY/SL)                (Mariä Himmelfahrt (AT, BY/SL))
+   26.10.  Österreich: Nationalfeiertag                 (Österreich: Nationalfeiertag)
+    1.11.  Allerheiligen                                (Allerheiligen)
+    8.12.  Mariä Empfängnis (AT)                        (Mariä Empfängnis (AT))
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  2. Weihnachtstag                             (2. Weihnachtstag)
+
+Schweiz / Switzerland
+    1. 1.  Neujahr                                      (Neujahr)
+   26. 3.  Karfreitag                                   (Karfreitag)
+   29. 3.  Ostermontag                                  (Ostermontag)
+    6. 5.  Christi Himmelfahrt / Vatertag               (Christi Himmelfahrt / Vatertag)
+   17. 5.  Pfingstmontag                                (Pfingstmontag)
+    1. 8.  Schweiz: Bundesfeier                         (Schweiz: Bundesfeier)
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  2. Weihnachtstag                             (2. Weihnachtstag)
+
+Liechtenstein / Liechtenstein
+    1. 1.  Neujahr                                      (Neujahr)
+    6. 1.  Heilige Drei Könige                          (Heilige Drei Könige)
+    2. 2.  Mariä Lichtmess                              (Allerheiligen)
+   19. 3.  Josefstag                                    (Gedenktag (Lorbeer))
+   28. 3.  Ostersonntag                                 (Ostersonntag)
+   29. 3.  Ostermontag                                  (Ostermontag)
+    1. 5.  Tag der Arbeit                               (Tag der Arbeit)
+    6. 5.  Christi Himmelfahrt                          (Christi Himmelfahrt / Vatertag)
+   16. 5.  Pfingstsonntag                               (Pfingstmontag)
+   17. 5.  Pfingstmontag                                (Pfingstmontag)
+   27. 5.  Fronleichnam                                 (Fronleichnam (DE regional, AT, CH))
+   15. 8.  Nationalfeiertag                             (Nationalfeiertag Liechtenstein)
+    8. 9.  Mariä Geburt                                 (Mariä Empfängnis (AT))
+    1.11.  Allerheiligen                                (Allerheiligen)
+    8.12.  Mariä Empfängnis                             (Mariä Empfängnis (AT))
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  Stephanstag                                  (2. Weihnachtstag)
+
+Luxemburg / Luxembourg
+    1. 1.  Neujahr                                      (Neujahr)
+   29. 3.  Ostermontag                                  (Ostermontag)
+    1. 5.  Tag der Arbeit                               (Tag der Arbeit)
+    6. 5.  Christi Himmelfahrt                          (Christi Himmelfahrt / Vatertag)
+    9. 5.  Europatag                                    (Europatag)
+   17. 5.  Pfingstmontag                                (Pfingstmontag)
+   23. 6.  Nationalfeiertag                             (Nationalfeiertag Luxemburg)
+   15. 8.  Mariä Himmelfahrt                            (Mariä Himmelfahrt (AT, BY/SL))
+    1.11.  Allerheiligen                                (Allerheiligen)
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  Stephanstag                                  (2. Weihnachtstag)
+
+Belgien / Belgium
+    1. 1.  Neujahr                                      (Neujahr)
+   28. 3.  Ostersonntag                                 (Ostersonntag)
+   29. 3.  Ostermontag                                  (Ostermontag)
+    1. 5.  Tag der Arbeit                               (Tag der Arbeit)
+    6. 5.  Christi Himmelfahrt                          (Christi Himmelfahrt / Vatertag)
+   16. 5.  Pfingstsonntag                               (Pfingstmontag)
+   17. 5.  Pfingstmontag                                (Pfingstmontag)
+   21. 7.  Nationalfeiertag                             (Nationalfeiertag Belgien)
+   15. 8.  Mariä Himmelfahrt                            (Mariä Himmelfahrt (AT, BY/SL))
+    1.11.  Allerheiligen                                (Allerheiligen)
+   11.11.  Waffenstillstandstag                         (Gedenktag (Mohnblume))
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+
+Niederlande / Netherlands
+    1. 1.  Neujahr                                      (Neujahr)
+   26. 3.  Karfreitag                                   (Karfreitag)
+   28. 3.  Ostersonntag                                 (Ostersonntag)
+   29. 3.  Ostermontag                                  (Ostermontag)
+   27. 4.  Königstag                                    (Niederlande: Königstag)
+    6. 5.  Christi Himmelfahrt                          (Christi Himmelfahrt / Vatertag)
+   16. 5.  Pfingstsonntag                               (Pfingstmontag)
+   17. 5.  Pfingstmontag                                (Pfingstmontag)
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  2. Weihnachtstag                             (2. Weihnachtstag)
+
+Frankreich / France
+    1. 1.  Neujahr                                      (Neujahr)
+   29. 3.  Ostermontag                                  (Ostermontag)
+    1. 5.  Tag der Arbeit                               (Tag der Arbeit)
+    6. 5.  Christi Himmelfahrt                          (Christi Himmelfahrt / Vatertag)
+    8. 5.  Tag des Sieges                               (Befreiung / Frieden)
+   17. 5.  Pfingstmontag                                (Pfingstmontag)
+   14. 7.  Nationalfeiertag                             (Frankreich: Nationalfeiertag)
+   15. 8.  Mariä Himmelfahrt                            (Mariä Himmelfahrt (AT, BY/SL))
+    1.11.  Allerheiligen                                (Allerheiligen)
+   11.11.  Waffenstillstandstag                         (Gedenktag (Mohnblume))
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+
+Italien / Italy
+    1. 1.  Neujahr                                      (Neujahr)
+    6. 1.  Heilige Drei Könige                          (Heilige Drei Könige)
+   28. 3.  Ostersonntag                                 (Ostersonntag)
+   29. 3.  Ostermontag                                  (Ostermontag)
+   25. 4.  Tag der Befreiung                            (Befreiung / Frieden)
+    1. 5.  Tag der Arbeit                               (Tag der Arbeit)
+    2. 6.  Tag der Republik                             (Nationalfeiertag Italien)
+   15. 8.  Mariä Himmelfahrt                            (Mariä Himmelfahrt (AT, BY/SL))
+    4.10.  Franz von Assisi (Schutzpatron)              (Gedenktag (Lorbeer))
+    1.11.  Allerheiligen                                (Allerheiligen)
+    7.11.  Tag der nationalen Einheit                   (Nationalfeiertag Italien)
+    8.12.  Mariä Empfängnis                             (Mariä Empfängnis (AT))
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  Stephanstag                                  (2. Weihnachtstag)
+
+Spanien / Spain
+    1. 1.  Neujahr                                      (Neujahr)
+    6. 1.  Heilige Drei Könige                          (Heilige Drei Könige)
+   26. 3.  Karfreitag                                   (Karfreitag)
+    1. 5.  Tag der Arbeit                               (Tag der Arbeit)
+   12.10.  Nationalfeiertag                             (Nationalfeiertag Spanien)
+    1.11.  Allerheiligen                                (Allerheiligen)
+    6.12.  Verfassungstag                               (Verfassungstag)
+    8.12.  Mariä Empfängnis                             (Mariä Empfängnis (AT))
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+
+Portugal / Portugal
+    1. 1.  Neujahr                                      (Neujahr)
+   26. 3.  Karfreitag                                   (Karfreitag)
+   28. 3.  Ostersonntag                                 (Ostersonntag)
+   25. 4.  Tag der Freiheit                             (Befreiung / Frieden)
+    1. 5.  Tag der Arbeit                               (Tag der Arbeit)
+   27. 5.  Fronleichnam                                 (Fronleichnam (DE regional, AT, CH))
+   10. 6.  Tag Portugals                                (Nationalfeiertag Portugal)
+   15. 8.  Mariä Himmelfahrt                            (Mariä Himmelfahrt (AT, BY/SL))
+    5.10.  Tag der Republik                             (Nationalfeiertag Portugal)
+    1.11.  Allerheiligen                                (Allerheiligen)
+    1.12.  Wiederherstellung der Unabhängigkeit         (Nationalfeiertag Portugal)
+    8.12.  Mariä Empfängnis                             (Mariä Empfängnis (AT))
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+
+Polen / Poland
+    1. 1.  Neujahr                                      (Neujahr)
+    6. 1.  Heilige Drei Könige                          (Heilige Drei Könige)
+   28. 3.  Ostersonntag                                 (Ostersonntag)
+   29. 3.  Ostermontag                                  (Ostermontag)
+    1. 5.  Nationalfeiertag                             (Tag der Arbeit)
+    3. 5.  Verfassungstag (3. Mai)                      (Verfassungstag)
+   16. 5.  Pfingstsonntag                               (Pfingstmontag)
+   27. 5.  Fronleichnam                                 (Fronleichnam (DE regional, AT, CH))
+   15. 8.  Mariä Himmelfahrt                            (Mariä Himmelfahrt (AT, BY/SL))
+    1.11.  Allerheiligen                                (Allerheiligen)
+   11.11.  Unabhängigkeitstag                           (Nationalfeiertag Polen)
+   24.12.  Heiligabend                                  (Heiligabend)
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  2. Weihnachtstag                             (2. Weihnachtstag)
+
+Tschechien / Czechia
+    1. 1.  Tag der Erneuerung des Staates               (Nationalfeiertag Tschechien)
+    1. 1.  Neujahr                                      (Neujahr)
+   26. 3.  Karfreitag                                   (Karfreitag)
+   29. 3.  Ostermontag                                  (Ostermontag)
+    1. 5.  Tag der Arbeit                               (Tag der Arbeit)
+    8. 5.  Tag des Sieges                               (Befreiung / Frieden)
+    5. 7.  Tag der Heiligen Kyrill und Method           (Gedenktag (Lorbeer))
+    6. 7.  Jan-Hus-Tag                                  (Gedenktag (Lorbeer))
+   28. 9.  Tag der Eigenstaatlichkeit                   (Nationalfeiertag Tschechien)
+   28.10.  Gründung der Tschechoslowakei                (Nationalfeiertag Tschechien)
+   17.11.  Tag des Kampfes für Freiheit und Demokratie  (Befreiung / Frieden)
+   24.12.  Heiligabend                                  (Heiligabend)
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  2. Weihnachtstag                             (2. Weihnachtstag)
+
+Dänemark / Denmark
+    1. 1.  Neujahr                                      (Neujahr)
+   25. 3.  Gründonnerstag                               (Gründonnerstag)
+   26. 3.  Karfreitag                                   (Karfreitag)
+   28. 3.  Ostersonntag                                 (Ostersonntag)
+   29. 3.  Ostermontag                                  (Ostermontag)
+    6. 5.  Christi Himmelfahrt                          (Christi Himmelfahrt / Vatertag)
+   16. 5.  Pfingstsonntag                               (Pfingstmontag)
+   17. 5.  Pfingstmontag                                (Pfingstmontag)
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  2. Weihnachtstag                             (2. Weihnachtstag)
+
+Griechenland / Greece
+    1. 1.  Neujahr                                      (Neujahr)
+    6. 1.  Heilige Drei Könige                          (Heilige Drei Könige)
+   15. 3.  Rosenmontag (orthodox)                       (Rosenmontag (orthodox))
+   25. 3.  Unabhängigkeitstag                           (Nationalfeiertag Griechenland)
+   30. 4.  Karfreitag                                   (Karfreitag)
+    1. 5.  Tag der Arbeit                               (Tag der Arbeit)
+    3. 5.  Ostermontag                                  (Ostermontag)
+   21. 6.  Pfingstmontag                                (Pfingstmontag)
+   15. 8.  Mariä Entschlafung                           (Mariä Himmelfahrt (AT, BY/SL))
+   28.10.  Ochi-Tag (Nationalfeiertag)                  (Nationalfeiertag Griechenland)
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  Mariä Entschlafung                           (Gedenktag (Lorbeer))
+
+Kroatien / Croatia
+    1. 1.  Neujahr                                      (Neujahr)
+    6. 1.  Heilige Drei Könige                          (Heilige Drei Könige)
+   28. 3.  Ostersonntag                                 (Ostersonntag)
+   29. 3.  Ostermontag                                  (Ostermontag)
+    1. 5.  Tag der Arbeit                               (Tag der Arbeit)
+   27. 5.  Fronleichnam                                 (Fronleichnam (DE regional, AT, CH))
+   30. 5.  Tag der Eigenstaatlichkeit                   (Nationalfeiertag Kroatien)
+   22. 6.  Tag des antifaschistischen Kampfes           (Befreiung / Frieden)
+    5. 8.  Tag des Sieges und der Heimatdankbarkeit     (Befreiung / Frieden)
+   15. 8.  Mariä Himmelfahrt                            (Mariä Himmelfahrt (AT, BY/SL))
+    1.11.  Allerheiligen                                (Allerheiligen)
+   18.11.  Gedenktag                                    (Gedenktag (Mohnblume))
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  Stephanstag                                  (2. Weihnachtstag)
+
+Türkei / Türkiye
+    1. 1.  Neujahr                                      (Neujahr)
+    9. 3.  Zuckerfest                                   (Zuckerfest / Eid al-Fitr)
+   10. 3.  Zuckerfest                                   (Zuckerfest / Eid al-Fitr)
+   11. 3.  Zuckerfest                                   (Zuckerfest / Eid al-Fitr)
+   23. 4.  Tag der nationalen Souveränität und Kinderfe (Weltkindertag (DE; in Thüringen Feiertag))
+    1. 5.  Tag der Arbeit                               (Tag der Arbeit)
+   16. 5.  Opferfest                                    (Opferfest / Eid al-Adha)
+   17. 5.  Opferfest                                    (Opferfest / Eid al-Adha)
+   18. 5.  Opferfest                                    (Opferfest / Eid al-Adha)
+   19. 5.  Gedenken an Atatürk, Tag der Jugend und des  (Gedenktag (Lorbeer))
+   19. 5.  Opferfest                                    (Opferfest / Eid al-Adha)
+   15. 7.  Tag der Demokratie und nationalen Einheit    (Nationalfeiertag Türkei)
+   30. 8.  Tag des Sieges                               (Befreiung / Frieden)
+   29.10.  Tag der Republik                             (Nationalfeiertag Türkei)
+
+Großbritannien / United Kingdom
+    1. 1.  Neujahr                                      (Neujahr)
+   26. 3.  Karfreitag                                   (Karfreitag)
+    3. 5.  Maifeiertag                                  (Tag der Arbeit)
+   31. 5.  Bank Holiday (Frühling)                      (Bank Holiday (freier Tag))
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  2. Weihnachtstag (Boxing Day)                (2. Weihnachtstag)
+
+Irland / Ireland
+    1. 1.  Neujahr                                      (Neujahr)
+    1. 2.  St. Brigid's Day                             (Gedenktag (Lorbeer))
+   17. 3.  St. Patrick's Day                            (Irland: St. Patrick's Day)
+   29. 3.  Ostermontag                                  (Ostermontag)
+    3. 5.  Maifeiertag                                  (Tag der Arbeit)
+    7. 6.  Bank Holiday (Juni)                          (Bank Holiday (freier Tag))
+    2. 8.  Bank Holiday (August)                        (Bank Holiday (freier Tag))
+   25.10.  Bank Holiday (Oktober)                       (Bank Holiday (freier Tag))
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+   26.12.  Stephanstag                                  (2. Weihnachtstag)
+
+USA / USA
+    1. 1.  Neujahr                                      (Neujahr)
+   18. 1.  Martin-Luther-King-Tag                       (Gedenktag (Lorbeer))
+   15. 2.  Presidents' Day                              (Gedenktag (Lorbeer))
+   31. 5.  Memorial Day (Gedenktag)                     (Gedenktag (Mohnblume))
+   19. 6.  Juneteenth                                   (Befreiung / Frieden)
+    4. 7.  Unabhängigkeitstag                           (USA: Unabhängigkeitstag)
+    6. 9.  Tag der Arbeit                               (Tag der Arbeit)
+   11.10.  Columbus Day                                 (Gedenktag (Lorbeer))
+   11.11.  Veteranentag                                 (Gedenktag (Mohnblume))
+   25.11.  Thanksgiving                                 (USA: Thanksgiving)
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+
+Kanada / Canada
+    1. 1.  Neujahr                                      (Neujahr)
+   26. 3.  Karfreitag                                   (Karfreitag)
+    1. 7.  Canada Day (Nationalfeiertag)                (Nationalfeiertag Kanada)
+    6. 9.  Tag der Arbeit                               (Tag der Arbeit)
+   25.12.  1. Weihnachtstag                             (1. Weihnachtstag)
+
+Deutschland: siehe FEIERTAGE.txt. Der Konfigurator berechnet die Feiertage für jedes Jahr.

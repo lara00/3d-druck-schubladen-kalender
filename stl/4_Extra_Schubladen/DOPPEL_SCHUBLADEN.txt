@@ -1,0 +1,109 @@
+DOPPEL-SCHUBLADEN – zwei Tage auf einer Front
+=============================================
+
+Datei: 4_Extra_Schubladen/doppel_schubladen_23x.stl  (Platz 1 = vorne links, Reihe für Reihe)
+Alle Paare, die in den Jahren 2026–2030 auf denselben Tag fallen (alle Bundesländer).
+
+Platz Links                           Rechts                            Datum
+----------------------------------------------------------------------------------------------------
+1     Frühling                        Zuckerfest                        20.3.2026
+2     Sommer                          Fête de la Musique                21.6.2026, 21.6.2027, 21.6.2029, 21.6.2030
+3     Tag des Baumes                  Weltpinguintag                    25.4.2026, 25.4.2027, 25.4.2028, 25.4.2029, 25.4.2030
+4     Reformationstag                 Halloween                         31.10.2026, 31.10.2027, 31.10.2028, 31.10.2029, 31.10.2030
+5     1. Weihnachtstag                Isra und Miradsch                 25.12.2027
+6     1. Weihnachtstag                Chanukka                          25.12.2027
+7     Isra und Miradsch               Chanukka                          25.12.2027
+8     Pessach                         Tag der Erde                      22.4.2027
+9     Orthodoxes Ostern               Weltlachtag                       2.5.2027
+10    Holi                            Weltwassertag                     22.3.2027
+11    Christi Himmelfahrt             Islamisches Neujahr               25.5.2028
+12    Pfingstmontag                   Weltumwelttag                     5.6.2028
+13    Ostersonntag                    Orthodoxes Ostern                 16.4.2028
+14    Silvester                       Laylat al-Bara'a                  31.12.2028
+15    Tag von Arafat                  Weltraum-Tag                      4.5.2028
+16    Valentinstag                    Zuckerfest                        14.2.2029
+17    Winter                          Laylat al-Bara'a                  21.12.2029
+18    Tag von Arafat                  Welttag des Buches                23.4.2029
+19    Ostermontag                     Tag der Erde                      22.4.2030
+20    2. Weihnachtstag                Beginn des Ramadan                26.12.2030
+21    Muttertag                       Aschura                           12.5.2030
+22    Winter                          Chanukka                          21.12.2030
+23    Mawlid an-Nabi                  Tag der Pommes                    13.7.2030
+
+Am 25.12.2027 fallen sogar drei Tage zusammen (Weihnachten, Chanukka, Isra und Miradsch):
+dafür gibt es alle drei Zweier-Kombinationen (Platz 5, 6, 7) und zusätzlich eine
+DREIFACH-Schublade mit allen drei Motiven: dreifach_schubladen_2x.stl
+
+Eigene Doppel-Schubladen (z. B. Geburtstag + Feiertag): Der Konfigurator listet fehlende
+Paare unter der Druckliste auf. Liste kopieren und an Claude schicken.
+
+
+PLATTE 2 – weitere Länder
+=========================
+
+Datei: 4_Extra_Schubladen/doppel_schubladen_2_28x.stl  (Platz 1 = vorne links, Reihe für Reihe)
+Alle Paare, die 2026–2030 in den 18 weiteren Ländern zusammenfallen.
+
+Platz Links                           Rechts                            Datum / Land
+----------------------------------------------------------------------------------------------------
+1     Neujahr                         Nationalfeiertag Tschechien       1.1.2026 CZ, 1.1.2027 CZ, 1.1.2028 CZ, 1.1.2029 CZ …
+2     Zuckerfest / Eid al-Fitr        Weltwassertag                     22.3.2026 TR
+3     Gründonnerstag                  Pessach (Matze)                   2.4.2026 DK, 18.4.2030 DK
+4     Weltkindertag (DE; in Thüringen Welttag des Buches                23.4.2026 TR, 23.4.2027 TR, 23.4.2028 TR, 23.4.2030 TR
+5     Verfassungstag                  Weltlachtag                       3.5.2026 PL
+6     Tag der Arbeit                  Weltraum-Tag                      4.5.2026 GB, 4.5.2026 IE
+7     Gedenktag (Lorbeer)             Welttierschutztag                 4.10.2026 IT, 4.10.2027 IT, 4.10.2028 IT, 4.10.2029 IT …
+8     Bank Holiday (freier Tag)       Österreich: Nationalfeiertag      26.10.2026 IE
+9     Allerheiligen                   Nationalfeiertag Italien          1.11.2026 IT
+10    Europatag                       Muttertag                         9.5.2027 LU
+11    Pfingstmontag                   Opferfest / Eid al-Adha           16.5.2027 BE, 16.5.2027 DK, 16.5.2027 LI, 16.5.2027 NL …
+12    Gedenktag (Lorbeer)             Opferfest / Eid al-Adha           19.5.2027 TR
+13    Gedenktag (Lorbeer)             Jom Kippur (Schofar)              11.10.2027 US
+14    Nationalfeiertag Türkei         Diwali (Öllampe)                  29.10.2027 TR
+15    Verfassungstag                  Nikolaus                          6.12.2027 ES, 6.12.2028 ES, 6.12.2029 ES, 6.12.2030 ES
+16    Opferfest / Eid al-Adha         Weltlachtag                       7.5.2028 TR
+17    Bank Holiday (freier Tag)       Weltumwelttag                     5.6.2028 IE
+18    Nationalfeiertag Portugal       Sukkot (Laubhütte)                5.10.2028 PT
+19    Bank Holiday (freier Tag)       Weltspartag                       30.10.2028 IE
+20    Opferfest / Eid al-Adha         Niederlande: Königstag            27.4.2029 TR
+21    Nationalfeiertag Türkei         Tag des Speiseeises               15.7.2029 TR
+22    Gedenktag (Lorbeer)             Purim (Maske)                     19.3.2030 LI
+23    Verfassungstag                  Islamisches Neujahr (1449)        3.5.2030 PL
+24    Befreiung / Frieden             Weltlachtag                       5.5.2030 NL
+25    Nationalfeiertag Belgien        Tag des Speiseeises               21.7.2030 BE
+26    Nationalfeiertag Tschechien     Rosch ha-Schana (Apfel)           28.9.2030 CZ
+27    Nationalfeiertag Spanien        Sukkot (Laubhütte)                12.10.2030 ES
+28    Gedenktag (Lorbeer)             Beginn des Ramadan                26.12.2030 GR
+
+DREIFACH-SCHUBLADEN: dreifach_schubladen_2x.stl
+  Platz 1: 1. Weihnachtstag + Chanukka + Isra und Miradsch   (25.12.2027)
+  Platz 2: Befreiung / Frieden + Tag des Baumes + Weltpinguintag   (25.4., Italien und Portugal, jedes Jahr)
+
+
+PLATTE 3 – Nationalfeiertage anderer Länder
+==========================================
+
+Datei: 4_Extra_Schubladen/doppel_schubladen_3_11x.stl  (Platz 1 = vorne links, Reihe für Reihe)
+
+Platz Links                           Rechts                            Datum / Land
+----------------------------------------------------------------------------------------------------
+1     Nationalfeiertag Dänemark       Weltumwelttag                     5.6.2026 AT, 5.6.2026 BE, 5.6.2026 CA …
+2     Mariä Himmelfahrt (AT, BY/SL)   Nationalfeiertag Liechtenstein    15.8.2026 AT, 15.8.2026 BE, 15.8.2026 DE …
+3     Gedenktag (Mohnblume)           Nationalfeiertag Polen            11.11.2026 BE, 11.11.2026 FR, 11.11.2026 US …
+4     Christi Himmelfahrt / Vatertag  Nationalfeiertag Kroatien         30.5.2030 AT, 30.5.2030 BE, 30.5.2030 CH …
+5     Pfingstmontag                   Nationalfeiertag Portugal         10.6.2030 AT, 10.6.2030 BE, 10.6.2030 CH …
+6     Nationalfeiertag Griechenland   Nationalfeiertag Tschechien       28.10.2026 GR, 28.10.2027 GR, 28.10.2028 GR …
+7     Opferfest / Eid al-Adha         Nationalfeiertag Kroatien         30.5.2026 TR
+8     Gedenktag (Lorbeer)             Nationalfeiertag Spanien          12.10.2026 US
+9     Gründonnerstag                  Nationalfeiertag Griechenland     25.3.2027 DK
+10    Bank Holiday (freier Tag)       Nationalfeiertag Türkei           29.10.2029 IE
+11    Bank Holiday (freier Tag)       Nationalfeiertag Tschechien       28.10.2030 IE
+
+
+PLATTE 4 – Ergänzung
+====================
+
+Datei: 4_Extra_Schubladen/doppel_schubladen_4_2x.stl
+
+1     Isra und Miradsch (Nacht zum)   Tag des Kekses                    4.12.2029
+2     Islamisches Neujahr (1449)      Weltraum-Tag                      4.5.2030

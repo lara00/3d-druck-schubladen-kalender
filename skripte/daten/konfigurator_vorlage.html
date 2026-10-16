@@ -1,0 +1,1370 @@
+<!doctype html>
+<html lang="de">
+<head>
+<!-- Datenschutz: keine externen Schriften oder Dateien – die Seite lädt nichts aus dem Internet -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+</head>
+<body>
+<title>Schubladen-Jahreskalender</title>
+<style>
+/* Layout: Werkbank-Ansicht – Steuerleiste oben, 12 Monatsmodule als Raster wie an der Wand, Druckliste darunter */
+:root{
+  --bg:#eceee9; --surface:#f9faf7; --ink:#1a1e1b; --muted:#5b645d; --line:#cdd3cc;
+  --accent:#d95a17; --accent-ink:#ffffff; --ok:#2f7a4d; --warn:#b26a00; --hol:#c62f2f;
+  --font-display:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+  --shadow:none;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#131614; --surface:#1b1f1c; --ink:#e7ebe6; --muted:#9aa49c; --line:#2e3530;
+  --accent:#f07a36; --accent-ink:#1a0e05; --ok:#5fbf86; --warn:#e3a33d; --hol:#ff6b6b;
+  --shadow:none; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#131614; --surface:#1b1f1c; --ink:#e7ebe6; --muted:#9aa49c; --line:#2e3530;
+  --accent:#f07a36; --accent-ink:#1a0e05; --ok:#5fbf86; --warn:#e3a33d; --hol:#ff6b6b;
+  --shadow:none; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,3vw,32px);padding-block:20px 64px;display:grid;gap:18px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;line-height:1.1}
+h2{font-size:1.35rem;font-weight:800}
+.lede{color:var(--muted);max-width:72ch;margin:0}
+.kopfzeile{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px}
+.kopf-rechts{display:flex;align-items:center;gap:14px}
+.reiter{display:flex;flex-wrap:wrap;gap:4px;padding:4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;width:fit-content;max-width:100%}
+.reiter button{border:0;background:transparent;border-radius:9px;padding:7px 14px;min-height:36px;color:var(--muted);font-weight:600}
+.reiter button:hover{color:var(--ink)}
+.reiter button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
+details.einsetzen>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+details.einsetzen>summary::-webkit-details-marker{display:none}
+details.einsetzen>summary h2::before{content:"▸ ";color:var(--muted)}
+details.einsetzen[open]>summary h2::before{content:"▾ "}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+/* Steuerleiste */
+.bar{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-end;box-shadow:var(--shadow)}
+.field{display:grid;gap:6px;min-width:0}
+select,button,input[type=color]{font:inherit;color:inherit}
+select{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 10px;min-height:38px}
+input[type=number],input[type=text]{font:inherit;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 10px;min-height:38px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+button{cursor:pointer;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:7px 12px;min-height:38px;font-weight:500}
+button:hover{border-color:var(--muted)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+button:focus-visible,select:focus-visible,.cell:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.status{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.85rem}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.status[data-s="db"] .dot{background:var(--ok)} .status[data-s="local"] .dot{background:var(--warn)}
+.swatches{display:flex;gap:6px;align-items:center}
+input[type=color]{width:38px;height:38px;border:1px solid var(--line);border-radius:6px;padding:2px;background:var(--bg)}
+
+/* Schnell einsetzen */
+.einsetzen{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:12px;box-shadow:var(--shadow)}
+.einsetzen header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline}
+.gruppen{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 16px}
+.gruppe{display:flex;align-items:flex-start;gap:8px;padding:6px 8px;border-radius:6px;border:1px solid transparent;cursor:pointer}
+.gruppe:hover{border-color:var(--line)}
+.gruppe input{margin-top:3px;accent-color:var(--accent);width:16px;height:16px;flex:none}
+.gruppe .rang{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);min-width:1.4em;margin-top:2px}
+.gruppe small{display:block;color:var(--muted);font-size:.75rem;line-height:1.3}
+.optionen{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.optionen label{display:flex;gap:6px;align-items:center;font-size:.88rem}
+.konflikte{display:grid;gap:8px}
+.konflikt{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 10px;background:var(--bg);border:1px solid var(--line);border-radius:8px}
+.konflikt .datum{font-family:var(--font-mono);font-weight:600;min-width:5.5em}
+.konflikt button{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:4px 10px;font-size:.82rem}
+.konflikt button[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.konflikt .mini{width:26px;height:19px}
+.meldung{font-size:.88rem;color:var(--muted)}
+
+/* Kalender-Raster */
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.modul{background:var(--frame,#3b3f3c);border-radius:6px;padding:7px;box-shadow:var(--shadow)}
+.kopf{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:4px 6px 8px}
+.kopf h3{font-size:1.05rem;letter-spacing:.06em;color:var(--frame-ink,#fff);font-weight:800}
+.kopf input[type=color]{width:28px;height:28px;border-color:transparent}
+.fach{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.cell{position:relative;aspect-ratio:32.4/27.4;border-radius:2px;border:0;padding:0;min-height:0;
+  background:var(--c);color:var(--ci);display:grid;place-items:center;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(.8rem,1.3vw,1.05rem);box-shadow:inset 0 -3px 0 rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.18)}
+.cell:hover{filter:brightness(1.08)}
+.cell svg{width:78%;height:auto;fill:var(--ci)}
+.cell .wd{position:absolute;left:3px;top:1px;font:500 .55rem/1 var(--font-mono);opacity:.75}
+.cell .wz,.choice .wz,.zahlform .wz,.mini .wz{display:flex;flex-direction:column;align-items:center;line-height:.95}
+.cell .wz b,.choice .wz b,.zahlform .wz b,.mini .wz b{font-size:.5em;letter-spacing:.02em}
+.zs-wahl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.zs-wahl select{flex:1 1 260px;min-width:0}.zs-wahl input{width:5em}
+#zs-liste td{vertical-align:middle}#zs-liste .n{white-space:nowrap}
+html[data-art="jahr"] [data-art]:not([data-art~="jahr"]),html[data-art="stimmung"] [data-art]:not([data-art~="stimmung"]),
+html[data-art="lern"] [data-art]:not([data-art~="lern"]),html[data-art="eigen"] [data-art]:not([data-art~="eigen"]),html[data-art="zs"] [data-art]:not([data-art~="zs"]){display:none!important}
+.em-felder{display:grid;gap:8px;margin-bottom:12px}.em-felder input[type=text]{width:100%;text-transform:uppercase;font-weight:700;letter-spacing:.04em}.em-check{display:flex;gap:6px;align-items:center;font-size:.88rem}
+.plan-grid{display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:22px;align-items:start}
+@media (max-width:760px){.plan-grid{grid-template-columns:1fr}}
+.plan-grid>*,.card>*,.wrap>*{min-width:0}select{max-width:100%}
+@media (max-width:600px){.bar .field{flex:1 1 100%}.bar select{width:100%}}.tablebox{overflow-x:auto}td.note,.file,#zs-links a,#stl-links a,#sk-links a,#lk-links a,#em-links a{overflow-wrap:anywhere}
+.plan ul{margin:0;padding-left:1.2em;display:grid;gap:4px;font-size:.88rem}
+.plan .cell .wd{display:none}
+#sk-liste .n,#lk-liste .n{white-space:nowrap}
+.zahlform{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.zahlform input{width:5.5em}.zahlform .front{width:56px;height:40px;border-radius:3px;display:grid;place-items:center;background:#5b6b7a;color:#fff;font-weight:800}
+.zwei{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.zwei ul{margin:0;padding-left:1.2em;display:grid;gap:4px;font-size:.88rem}
+.cell .dn{position:absolute;right:3px;top:1px;font:600 .55rem/1 var(--font-mono);opacity:.85}
+.cell.so .wd{text-decoration:underline}
+.cell .hint{position:absolute;right:3px;bottom:5px;width:6px;height:6px;border-radius:50%;background:var(--hol);box-shadow:0 0 0 1.5px var(--c)}
+.cell .grip{position:absolute;bottom:3px;left:30%;right:30%;height:3px;border-radius:2px;background:rgba(0,0,0,.22)}
+.cell.offen{background:rgba(0,0,0,.42);box-shadow:inset 0 3px 8px rgba(0,0,0,.55)}
+.choice .front.offen{background:rgba(0,0,0,.42);box-shadow:inset 0 3px 8px rgba(0,0,0,.55)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;color:var(--muted);font-size:.82rem}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+
+/* Druckliste */
+.cols{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:900px){.cols{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:14px;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.n{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:600}
+.tablebox{overflow-x:auto}
+.file{font-family:var(--font-mono);font-size:.78rem;color:var(--muted);word-break:break-all}
+.mini{width:30px;height:22px;border-radius:2px;display:inline-grid;place-items:center;background:var(--accent);vertical-align:middle}
+.mini svg{width:82%;fill:var(--accent-ink)}
+ul.steps{margin:0;padding-left:1.1rem;display:grid;gap:6px;color:var(--ink)}
+.note{font-size:.85rem;color:var(--muted)}
+.big{font-family:var(--font-display);font-weight:800;font-size:2rem;line-height:1}
+.stats{display:flex;flex-wrap:wrap;gap:24px}
+
+/* Auswahl-Dialog */
+.overlay{position:fixed;inset:0;background:rgba(10,14,11,.55);display:grid;place-items:center;padding:16px;z-index:10}
+.dialog{background:var(--surface);color:var(--ink);border-radius:12px;width:min(760px,100%);max-height:min(86vh,900px);overflow:auto;padding:20px;display:grid;gap:16px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.dialog header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cat{display:grid;gap:8px}
+.choices{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.choice{display:grid;gap:6px;justify-items:center;padding:8px 6px;border-radius:8px;font-size:.75rem;line-height:1.2;text-align:center;min-height:0}
+.choice .front{width:100%;aspect-ratio:32.4/27.4;border-radius:3px;background:var(--pc);color:var(--pci);display:grid;place-items:center;font-family:var(--font-display);font-weight:800;font-size:1.1rem}
+.choice .front svg{width:78%;fill:var(--pci)}
+.choice[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.confirm{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.stlbox{display:grid;gap:10px;border-top:1px solid var(--line);padding-top:14px}
+#stl-links,#zs-links,#sk-links,#lk-links,#em-links{display:flex;flex-wrap:wrap;gap:6px 14px}
+#stl-links a,#zs-links a,#sk-links a,#lk-links a,#em-links a{font-family:var(--font-mono);font-size:.85rem;color:var(--accent)}
+@media (prefers-reduced-motion:no-preference){.cell{transition:filter .12s}}
+</style>
+
+<div class="wrap">
+  <header class="kopfzeile">
+    <div><div class="label" data-t="kicker">Monatskalender · 12 Module · 6 × 6 Fächer</div>
+      <h1 data-t="titel">Schubladen-Jahreskalender</h1></div>
+    <div class="kopf-rechts">
+      <div class="status" id="status" data-s="none"><span class="dot"></span><span id="status-t"></span></div>
+      <select id="sprache" aria-label="Sprache · Language"><option value="de">Deutsch</option><option value="en">English</option></select>
+    </div>
+  </header>
+
+  <nav class="reiter" role="tablist" data-t-aria="artT">
+    <button role="tab" data-tab="jahr" data-t="tab_jahr"></button><button role="tab" data-tab="stimmung" data-t="tab_stimmung"></button><button role="tab" data-tab="lern" data-t="tab_lern"></button><button role="tab" data-tab="eigen" data-t="tab_eigen"></button><button role="tab" data-tab="zs" data-t="tab_zs"></button>
+  </nav>
+  <select id="art" hidden><option value="jahr"></option><option value="stimmung"></option><option value="lern"></option><option value="eigen"></option><option value="zs"></option></select>
+  <p class="lede" data-t="lede"></p>
+
+  <section class="bar" data-t-aria="einst" data-art="jahr">
+    <div class="field" data-art="jahr"><label class="label" for="jahr" data-t="jahr">Jahr</label>
+      <select id="jahr"></select></div>
+    <div class="field" data-art="jahr"><label class="label" for="zaehlung" data-t="zahlen">Zahlen auf den Schubladen</label>
+      <select id="zaehlung"><option value="monat" data-t="z_monat"></option><option value="jahr" data-t="z_jahr"></option><option value="woche" data-t="z_woche"></option><option value="monkurz" data-t="z_monkurz"></option></select></div>
+    <div class="field" data-art="jahr"><label class="label" for="staat" data-t="wohnst">Wo wohnst du?</label>
+      <select id="staat"></select></div>
+    <div class="field" id="land-feld" data-art="jahr"><label class="label" for="land" data-t="bundesland">Bundesland</label>
+      <select id="land"></select></div>
+    <div class="field" data-art="jahr"><span class="label" data-t="kalender">Kalender</span>
+      <div class="btns"><button id="b-reset" data-t="reset">Alles zurücksetzen</button></div></div>
+    <div class="field" data-art="jahr"><span class="label" data-t="farben">Farben</span>
+      <div class="swatches">
+        <label class="note" for="frame" data-t="module">Module</label>
+        <input type="color" id="frame" data-t-aria="frame_aria">
+        <select id="preset" data-t-aria="preset_aria">
+          <option value="" data-t="p_">Vorlage …</option>
+          <option value="jahreszeiten" data-t="p_jahreszeiten">Jahreszeiten</option>
+          <option value="regenbogen" data-t="p_regenbogen">Regenbogen</option>
+          <option value="einfarbig" data-t="p_einfarbig">Einfarbig rot</option>
+          <option value="weihnacht" data-t="p_weihnacht">Rot-Grün</option>
+        </select>
+      </div></div>
+    <div class="confirm" id="confirm" hidden>
+      <span data-t="c_frage">Alle Änderungen entfernen und nur Zahlen anzeigen?</span>
+      <button id="c-yes" class="primary" data-t="c_ja">Ja, zurücksetzen</button>
+      <button id="c-no" data-t="c_nein">Abbrechen</button>
+    </div>
+  </section>
+
+  <details class="einsetzen" data-art="jahr">
+    <summary><h2 id="ein-t" data-t="schnell">Schnell einsetzen</h2><span class="meldung" data-t="schnell_kurz"></span></summary>
+    <p class="meldung" data-t="schnell_info"></p>
+    <div class="gruppen" id="gruppen"></div>
+    <div class="optionen">
+      <button id="b-einsetzen" class="primary" data-t="einsetzen">Einsetzen</button>
+      <button id="b-alle" data-t="alle">Alle anhaken</button>
+      <button id="b-keine" data-t="keine">Keine</button>
+      <label><input type="checkbox" id="opt-behalten" checked> <span data-t="behalten"></span></label>
+      <label><input type="checkbox" id="opt-doppel" checked> <span data-t="doppel"></span></label>
+      <span class="meldung" id="ein-msg" aria-live="polite"></span>
+    </div>
+    <div class="konflikte" id="konflikte" hidden></div>
+  </details>
+
+  <div class="legend" data-art="jahr">
+    <span data-t-html="leg1"></span>
+    <span><span class="dot" style="background:var(--hol)"></span> <span data-t="leg2"></span></span>
+    <span data-t="leg3"></span>
+  </div>
+
+  <section class="wall" id="wall" data-t-aria="kalender" data-art="jahr"></section>
+
+  <section data-art="jahr">
+    <div class="card">
+      <h2 data-t="druckliste">Druckliste</h2>
+      <div class="stats" id="stats"></div>
+      <div class="tablebox"><table id="liste"><thead><tr><th></th><th data-t="th_schublade">Schublade</th><th data-t="th_anzahl">Anzahl</th><th data-t="th_datei">Datei · Platz auf der Platte</th></tr></thead><tbody></tbody></table></div>
+      <div id="wunsch" class="konflikte" hidden></div>
+      <div class="btns"><button id="copy" class="primary" data-t="kopieren">Druckliste kopieren</button><button id="save-txt" data-t="speichernTxt">Als Textdatei speichern</button><span class="note" id="copy-msg" aria-live="polite"></span></div>
+      <p class="note" id="std-note"></p>
+      <p class="note" id="leap" hidden data-t="schalt"></p>
+      <textarea id="copy-src" class="mono" rows="6" style="width:100%" hidden readonly></textarea>
+      <div class="stlbox">
+        <h3 data-t="stlT">STL-Dateien für deinen Kalender</h3>
+        <p class="note" data-t="stlInfo"></p>
+        <div class="btns"><button id="b-stl" class="primary" data-t="stlBtn"></button>
+          <button id="b-ordner" hidden data-t="stlOrdnerBtn"></button>
+          <input type="file" id="stl-ordner" webkitdirectory multiple hidden>
+          <span class="note" id="stl-msg" aria-live="polite"></span></div>
+        <div id="stl-links"></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-art="eigen">
+    <div class="card plan" id="em">
+      <div class="plan-grid">
+        <div>
+          <div class="em-felder">
+            <label><span class="label" data-t="emTitel"></span><input type="text" id="em-titel" maxlength="24" autocomplete="off"></label>
+            <label class="em-check"><input type="checkbox" id="em-nuten"> <span data-t="emNuten"></span></label>
+          </div>
+          <div id="em-modul"></div>
+          <p class="note" id="em-zeichen" hidden></p>
+        </div>
+        <div>
+          <h3 data-t="druckliste">Druckliste</h3>
+          <div class="tablebox"><table id="em-liste"><tbody></tbody></table></div>
+          <div class="btns"><button id="em-stl" class="primary" data-t="emStl"></button><button id="em-leeren" data-t="planLeeren"></button>
+            <button id="em-ordner-b" hidden data-t="stlOrdnerBtn"></button><input type="file" id="em-ordner" webkitdirectory multiple hidden></div>
+          <p class="note" id="em-msg" aria-live="polite"></p>
+          <div id="em-links"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section data-art="stimmung">
+    <div class="card plan" id="sk">
+      <div class="plan-grid">
+        <div>
+          <div id="sk-modul"></div>
+        </div>
+        <div>
+          <h3 data-t="druckliste">Druckliste</h3>
+          <div class="tablebox"><table id="sk-liste"><tbody></tbody></table></div>
+          <p class="note" id="sk-hinweis"></p>
+          <div class="btns"><button id="sk-stl" class="primary" data-t="planStl"></button><button id="sk-zs" data-t="planZs"></button><button id="sk-leeren" data-t="planLeeren"></button>
+            <button id="sk-ordner-b" hidden data-t="stlOrdnerBtn"></button><input type="file" id="sk-ordner" webkitdirectory multiple hidden></div>
+          <p class="note" id="sk-msg" aria-live="polite"></p>
+          <div id="sk-links"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section data-art="lern">
+    <div class="card plan" id="lk">
+      <div class="plan-grid">
+        <div>
+          <div id="lk-modul"></div>
+        </div>
+        <div>
+          <h3 data-t="druckliste">Druckliste</h3>
+          <div class="tablebox"><table id="lk-liste"><tbody></tbody></table></div>
+          <p class="note" id="lk-hinweis"></p>
+          <div class="btns"><button id="lk-stl" class="primary" data-t="planStl"></button><button id="lk-zs" data-t="planZs"></button><button id="lk-leeren" data-t="planLeeren"></button>
+            <button id="lk-ordner-b" hidden data-t="stlOrdnerBtn"></button><input type="file" id="lk-ordner" webkitdirectory multiple hidden></div>
+          <p class="note" id="lk-msg" aria-live="polite"></p>
+          <div id="lk-links"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-art="zs">
+    <div class="card" id="zs">
+      <div class="zs-wahl">
+        <select id="zs-motiv" data-t-aria="zsT"></select>
+        <input type="number" id="zs-anzahl" min="1" max="99" value="1" data-t-aria="th_anzahl">
+        <button id="zs-plus" data-t="zsPlus">Hinzufügen</button>
+      </div>
+      <div class="tablebox"><table id="zs-liste"><tbody></tbody></table></div>
+      <div class="btns"><button id="zs-stl" class="primary" data-t="zsStl"></button>
+        <button id="zs-leeren" data-t="zsLeeren"></button>
+        <button id="zs-ordner-b" hidden data-t="stlOrdnerBtn"></button>
+        <input type="file" id="zs-ordner" webkitdirectory multiple hidden>
+        <span class="note" id="zs-msg" aria-live="polite"></span></div>
+      <div id="zs-links" class="stl-links"></div>
+    </div>
+  </section>
+</div>
+
+<div class="overlay" id="ov" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlg-t">
+    <header>
+      <div><div class="label" id="dlg-sub"></div><h2 id="dlg-t" data-t="waehlen">Schublade wählen</h2></div>
+      <button id="dlg-x" data-t="schliessen">Schließen</button>
+    </header>
+    <div id="dlg-body" style="display:grid;gap:18px"></div>
+  </div>
+</div>
+
+<script id="icons" type="application/json">…</script>
+<script id="events" type="application/json">…</script>
+<script id="schrift" type="application/json">…</script>
+<script id="bausteine" type="application/json">…</script>
+<script>…FEIERTAGE_JS…</script>
+<script>
+(() => {
+const ICONS = JSON.parse(document.getElementById('icons').textContent);
+const EV = JSON.parse(document.getElementById('events').textContent);
+
+// ---------- Sprache / language ----------
+const L = {
+ de: {
+  kicker:"Monatskalender · 12 Module · 6 × 6 Fächer", titel:"Schubladen-Jahreskalender",
+  lede:"Klick auf ein Fach, um die Schublade zu tauschen. Unten stehen Druckliste und STL-Dateien.",
+  einst:"Einstellungen", jahr:"Jahr", zahlen:"Zahlen auf den Schubladen", z_monat:"Tag im Monat (1–31)", z_jahr:"Tag im Jahr (1–365)", z_woche:"Tag im Monat mit Wochentag (MO 1 … SO 31)", z_monkurz:"Tag im Monat mit Monat (JAN 1 … DEZ 31)",
+  wohnst:"Wo wohnst du?", bundesland:"Bundesland", kalender:"Kalender", reset:"Alles zurücksetzen", farben:"Farben", module:"Module",
+  frame_aria:"Farbe der Module", preset_aria:"Farbvorlage", p_:"Vorlage …", p_jahreszeiten:"Jahreszeiten", p_regenbogen:"Regenbogen", p_einfarbig:"Einfarbig rot", p_weihnacht:"Rot-Grün",
+  c_frage:"Alle Änderungen entfernen und nur Zahlen anzeigen?", c_ja:"Ja, zurücksetzen", c_nein:"Abbrechen",
+  schnell:"Schnell einsetzen", schnell_info:"Haken setzen, dann „Einsetzen“. Fällt ein Tag doppelt, gewinnt der Bereich weiter oben (Nummer = Vorrang).",
+  einsetzen:"Einsetzen", alle:"Alle anhaken", keine:"Keine", behalten:"Eigene Änderungen behalten", doppel:"Doppel-Schublade verwenden, wenn zwei Tage zusammenfallen",
+  leg1:'<span class="mono">Mo</span> Wochentag oben links, <u class="mono">So</u> unterstrichen', leg2:"gesetzlicher Feiertag (gewähltes Land) ohne eigene Schublade", leg3:"Farbfeld im Modulkopf = Filamentfarbe der Schubladen",
+  druckliste:"Druckliste", th_schublade:"Schublade", th_anzahl:"Anzahl", th_datei:"Datei · Platz auf der Platte", kopieren:"Druckliste kopieren",
+
+  schalt:"Schaltjahr: Die Schublade „29“ für den 29. Februar hast du schon – bei 12× Platte 1–31 sind es genau 12 Stück.",
+  waehlen:"Schublade wählen", schliessen:"Schließen", standard:"Standard", zahl:"Zahl", leeresFach:"leeres Fach", leeresFachL:"Leeres Fach",
+  filament:"Filamentfarbe",
+  st_zahl:"Zahl-Schubladen im Einsatz", st_extra:"Extra-Schubladen", st_blende:"leere Fächer", offen:"Leer lassen (offen)",
+  keineExtra:"Noch keine Extra-Schubladen. Klick auf ein Fach oder nutze „Schnell einsetzen“.", platz:"Platz",
+  std_jahr:(t,n)=>`Zahlen 1–${t}: Platten tage_01 … tage_${n} (4_Extra_Schubladen/tage_im_jahr)`,
+  std_monat:"Platte 1–31 12× (ein paar 29/30/31 bleiben übrig)",
+  zsT:"Eigene Zusammenstellung", zsInfo:"Stell dir beliebige Schubladen zusammen – Motive, Stimmungen, Stunden oder Zahlen – und lade sie als fertige Druckplatten herunter (bis 36 Schubladen pro Platte).",
+  zsPlus:"Hinzufügen", zsStl:"STL für meine Zusammenstellung erzeugen", zsLeeren:"Liste leeren", zsLeer:"Noch nichts ausgewählt.",
+  zsZahlen:"Zahlen 1–31", zsTage:"Tag im Jahr 1–366", zsWoche:"Zahlen mit Wochentag", zsMonat:"Zahlen mit Monat", zsSumme:n=>`Zusammen ${n} Schubladen`, zsEntf:"Entfernen",
+  zsFertig:n=>n===1?"Fertig: 1 Platte. Zum Speichern anklicken:":`Fertig: ${n} Platten. Zum Speichern anklicken:`,
+  artT:"Kalender-Art", art_jahr:"Jahreskalender (12 Monate)", art_stimmung:"Stimmungskalender (1 Monat)", art_lern:"Lernkalender (1 Monat)",
+  tab_jahr:"Jahreskalender", tab_stimmung:"Stimmung", tab_lern:"Lernen", tab_eigen:"Eigenes Modul", tab_zs:"Zusammenstellung",
+  titel_zs:"Eigene Zusammenstellung", kicker_zs:"Beliebige Schubladen als Druckplatte",
+  lede_zs:"Stell dir beliebige Schubladen zusammen – Motive, Stimmungen, Stunden oder Zahlen – und lade sie als fertige Druckplatten herunter (bis 36 Schubladen pro Platte).",
+  schnell_kurz:"Feiertage und Aktionstage automatisch eintragen", art_eigen:"Eigenes Modul (eigene Überschrift)",
+  titel_eigen:"Eigenes Schubladen-Modul", kicker_eigen:"Eigenes Modul · 6 × 6 Fächer · eigene Überschrift",
+  lede_eigen:"Überschrift eintippen und auf ein Fach klicken, um die Schublade zu wählen. Dann Modul und Schubladen als STL herunterladen.",
+  emT:"Eigenes Modul", emInfo:"Überschrift eintippen und auf ein Fach klicken, um die Schublade zu wählen.",
+  emTitel:"Überschrift", emNuten:"mit Nuten (zum Anstecken an andere Module)", emStl:"STL für Modul und Schubladen erzeugen",
+  emStandard:"MEIN KALENDER", emLeer:"leer lassen", emSchubladen:"schubladen", emZeichen:z=>`Diese Zeichen gibt es nicht und werden weggelassen: ${z}`,
+  emFertig:n=>n===1?"Fertig: das Modul mit deiner Überschrift. Zum Speichern anklicken:":`Fertig: ${n} Dateien – das Modul mit deiner Überschrift und die Schubladen. Zum Speichern anklicken:`,
+  titel_stimmung:"Schubladen-Stimmungskalender", kicker_stimmung:"Stimmungskalender · 1 Modul · 6 × 6 Fächer",
+  lede_stimmung:"Ein Modul für einen Monat. Klick auf einen Tag und wähl die Stimmung – am Monatsende siehst du in Farben, wie der Monat war.",
+  titel_lern:"Schubladen-Lernkalender", kicker_lern:"Lernkalender · 1 Modul · 6 × 6 Fächer",
+  lede_lern:"Ein Modul für einen Monat. Klick auf einen Tag und wähl, wie lange du gelernt hast (15 min bis 20 h).",
+  planStl:"STL für diesen Kalender erzeugen", planZs:"In eigene Zusammenstellung übernehmen",
+  planFertigS:n=>`Fertig: ${n} Dateien – das Modul, die Zahlen und jede Stimmung auf eigener Platte, damit du jede in ihrer Farbe drucken kannst. Zum Speichern anklicken:`,
+  planFertigL:n=>`Fertig: ${n} Dateien – das Modul, dazu Zahlen und Stunden getrennt, so kannst du sie in zwei Farben drucken. Zum Speichern anklicken:`,
+  zfOk:"Übernehmen", zahlenAlle:"Zahlen (alle Arten)",
+  planZahlenDatei:"zahlen", planLeeren:"Plan leeren",
+  planModul:"Modul", planStunden:"Stunden-Platte", planZahlen:"Zahlen 1–31 (für den Start)", planLegende:"Die 5 Fächer unten rechts sind als Legende vorbelegt – anklicken zum Ändern oder Leeren.",
+  planPlatte:n=>`Platte ${n}×`, planNichts:"Noch keine Tage markiert – die Liste zeigt die Grundausstattung.",
+  planUebernommen:"Übernommen – siehe „Eigene Zusammenstellung“.",
+  skT:"Stimmungskalender", skInfo:"Klick auf einen Tag und wähl die Stimmung. Am Monatsende siehst du in Farben, wie der Monat war.", fachTag:d=>`Tag ${d}`, fachNr:d=>`Fach ${d}`,
+  lkT:"Lernkalender", lkInfo:"Klick auf einen Tag und wähl, wie lange du gelernt hast (15 min bis 20 h).",
+  std_monkurz:"je Monat 1× die Platte aus 4_Extra_Schubladen/monat_zahlen (zahlen_jan … zahlen_dez)",
+  std_woche:(t,y)=>`${t} Zahlen mit Wochentag für ${y}: Platten in 4_Extra_Schubladen/wochentag_zahlen (je Wochentag 1–31) – oder unten die fertigen Monatsplatten erzeugen`,
+  modulDatei:"Module mit deutschen Monatsnamen (1_Module)",
+  kopf:(y,o)=>`Schubladen-Jahreskalender ${y} (${o})`, standardZ:(m,s)=>`Standard: 12 ${m}, ${s}, Verbinder 68×`,
+  extraZ:"Extra-Schubladen:", keineZ:"  keine",
+  wunschT:"Fehlende Doppel-Schubladen – Liste kopieren und an Claude schicken", wunschZ:"Fehlende Doppel-Schubladen (bitte bauen):",
+  note_jahr:t=>`Die Zahlen 1–${t} druckst du komplett von den Platten in „tage_im_jahr“. Ersetzte Zahlen hebst du auf, nächstes Jahr wird getauscht.`,
+  note_woche:y=>`Die Wochentage stimmen nur für ${y}. Im nächsten Jahr verschieben sie sich, dann brauchst du neue Zahl-Schubladen – am einfachsten unten „STL für meinen Kalender erzeugen“, dann bekommst du pro Monat genau die passenden.`,
+  note_monkurz:"Die Monats-Zahlen passen jedes Jahr. Ersetzte Zahlen hebst du auf und tauschst sie zurück, wenn die Feiertage wandern. Die „FEB 29“ brauchst du nur im Schaltjahr.",
+  note_monat:"Die Zahlen-Platte 1–31 druckst du trotzdem 12× komplett. Ersetzte Zahlen hebst du auf: Feiertage wandern jedes Jahr, dann tauschst du einfach zurück.",
+  kopiert:"Kopiert.", markiert:"Text markiert – mit Strg+C (Mac: Cmd+C) kopieren.", speichernTxt:"Als Textdatei speichern",
+  eingesetzt:n=>n===1?`1 Schublade eingesetzt`:`${n} Schubladen eingesetzt`, doppelteTage:n=>n===1?`, 1 doppelter Tag – unten auswählen.`:`, ${n} doppelte Tage – unten auswählen.`,
+  fehlen:(y,l)=>` Für ${y} fehlen noch die Daten von ${l}.`,
+  chHinweis:" Schweiz: Feiertage sind kantonal geregelt – bitte für deinen Kanton prüfen (z. B. Berchtoldstag, Fronleichnam).",
+  konfT:"Doppelte Tage – klick auf das Motiv, das in die Schublade soll", deine:"deine Auswahl", doppelS:"Doppel-Schublade",
+  s_local:"Nur in diesem Browser gespeichert", s_db:"Gespeichert", s_fail:"Online-Speichern fehlgeschlagen – im Browser gesichert", s_browser:"Im Browser gespeichert", s_konto:"Gespeichert in deinem Konto",
+  datum:(d,m)=>`${d}.${m}.`, tagLang:(d,mo)=>`${d}. ${mo}`,
+  stlT:"STL-Dateien für deinen Kalender",
+  stlInfo:"Erzeugt für jeden Monat eine Druckplatte mit genau den Schubladen, die du oben eingestellt hast (Zahlen und Motive, in Fach-Reihenfolge). Module und Verbinder druckst du wie in der Liste oben.",
+  stlBtn:"STL für meinen Kalender erzeugen", stlOrdnerBtn:"Ordner „einzeln“ auswählen",
+  stlOrdner:"Die Seite ist als Datei geöffnet und darf die Schubladen nicht selbst laden. Bitte den Ordner „einzeln“ (im Ordner stl bzw. Alles_3D_Druck) auswählen.",
+  stlLaedt:"Wird erzeugt …", stlFertig:n=>`Fertig: ${n} Dateien – je Monat das Modul und die Schubladen-Platte. Zum Speichern anklicken:`, stlAlle:"Alle herunterladen",
+  stlFehlt:l=>` Nicht gefunden und weggelassen: ${l}.`, stlFehler:"Die Schubladen-Dateien wurden nicht gefunden (auch nicht auf GitHub – ist eine Internetverbindung da?).",
+  gruppen:{
+   gesetzlich:["Gesetzliche Feiertage","im gewählten Land (Deutschland: je Bundesland)"],
+   feste:["Festtage","Valentinstag, Ostersonntag, Muttertag, Halloween, Nikolaus, Heiligabend, Silvester"],
+   jahreszeiten:["Jahreszeiten-Beginn","Frühling, Sommer, Herbst, Winter"],
+   islamisch:["Islamische Tage","Ramadan, Zuckerfest, Opferfest …"],
+   juedisch:["Jüdische Feiertage","Rosch ha-Schana, Jom Kippur, Chanukka, Pessach …"],
+   orthodox:["Orthodoxe Feiertage","Weihnachten 7.1., Ostern"],
+   hindu:["Hindu & buddhistisch","Diwali, Holi, Vesakh"],
+   laender:["Andere Länder",l=>`Nationalfeiertage der anderen Länder: ${l}`],
+   international:["Internationale Tage","Tag der Erde, Weltkindertag, Männertag …"],
+   aktion:["Lustige Aktionstage","Pizza, Pi, Katze, Keks …"]}
+ },
+ en: {
+  kicker:"Month calendar · 12 modules · 6 × 6 compartments", titel:"Drawer Year Calendar",
+  lede:"Click a compartment to change its drawer. The print list and STL files are below.",
+  einst:"Settings", jahr:"Year", zahlen:"Numbers on the drawers", z_monat:"Day of month (1–31)", z_jahr:"Day of year (1–365)", z_woche:"Day of month with weekday (MO 1 … SU 31)", z_monkurz:"Day of month with month (JAN 1 … DEC 31)",
+  wohnst:"Where do you live?", bundesland:"German state", kalender:"Calendar", reset:"Reset everything", farben:"Colours", module:"Modules",
+  frame_aria:"Module colour", preset_aria:"Colour preset", p_:"Preset …", p_jahreszeiten:"Seasons", p_regenbogen:"Rainbow", p_einfarbig:"All red", p_weihnacht:"Red-green",
+  c_frage:"Remove all changes and show numbers only?", c_ja:"Yes, reset", c_nein:"Cancel",
+  schnell:"Quick fill", schnell_info:"Tick the boxes, then “Fill in”. If two days fall on the same date, the group higher up wins (number = priority).",
+  einsetzen:"Fill in", alle:"Tick all", keine:"None", behalten:"Keep my own changes", doppel:"Use a double drawer when two days coincide",
+  leg1:'<span class="mono">Mo</span> weekday top left, <u class="mono">Su</u> underlined', leg2:"public holiday (selected country) without its own drawer", leg3:"Colour box in the module header = filament colour of the drawers",
+  druckliste:"Print list", th_schublade:"Drawer", th_anzahl:"Qty", th_datei:"File · position on the plate", kopieren:"Copy print list",
+
+  schalt:"Leap year: you already have the “29” drawer for 29 February – printing the 1–31 plate 12× gives exactly 12.",
+  waehlen:"Choose a drawer", schliessen:"Close", standard:"Default", zahl:"Number", leeresFach:"empty compartment", leeresFachL:"Empty compartment",
+  filament:"Filament colour",
+  st_zahl:"number drawers in use", st_extra:"extra drawers", st_blende:"empty compartments", offen:"Leave empty (open)",
+  keineExtra:"No extra drawers yet. Click a compartment or use “Quick fill”.", platz:"Position",
+  std_jahr:(t,n)=>`Numbers 1–${t}: plates tage_01 … tage_${n} (4_Extra_Schubladen/tage_im_jahr)`,
+  std_monat:"plate 1–31 12× (a few 29/30/31 left over)",
+  zsT:"Your own selection", zsInfo:"Put together any drawers you like – motifs, moods, hours or numbers – and download them as ready-made print plates (up to 36 drawers per plate).",
+  zsPlus:"Add", zsStl:"Create STL for my selection", zsLeeren:"Clear list", zsLeer:"Nothing selected yet.",
+  zsZahlen:"Numbers 1–31", zsTage:"Day of year 1–366", zsWoche:"Numbers with weekday", zsMonat:"Numbers with month", zsSumme:n=>`${n} drawers in total`, zsEntf:"Remove",
+  zsFertig:n=>n===1?"Done: 1 plate. Click to save:":`Done: ${n} plates. Click to save:`,
+  artT:"Calendar type", art_jahr:"Year calendar (12 months)", art_stimmung:"Mood calendar (1 month)", art_lern:"Study calendar (1 month)",
+  tab_jahr:"Year calendar", tab_stimmung:"Mood", tab_lern:"Study", tab_eigen:"Own module", tab_zs:"Selection",
+  titel_zs:"Your own selection", kicker_zs:"Any drawers as a print plate",
+  lede_zs:"Put together any drawers you like – motifs, moods, hours or numbers – and download them as ready-made print plates (up to 36 drawers per plate).",
+  schnell_kurz:"fill in holidays and fun days automatically", art_eigen:"Your own module (own heading)",
+  titel_eigen:"Your own drawer module", kicker_eigen:"Own module · 6 × 6 compartments · own heading",
+  lede_eigen:"Type a heading and click a compartment to pick its drawer. Then download the module and drawers as STL.",
+  emT:"Your own module", emInfo:"Type a heading and click a compartment to pick its drawer.",
+  emTitel:"Heading", emNuten:"with grooves (to connect to other modules)", emStl:"Create STL for module and drawers",
+  emStandard:"MY CALENDAR", emLeer:"leave empty", emSchubladen:"drawers", emZeichen:z=>`These characters are not available and are left out: ${z}`,
+  emFertig:n=>n===1?"Done: the module with your heading. Click to save:":`Done: ${n} files – the module with your heading and the drawers. Click to save:`,
+  titel_stimmung:"Drawer mood calendar", kicker_stimmung:"Mood calendar · 1 module · 6 × 6 compartments",
+  lede_stimmung:"One module for one month. Click a day and pick the mood – at the end of the month the colours show how it went.",
+  titel_lern:"Drawer study calendar", kicker_lern:"Study calendar · 1 module · 6 × 6 compartments",
+  lede_lern:"One module for one month. Click a day and pick how long you studied (15 min to 20 h).",
+  planStl:"Create STL for this calendar", planZs:"Add to my own selection",
+  planFertigS:n=>`Done: ${n} files – the module, the numbers and each mood on its own plate, so you can print each in its colour. Click to save:`,
+  planFertigL:n=>`Done: ${n} files – the module, plus numbers and hours separately, so you can print them in two colours. Click to save:`,
+  zfOk:"Use", zahlenAlle:"Numbers (all kinds)",
+  planZahlenDatei:"numbers", planLeeren:"Clear plan",
+  planModul:"Module", planStunden:"Hours plate", planZahlen:"Numbers 1–31 (to start with)", planLegende:"The 5 compartments at the bottom right hold the legend – click to change or clear them.",
+  planPlatte:n=>`plate ${n}×`, planNichts:"No days marked yet – the list shows the basic set.",
+  planUebernommen:"Added – see “Your own selection”.",
+  skT:"Mood calendar", skInfo:"Click a day and pick the mood. At the end of the month the colours show how it went.", fachTag:d=>`Day ${d}`, fachNr:d=>`Compartment ${d}`,
+  lkT:"Study calendar", lkInfo:"Click a day and pick how long you studied (15 min to 20 h).",
+  std_monkurz:"one plate per month from 4_Extra_Schubladen/monat_zahlen (zahlen_jan … zahlen_dec)",
+  std_woche:(t,y)=>`${t} numbers with weekday for ${y}: plates in 4_Extra_Schubladen/wochentag_zahlen (1–31 per weekday) – or generate the finished month plates below`,
+  modulDatei:"modules with English month names (1_Module_EN)",
+  kopf:(y,o)=>`Drawer year calendar ${y} (${o})`, standardZ:(m,s)=>`Default: 12 ${m}, ${s}, connectors 68×`,
+  extraZ:"Extra drawers:", keineZ:"  none",
+  wunschT:"Missing double drawers – copy the list and send it to Claude", wunschZ:"Missing double drawers (please build):",
+  note_jahr:t=>`Print the numbers 1–${t} completely from the plates in “tage_im_jahr”. Keep the replaced numbers, you swap them back next year.`,
+  note_woche:y=>`The weekdays only match ${y}. Next year they shift and you need new number drawers – easiest: “STL for my calendar” below gives you exactly the right ones per month.`,
+  note_monkurz:"The month numbers fit every year. Keep the replaced numbers and swap them back when the holidays move. You only need “FEB 29” in leap years.",
+  note_monat:"Print the number plate 1–31 12× completely anyway. Keep the replaced numbers: holidays move every year, then you simply swap back.",
+  kopiert:"Copied.", markiert:"Text selected – press Ctrl+C (Mac: Cmd+C) to copy.", speichernTxt:"Save as text file",
+  eingesetzt:n=>n===1?`1 drawer filled in`:`${n} drawers filled in`, doppelteTage:n=>n===1?`, 1 day with two events – choose below.`:`, ${n} days with two events – choose below.`,
+  fehlen:(y,l)=>` Dates for ${l} in ${y} are still missing.`,
+  chHinweis:" Switzerland: holidays are set by each canton – please check for yours (e.g. Berchtold's Day, Corpus Christi).",
+  konfT:"Days with two events – click the motif that should go in the drawer", deine:"your choice", doppelS:"double drawer",
+  s_local:"Saved in this browser only", s_db:"Saved", s_fail:"Online saving failed – kept in the browser", s_browser:"Saved in the browser", s_konto:"Saved to your account",
+  datum:(d,m)=>`${m}/${d}`, tagLang:(d,mo)=>`${mo} ${d}`,
+  stlT:"STL files for your calendar",
+  stlInfo:"Creates one print plate per month with exactly the drawers you set up above (numbers and motifs, in compartment order). Print modules and connectors as in the list above.",
+  stlBtn:"Create STL for my calendar", stlOrdnerBtn:"Choose the “einzeln” folder",
+  stlOrdner:"The page is opened as a local file and can't load the drawers by itself. Please choose the “einzeln” folder (inside stl or Alles_3D_Druck).",
+  stlLaedt:"Creating …", stlFertig:n=>`Done: ${n} files – the module and the drawer plate for every month. Click to save:`, stlAlle:"Download all",
+  stlFehlt:l=>` Not found, left out: ${l}.`, stlFehler:"The drawer files could not be found (not on GitHub either – are you online?).",
+  gruppen:{
+   gesetzlich:["Public holidays","in the selected country (Germany: per state)"],
+   feste:["Celebrations","Valentine's Day, Easter Sunday, Mother's Day, Halloween, St. Nicholas, Christmas Eve, New Year's Eve"],
+   jahreszeiten:["Start of seasons","spring, summer, autumn, winter"],
+   islamisch:["Islamic days","Ramadan, Eid al-Fitr, Eid al-Adha …"],
+   juedisch:["Jewish holidays","Rosh Hashanah, Yom Kippur, Hanukkah, Passover …"],
+   orthodox:["Orthodox holidays","Christmas 7 Jan, Easter"],
+   hindu:["Hindu & Buddhist","Diwali, Holi, Vesak"],
+   laender:["Other countries",l=>`National days of the other countries: ${l}`],
+   international:["International days","Earth Day, Children's Day, Men's Day …"],
+   aktion:["Fun days","pizza, pi, cat, cookie …"]}
+ }
+};
+const MON = {de:["JANUAR","FEBRUAR","MÄRZ","APRIL","MAI","JUNI","JULI","AUGUST","SEPTEMBER","OKTOBER","NOVEMBER","DEZEMBER"],
+             en:["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"]};
+const WTL = {de:["So","Mo","Di","Mi","Do","Fr","Sa"], en:["Su","Mo","Tu","We","Th","Fr","Sa"]};
+const t = (k, ...a) => { const v = L[S.lang][k] ?? L.de[k]; return typeof v === "function" ? v(...a) : v; };
+const nm = k => (S.lang === "en" && ICONS[k].name_en) || ICONS[k].name;
+const ct = cat => { if (S.lang !== "en") return cat; const it = Object.values(ICONS).find(i => i.cat === cat); return (it && it.cat_en) || cat; };
+const MONATE = () => MON[S.lang], WT = () => WTL[S.lang];
+const monKlein = m => MONATE()[m][0] + MONATE()[m].slice(1).toLowerCase();
+
+const LAENDER = {BW:"Baden-Württemberg",BY:"Bayern",BE:"Berlin",BB:"Brandenburg",HB:"Bremen",HH:"Hamburg",HE:"Hessen",MV:"Mecklenburg-Vorpommern",NI:"Niedersachsen",NW:"Nordrhein-Westfalen",RP:"Rheinland-Pfalz",SL:"Saarland",SN:"Sachsen",ST:"Sachsen-Anhalt",SH:"Schleswig-Holstein",TH:"Thüringen"};
+const PRESETS = {
+  jahreszeiten:["#5b8fd1","#8fb6e3","#7cc36b","#e7d24a","#4fa33d","#f0a12c","#e2492f","#ef7a8f","#b5762f","#8c3f1d","#7d7268","#b51f2b"],
+  regenbogen:["#d7263d","#e85d2a","#f39c1f","#f2c51f","#9bc53d","#3fae5a","#1fa39b","#2b7bd0","#4b5bd6","#7d4fc9","#b34fb3","#d63a86"],
+  einfarbig:Array(12).fill("#b51f2b"),
+  weihnacht:Array.from({length:12},(_,i)=>i%2?"#1f7a46":"#b51f2b")
+};
+let spracheStart = "de";
+try { spracheStart = (navigator.language || "de").toLowerCase().startsWith("de") ? "de" : "en"; } catch {}
+const JAHR_JETZT = new Date().getFullYear();
+const JAHRE = Array.from({length:16}, (_,i) => JAHR_JETZT - 1 + i);   // Feiertage werden für jedes Jahr berechnet
+const DEFAULT = {year:JAHR_JETZT + (new Date().getMonth() >= 8 ? 1 : 0), staat:"DE", land:"NW", zaehlung:"monat", art:"jahr", plan:{stimmung:{}, lern:{}}, modul:{titel:"", nuten:false, faecher:{}}, eigen:{}, frame:"#3b3f3c", colors:PRESETS.jahreszeiten.slice(), over:{}, lang:spracheStart};
+let S = structuredClone(DEFAULT);
+
+// ---------- Datum ----------
+const dim = (y,m) => new Date(y, m+1, 0).getDate();
+const key = (m,d) => `${m+1}-${d}`;
+const doy = (y,m,d) => Math.round((Date.UTC(y,m,d) - Date.UTC(y,0,1)) / 864e5) + 1;
+const nummer = (m,d) => S.zaehlung === "jahr" ? doy(S.year,m,d) : d;
+const WZ_DATEI = {de:["so","mo","di","mi","do","fr","sa"], en:["su","mo","tu","we","th","fr","sa"]};
+const wzName = (m,d) => "wz_" + WZ_DATEI[S.lang][new Date(S.year,m,d).getDay()] + "_" + String(d).padStart(2,"0");
+// Alle Zahlen-Schubladen: zahl_NN (1–31), tag_NNN (Tag im Jahr), wz_mo_NN (mit Wochentag), mz_jan_NN (mit Monat)
+const WZ_ALLE = ["mo","di","mi","do","fr","sa","so","tu","we","th","su"];
+const MK_TAGE = {jan:31,feb:29,maer:31,apr:30,mai:31,jun:30,jul:31,aug:31,sep:30,okt:31,nov:30,dez:31,mar:31,may:31,oct:31,dec:31};
+const mkText = m => m === "maer" ? "MÄR" : m.toUpperCase();
+function zahlInfo(k){
+  let m;
+  if (typeof k !== "string") return null;
+  if ((m = /^zahl_(\d\d)$/.exec(k)) && +m[1] >= 1 && +m[1] <= 31)
+    return {art:"zahl", oben:"", zahl:+m[1], datei:"1_Monatskalender/2_Schubladen/schubladen_tag_01-31_12x_drucken.stl", platz:+m[1]};
+  if ((m = /^tag_(\d{3})$/.exec(k)) && +m[1] >= 1 && +m[1] <= 366){
+    const n = +m[1], p = Math.floor((n - 1) / 36), a = p * 36 + 1, b = Math.min(a + 35, 366), z3 = x => String(x).padStart(3,"0");
+    return {art:"tag", oben:"", zahl:n, datei:`4_Extra_Schubladen/tage_im_jahr/tage_${String(p+1).padStart(2,"0")}_${z3(a)}-${z3(b)}.stl`, platz:n - a + 1}; }
+  if ((m = /^wz_([a-z]{2})_(\d\d)$/.exec(k)) && WZ_ALLE.includes(m[1]) && +m[2] >= 1 && +m[2] <= 31)
+    return {art:"wz", zusatz:m[1], oben:m[1].toUpperCase(), zahl:+m[2], datei:`4_Extra_Schubladen/wochentag_zahlen/zahlen_${m[1]}_01-31.stl`, platz:+m[2]};
+  if ((m = /^mz_([a-z]+)_(\d\d)$/.exec(k)) && MK_TAGE[m[1]] && +m[2] >= 1 && +m[2] <= MK_TAGE[m[1]])
+    return {art:"mz", zusatz:m[1], oben:mkText(m[1]), zahl:+m[2], datei:`4_Extra_Schubladen/monat_zahlen/zahlen_${m[1]}_01-${MK_TAGE[m[1]]}.stl`, platz:+m[2]};
+  return null;
+}
+const istSchublade = k => !!(k && (ICONS[k] || zahlInfo(k)));
+const schubName = k => { const z = zahlInfo(k); return z ? (z.oben ? `${z.oben} ${z.zahl}` : String(z.zahl)) : nm(k); };
+const schubBild = k => { const z = zahlInfo(k); return z ? (z.oben ? `<span class="wz"><b>${z.oben}</b>${z.zahl}</span>` : `<span>${z.zahl}</span>`) : svgOf(k); };
+const schubDatei = k => { const z = zahlInfo(k); return z ? `${z.datei} · ${t("platz")} ${z.platz}` : `${ICONS[k].file} · ${t("platz")} ${ICONS[k].pos}`; };
+function zahlOptionen(){                             // <optgroup>s mit allen Zahlen-Schubladen
+  const z2 = n => String(n).padStart(2,"0"), opt = (k) => `<option value="${k}">${esc(schubName(k))}</option>`;
+  return `<optgroup label="${esc(t("zsZahlen"))}">` + Array.from({length:31}, (_,i) => opt("zahl_" + z2(i+1))).join("") + `</optgroup>`
+    + `<optgroup label="${esc(t("zsTage"))}">` + Array.from({length:366}, (_,i) => opt("tag_" + String(i+1).padStart(3,"0"))).join("") + `</optgroup>`
+    + `<optgroup label="${esc(t("zsWoche"))}">` + WZ_ALLE.flatMap(w => Array.from({length:31}, (_,i) => opt(`wz_${w}_${z2(i+1)}`))).join("") + `</optgroup>`
+    + `<optgroup label="${esc(t("zsMonat"))}">` + Object.entries(MK_TAGE).flatMap(([m,n]) => Array.from({length:n}, (_,i) => opt(`mz_${m}_${z2(i+1)}`))).join("") + `</optgroup>`;
+}
+const MK = {de:["jan","feb","maer","apr","mai","jun","jul","aug","sep","okt","nov","dez"], en:["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]};
+const mzName = (m,d) => "mz_" + MK[S.lang][m] + "_" + String(d).padStart(2,"0");
+const kuerzel = (m,d) => S.zaehlung === "woche" ? WT()[new Date(S.year,m,d).getDay()].toUpperCase()
+  : S.zaehlung === "monkurz" ? MONATE()[m].slice(0,3) : "";
+const zahlHtml = (m,d) => kuerzel(m,d) ? `<span class="wz"><b>${kuerzel(m,d)}</b>${d}</span>` : `<span>${nummer(m,d)}</span>`;
+// Stimmungskalender: Stimmungs-Schubladen werden in ihrer eigenen Filamentfarbe gedruckt und so angezeigt
+const STIMMUNG = {z_stimmung_super:"#2e9d4f", z_stimmung_gut:"#9bc53d", z_stimmung_okay:"#f2c51f", z_stimmung_schlecht:"#f08a24", z_stimmung_mies:"#d7263d"};
+const farbe = ov => STIMMUNG[ov] ? ` style="--c:${STIMMUNG[ov]};--ci:${ink(STIMMUNG[ov])}"` : "";
+const datumTxt = d => { const [m,tg] = d.split("-"); return t("datum", tg, m); };
+
+// ---------- Farbe ----------
+function ink(hex){const n=parseInt(hex.slice(1),16),r=n>>16&255,g=n>>8&255,b=n&255;const Lm=(0.2126*r+0.7152*g+0.0722*b)/255;return Lm>0.62?"rgba(20,20,20,.72)":"rgba(255,255,255,.9)";}
+const svgOf = (k) => { const it = ICONS[k]; if(!it||!it.d) return ""; const vb = it.breit ? "-15.4 -9.2 30.8 17.6" : "-13.5 -7.6 27 15.2"; return `<svg viewBox="${vb}" aria-hidden="true"><path fill-rule="evenodd" d="${it.d}"/></svg>`; };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// ---------- Länder ----------
+const staatName = c => (S.lang === "en" ? EV.staaten_en : EV.staaten)[c] || c;
+function staatenRendern(){
+  const sel = document.getElementById('staat');
+  const vorn = ["DE","AT","CH"], rest = Object.keys(EV.staaten).filter(c => !vorn.includes(c)).sort((a,b) => staatName(a).localeCompare(staatName(b), S.lang));
+  sel.innerHTML = [...vorn, ...rest].map(c => `<option value="${c}">${esc(staatName(c))}</option>`).join("");
+  sel.value = S.staat;
+}
+function gesetzlicheListe(ev){ return S.staat === "DE" ? (ev.gesetzlich||[]) : (ev["gesetzlich_"+S.staat]||[]); }
+const ortName = () => S.staat === "DE" ? (S.lang === "en" ? `Germany, ${LAENDER[S.land]}` : LAENDER[S.land]) : staatName(S.staat);
+const zeilenName = r => (S.lang === "en" ? r[3] : r[4]) || nm(r[1]);   // Name des Feiertags im gewählten Land
+
+// ---------- Texte setzen ----------
+function texte(){
+  document.documentElement.lang = S.lang;
+  document.title = t("titel");
+  document.querySelectorAll('[data-t]').forEach(el => el.textContent = t(el.dataset.t));
+  document.documentElement.dataset.art = S.art || "jahr";
+  if (S.art && S.art !== "jahr") for (const k of ["kicker","titel","lede"]){ const el = document.querySelector(`[data-t="${k}"]`); if (el) el.textContent = t(k + "_" + S.art); }
+  if (S.art && S.art !== "jahr") document.title = t("titel_" + S.art);
+  document.getElementById('art').value = S.art || "jahr";
+  document.querySelectorAll('.reiter [data-tab]').forEach(b => b.setAttribute('aria-selected', b.dataset.tab === (S.art || "jahr")));
+  document.querySelectorAll('[data-t-html]').forEach(el => el.innerHTML = t(el.dataset.tHtml));
+  document.querySelectorAll('[data-t-aria]').forEach(el => el.setAttribute('aria-label', t(el.dataset.tAria)));
+  document.getElementById('sprache').value = S.lang;
+  staatenRendern();
+}
+
+// ---------- Rendern ----------
+const wall = document.getElementById('wall');
+function cellKey(m,k){ return k < dim(S.year,m) ? key(m,k+1) : `b${m+1}-${k}`; }
+function render(){
+  document.documentElement.style.setProperty('--frame', S.frame);
+  document.documentElement.style.setProperty('--frame-ink', ink(S.frame));
+  document.getElementById('frame').value = S.frame;
+  document.getElementById('jahr').value = S.year; document.getElementById('land').value = S.land; document.getElementById('zaehlung').value = S.zaehlung; document.getElementById('staat').value = S.staat; document.getElementById('land-feld').hidden = S.staat !== "DE";
+  const ft = {};
+  for (const r of gesetzlicheListe(FEIERTAGE.jahr(S.year))) if ((!r[2] || r[2].includes(S.land)) && ICONS[r[1]]) (ft[r[0]] ||= []).push(zeilenName(r));
+  const MO = MONATE(), W = WT();
+  let html = "";
+  for (let m=0;m<12;m++){
+    const c = S.colors[m], ci = ink(c), n = dim(S.year,m);
+    html += `<article class="modul" aria-label="${MO[m]}"><div class="kopf"><h3>${MO[m]}</h3><input type="color" value="${c}" data-m="${m}" aria-label="${t("filament")} ${MO[m]}"></div><div class="fach" style="--c:${c};--ci:${ci}">`;
+    for (let k=0;k<36;k++){
+      const ck = cellKey(m,k), ov = S.over[ck];
+      if (k < n){
+        const d = k+1, wd = new Date(S.year,m,d).getDay();
+        const inner = ov ? svgOf(ov) : zahlHtml(m,d);
+        const hint = (!ov && ft[ck]) ? `<span class="hint" title="${esc(ft[ck].join(" · "))}"></span>` : "";
+        const lbl = `${t("tagLang", d, monKlein(m))}, ${W[wd]}: ${ov ? nm(ov) : t("zahl")+" "+nummer(m,d)}`;
+        html += `<button class="cell${wd===0?" so":""}"${farbe(ov)} data-ck="${ck}" data-m="${m}" data-d="${d}" aria-label="${esc(lbl)}">${ov || !kuerzel(m,d) ? `<span class="wd">${W[wd]}</span>` : ""}${ov?`<span class="dn">${d}</span>`:""}${inner}${hint}<span class="grip"></span></button>`;
+      } else {
+        html += ov ? `<button class="cell"${farbe(ov)} data-ck="${ck}" data-m="${m}" aria-label="${esc(t("leeresFachL")+", "+nm(ov))}">${svgOf(ov)}<span class="grip"></span></button>`
+                   : `<button class="cell offen" data-ck="${ck}" data-m="${m}" aria-label="${esc(t("leeresFachL"))}"></button>`;
+      }
+    }
+    html += `</div></article>`;
+  }
+  wall.innerHTML = html;
+  document.getElementById('leap').hidden = dim(S.year,1) !== 29;
+  renderListe();
+}
+
+// ---------- Druckliste ----------
+function zaehlen(){
+  const cnt = {}; let ersetzt = 0, blenden = 0;
+  for (let m=0;m<12;m++) for (let k=0;k<36;k++){
+    const ck = cellKey(m,k), ov = S.over[ck];
+    if (k < dim(S.year,m)) { if (ov){ cnt[ov]=(cnt[ov]||0)+1; ersetzt++; } }
+    else { if (ov) cnt[ov]=(cnt[ov]||0)+1; else blenden++; }
+  }
+  return {cnt, ersetzt, blenden};
+}
+function renderListe(){
+  const {cnt, ersetzt, blenden} = zaehlen();
+  const tage = Array.from({length:12},(_,m)=>dim(S.year,m)).reduce((a,b)=>a+b,0);
+  document.getElementById('stats').innerHTML =
+    `<div><div class="big">${tage-ersetzt}</div><div class="note">${t("st_zahl")}</div></div>
+     <div><div class="big">${Object.values(cnt).reduce((a,b)=>a+b,0)}</div><div class="note">${t("st_extra")}</div></div>
+     <div><div class="big">${blenden}</div><div class="note">${t("st_blende")}</div></div>`;
+  const rows = Object.entries(cnt).sort((a,b)=>ICONS[a[0]].file.localeCompare(ICONS[b[0]].file)||ICONS[a[0]].pos-ICONS[b[0]].pos);
+  const tb = document.querySelector('#liste tbody');
+  tb.innerHTML = rows.length ? rows.map(([k,n])=>{const it=ICONS[k];return `<tr><td><span class="mini">${svgOf(k)}</span></td><td>${esc(nm(k))}<div class="note">${esc(ct(it.cat))}</div></td><td class="n">${n}×</td><td><span class="file">${it.file}</span><div class="note">${t("platz")} ${it.pos}</div></td></tr>`;}).join("")
+    : `<tr><td colspan="4" class="note">${t("keineExtra")}</td></tr>`;
+  const std = S.zaehlung === "jahr" ? t("std_jahr", tage, String(Math.ceil(tage/36)).padStart(2,'0'))
+            : S.zaehlung === "woche" ? t("std_woche", tage-ersetzt, S.year)
+            : S.zaehlung === "monkurz" ? t("std_monkurz") : t("std_monat");
+  const lines = [t("kopf", S.year, ortName()), t("standardZ", t("modulDatei"), std), `${t("st_blende")[0].toUpperCase()+t("st_blende").slice(1)}: ${blenden}`, ``, t("extraZ")];
+  for (const [k,n] of rows){ const it=ICONS[k]; lines.push(`${String(n).padStart(3)}×  ${nm(k).padEnd(30)} ${it.file}  (${t("platz")} ${it.pos})`); }
+  if (!rows.length) lines.push(t("keineZ"));
+  // fehlende Doppel-Schubladen: eigene Auswahl trifft auf einen Feiertag, für das Paar gibt es noch keine Schublade
+  const wuensche = [];
+  try {
+    const kand = document.querySelector('#gruppen input') ? kandidaten() : {};
+    for (const [d, liste] of Object.entries(kand)){
+      const eigen = S.over[d];
+      if (!eigen || (S.auto && S.auto[d]) || eigen.startsWith("k")) continue;
+      for (const x of liste) if (x.k !== eigen && !KOMBI[eigen+"|"+x.k]) wuensche.push({d, a:eigen, b:x.k});
+    }
+  } catch {}
+  const wb = document.getElementById('wunsch');
+  if (wuensche.length){
+    wb.hidden = false;
+    wb.innerHTML = `<div class="label">${t("wunschT")}</div>` + wuensche.map(w=>
+      `<div class="konflikt"><span class="datum">${datumTxt(w.d)}</span><span class="mini">${svgOf(w.a)}</span>${esc(nm(w.a))} + <span class="mini">${svgOf(w.b)}</span>${esc(nm(w.b))}</div>`).join("");
+    lines.push("", t("wunschZ"));
+    for (const w of wuensche){ lines.push(`  ${datumTxt(w.d)}${S.year}: ${nm(w.a)} + ${nm(w.b)}   [${w.a} + ${w.b}]`); }
+  } else { wb.hidden = true; wb.innerHTML = ""; }
+  document.getElementById('copy-src').value = lines.join("\n");
+  document.getElementById('std-note').textContent = S.zaehlung === "jahr" ? t("note_jahr", tage) : S.zaehlung === "woche" ? t("note_woche", S.year)
+    : S.zaehlung === "monkurz" ? t("note_monkurz") : t("note_monat");
+}
+
+// ---------- Auswahl ----------
+const ov = document.getElementById('ov'), body = document.getElementById('dlg-body');
+let aktiv = null;
+function oeffnen(btn){
+  aktiv = btn.dataset.ck; const m = +btn.dataset.m, d = btn.dataset.d;
+  const c = S.colors[m], ci = ink(c), cur = S.over[aktiv] || (d ? "zahl" : "offen");
+  document.getElementById('dlg-sub').textContent = d ? `${t("tagLang", d, monKlein(m))} ${S.year}` : `${monKlein(m)} · ${t("leeresFach")}`;
+  const cats = {};
+  // passende Wochentage zuerst je nach Sprache
+  for (const [k,it] of Object.entries(ICONS)){ if (k.startsWith("z_stimmung_")) continue; (cats[it.cat] ||= []).push(k); }
+  if (S.lang === "en" && cats["Wochentage (englisch)"]) { const w = cats["Wochentage (englisch)"]; delete cats["Wochentage (englisch)"];
+    const neu = {}; for (const [ca,ks] of Object.entries(cats)){ if (ca === "Wochentage") neu["Wochentage (englisch)"] = w; neu[ca] = ks; } Object.keys(cats).forEach(x=>delete cats[x]); Object.assign(cats, neu); }
+  const zn = d ? nummer(m,+d) : 0;
+  const front = (k) => k==="zahl" ? zahlHtml(m,+d) : (svgOf(k) || `<span></span>`);
+  let h = `<div class="cat"><div class="label">${t("standard")}</div><div class="choices" style="--pc:${c};--pci:${ci}">` +
+    (d ? `<button class="choice" data-k="zahl" aria-pressed="${cur==="zahl"}"><span class="front">${front("zahl")}</span>${t("zahl")} ${zn}</button>`
+       : `<button class="choice" data-k="offen" aria-pressed="${cur==="offen"}"><span class="front offen"></span>${t("offen")}</button>`) + `</div></div>`;
+  for (const [cat,keys] of Object.entries(cats)){
+    h += `<div class="cat"><div class="label">${esc(ct(cat))}</div><div class="choices" style="--pc:${c};--pci:${ci}">` +
+      keys.map(k=>`<button class="choice" data-k="${k}" aria-pressed="${cur===k}"><span class="front"${STIMMUNG[k] ? ` style="--pc:${STIMMUNG[k]};--pci:${ink(STIMMUNG[k])}"` : ""}>${front(k)}</span>${esc(nm(k))}</button>`).join("") + `</div></div>`;
+  }
+  body.innerHTML = h; ov.hidden = false;
+  body.querySelector('[aria-pressed="true"]')?.focus();
+}
+function schliessen(){
+  ov.hidden = true;
+  const b = planAktiv ? document.querySelector(planAktiv.art === "eigen" ? `#em [data-em="${planAktiv.d}"]` : `#${PLAN[planAktiv.art].pre} [data-plan="${planAktiv.d}"]`)
+                      : wall.querySelector(`[data-ck="${aktiv}"]`);
+  planAktiv = null; b?.focus();
+}
+// Stimmungs-, Lernkalender und eigenes Modul: Fach anklicken → dasselbe Auswahlfenster wie im Jahreskalender
+let planAktiv = null;
+function auswahlOeffnen(art, d){
+  planAktiv = {art, d}; aktiv = null;
+  const c = "#5b6b7a", ci = ink(c);
+  const cur = art === "eigen" ? emFach(d) : planFach(art, d);
+  document.getElementById('dlg-sub').textContent = d <= 31 && art !== "eigen" ? t("fachTag", d) : t("fachNr", d);
+  const knopf = (k, label, inhalt, leer) => { const f = planFarbe(k);
+    return `<button class="choice" data-k="${k}" aria-pressed="${cur===k}"><span class="front${leer ? " offen" : ""}"${f ? ` style="--pc:${f};--pci:${ink(f)}"` : ""}>${inhalt}</span>${esc(label)}</button>`; };
+  const gruppe = (titel, inhalt) => `<div class="cat"><div class="label">${esc(titel)}</div><div class="choices" style="--pc:${c};--pci:${ci}">${inhalt}</div></div>`;
+  let h = gruppe(t("standard"), d <= 31 && art !== "eigen" ? knopf("", `${t("zahl")} ${d}`, `<span>${d}</span>`) : knopf("", t("offen"), "", true));
+  if (art === "eigen"){
+    h += `<div class="cat"><div class="label">${esc(t("zahlenAlle"))}</div><div class="zahlform">
+      <select id="zf-art"><option value="zahl">${esc(t("z_monat"))}</option><option value="tag">${esc(t("z_jahr").replace("365","366"))}</option><option value="wz">${esc(t("z_woche"))}</option><option value="mz">${esc(t("z_monkurz"))}</option></select>
+      <select id="zf-zusatz" hidden></select><input type="number" id="zf-n" min="1" max="31" value="1" aria-label="${esc(t("zahl"))}">
+      <span class="front" id="zf-bild"></span><button class="primary" id="zf-ok">${esc(t("zfOk"))}</button></div></div>`;
+    const cats = {}; for (const [k,it] of Object.entries(ICONS)) (cats[it.cat] ||= []).push(k);
+    for (const [cat, ks] of Object.entries(cats)) h += gruppe(ct(cat), ks.map(k => knopf(k, nm(k), svgOf(k))).join(""));
+  } else h += gruppe(ct(ICONS[PLAN[art].werte[0]].cat), PLAN[art].werte.map(k => knopf(k, nm(k), svgOf(k))).join(""));
+  body.innerHTML = h; ov.hidden = false;
+  if (art === "eigen") zahlFormular(zahlInfo(cur));
+  body.querySelector('[aria-pressed="true"]')?.focus();
+}
+function zahlFormular(start){                        // Zahl beliebiger Art auswählen (im Auswahlfenster des eigenen Moduls)
+  const art = document.getElementById('zf-art'), zu = document.getElementById('zf-zusatz'), n = document.getElementById('zf-n');
+  const z2 = x => String(x).padStart(2,"0");
+  const schluessel = () => { const v = +n.value || 1;
+    return art.value === "zahl" ? "zahl_" + z2(v) : art.value === "tag" ? "tag_" + String(v).padStart(3,"0") : `${art.value}_${zu.value}_${z2(v)}`; };
+  const max = () => art.value === "tag" ? 366 : art.value === "mz" ? MK_TAGE[zu.value] : 31;
+  const zeigen = () => { n.max = max(); if (+n.value > n.max) n.value = n.max; if (+n.value < 1) n.value = 1;
+    const k = schluessel(); document.getElementById('zf-bild').innerHTML = zahlInfo(k) ? schubBild(k) : ""; };
+  const zusatz = () => { zu.hidden = !["wz","mz"].includes(art.value);
+    zu.innerHTML = art.value === "wz" ? WZ_ALLE.map(w => `<option value="${w}">${w.toUpperCase()}</option>`).join("")
+                 : art.value === "mz" ? Object.keys(MK_TAGE).map(m => `<option value="${m}">${mkText(m)}</option>`).join("") : ""; };
+  if (start){ art.value = start.art; zusatz(); if (start.zusatz) zu.value = start.zusatz; n.value = start.zahl; } else zusatz();
+  zeigen();
+  art.onchange = () => { zusatz(); zeigen(); }; zu.onchange = zeigen; n.oninput = zeigen;
+  document.getElementById('zf-ok').onclick = () => { const k = schluessel(); if (zahlInfo(k)) auswahlSetzen(k); };
+  n.onkeydown = e => { if (e.key === "Enter") document.getElementById('zf-ok').click(); };
+}
+function auswahlSetzen(k){
+  const {art, d} = planAktiv;
+  if (art === "eigen"){ const f = {...S.modul.faecher}; if (k) f[d] = k; else delete f[d]; S.modul = {...S.modul, faecher: f}; schliessen(); emRender(); }
+  else { const plan = {...S.plan[art]};
+    if (k) plan[d] = k; else if (art === "stimmung" && d > 31) plan[d] = ""; else delete plan[d];
+    S.plan = {...S.plan, [art]: plan}; schliessen(); planRender(art); }
+  speichern();
+}
+body.addEventListener('click', e => {
+  const b = e.target.closest('.choice'); if (!b) return;
+  const k = b.dataset.k;
+  if (planAktiv) return auswahlSetzen(k);
+  if (k === "zahl" || k === "offen") delete S.over[aktiv]; else S.over[aktiv] = k;
+  if (S.auto) delete S.auto[aktiv];
+  schliessen(); render(); speichern();
+});
+document.getElementById('dlg-x').onclick = schliessen;
+ov.addEventListener('click', e => { if (e.target === ov) schliessen(); });
+document.addEventListener('keydown', e => { if (e.key === "Escape" && !ov.hidden) schliessen(); });
+wall.addEventListener('click', e => { const b = e.target.closest('.cell'); if (b) oeffnen(b); });
+wall.addEventListener('input', e => { if (e.target.matches('input[type=color]')){ S.colors[+e.target.dataset.m] = e.target.value; render(); speichernBald(); } });
+
+// ---------- STL für den konfigurierten Kalender ----------
+// Die Schubladen liegen einzeln als STL im Ordner "einzeln" (zahl_01, tag_001, <motiv>.stl).
+// Sie werden nur aneinandergelegt (keine Geometrie-Berechnung) → eine Platte pro Monat.
+const STL_ORDNER = ["stl/einzeln/", "einzeln/"];
+const MON_DATEI = {de:["januar","februar","maerz","april","mai","juni","juli","august","september","oktober","november","dezember"],
+                   en:["january","february","march","april","may","june","july","august","september","october","november","december"]};
+let stlQuelle = null, stlUrls = [];
+const stlCache = {};
+function monatsTeile(m){
+  const r = [];
+  for (let k=0;k<36;k++){
+    const ov = S.over[cellKey(m,k)];
+    if (k < dim(S.year,m)){
+      const d = k+1;
+      r.push(ov || (S.zaehlung === "jahr" ? "tag_" + String(doy(S.year,m,d)).padStart(3,"0")
+                   : S.zaehlung === "woche" ? wzName(m,d) : S.zaehlung === "monkurz" ? mzName(m,d) : "zahl_" + String(d).padStart(2,"0")));
+    } else if (ov) r.push(ov);
+  }
+  return r;
+}
+function leseStl(buf){                               // → Float32Array, 9 Werte pro Dreieck
+  const dv = new DataView(buf), n = buf.byteLength >= 84 ? dv.getUint32(80, true) : 0;
+  if (84 + 50*n === buf.byteLength){
+    const f = new Float32Array(9*n);
+    for (let i=0;i<n;i++) for (let j=0;j<9;j++) f[9*i+j] = dv.getFloat32(84 + 50*i + 12 + 4*j, true);
+    return f;
+  }
+  const z = new TextDecoder().decode(buf).match(/vertex\s+(\S+)\s+(\S+)\s+(\S+)/g) || [];   // ASCII-STL
+  return Float32Array.from(z.flatMap(l => l.trim().split(/\s+/).slice(1).map(Number)));
+}
+// Rückgriff: fehlt eine Schublade in der Quelle (z. B. älterer Ordner „einzeln“), direkt aus dem GitHub-Repository laden
+const GITHUB_EINZELN = (() => {
+  const m = location.hostname.match(/^([^.]+)\.github\.io$/), repo = location.pathname.split("/").filter(Boolean)[0];
+  const [o, r] = m && repo ? [m[1], repo] : ["Layl10", "3d-druck-schubladen-kalender"];
+  return `https://raw.githubusercontent.com/${o}/${r}/main/stl/einzeln/`;
+})();
+// Gewählter Ordner → Dateien nach Name. Liegt derselbe Name mehrfach vor (z. B. eine alte Kopie in einem
+// Unterordner), gewinnt die Datei, die am wenigsten tief liegt – also die direkt im gewählten Ordner.
+function ordnerDateien(files){
+  const m = new Map(), tiefe = f => (f.webkitRelativePath || f.name).split("/").length;
+  for (const f of files){ const alt = m.get(f.name); if (!alt || tiefe(f) < tiefe(alt)) m.set(f.name, f); }
+  return m;
+}
+// Eingebettete Bausteine (Modul ohne Text, Buchstaben): gzip + base64 in der Seite
+const BAUSTEINE = JSON.parse(document.getElementById('bausteine').textContent);
+async function bausteinLaden(name){
+  const b64 = BAUSTEINE[name]; if (!b64 || typeof DecompressionStream === "undefined") return null;
+  const roh = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+  return await new Response(new Blob([roh]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
+}
+async function ladeStl(name){
+  if (stlCache[name]) return stlCache[name];
+  let buf = null;
+  try { buf = await bausteinLaden(name); } catch {}
+  if (buf) return (stlCache[name] = leseStl(buf));
+  try {
+    if (stlQuelle instanceof Map){ const f = stlQuelle.get(name + ".stl"); if (f) buf = await f.arrayBuffer(); }
+    else if (stlQuelle){ const r = await fetch(stlQuelle + name + ".stl"); if (r.ok) buf = await r.arrayBuffer(); }
+  } catch {}
+  if (!buf){ try { const r = await fetch(GITHUB_EINZELN + name + ".stl"); if (r.ok) buf = await r.arrayBuffer(); } catch {} }
+  if (!buf) throw new Error(name);
+  return (stlCache[name] = leseStl(buf));
+}
+async function findeQuelle(){
+  if (stlQuelle) return true;
+  if (!location.protocol.startsWith("http")){
+    try { const r = await fetch(GITHUB_EINZELN + "zahl_01.stl", {method:"HEAD"}); if (r.ok){ stlQuelle = GITHUB_EINZELN; return true; } } catch {}
+    return false;
+  }
+  for (const p of STL_ORDNER){
+    try { const r = await fetch(p + "zahl_01.stl", {method:"HEAD"}); if (r.ok){ stlQuelle = p; return true; } } catch {}
+  }
+  return false;
+}
+function schreibeStl(teile){                         // teile: [{f:Float32Array, dx, dy}]
+  const n = teile.reduce((a,t) => a + t.f.length/9, 0);
+  const buf = new ArrayBuffer(84 + 50*n), dv = new DataView(buf);
+  const kopf = "Schubladen-Jahreskalender";
+  for (let i=0;i<kopf.length;i++) dv.setUint8(i, kopf.charCodeAt(i));
+  dv.setUint32(80, n, true);
+  let o = 84;
+  for (const {f, dx, dy, dz = 0, k = 1} of teile){       // k: Skalierung in x/y (Buchstaben), dz: Versatz in z
+    for (let i=0;i<f.length;i+=9){
+      const p = [f[i]*k+dx, f[i+1]*k+dy, f[i+2]+dz, f[i+3]*k+dx, f[i+4]*k+dy, f[i+5]+dz, f[i+6]*k+dx, f[i+7]*k+dy, f[i+8]+dz];
+      const ux=p[3]-p[0], uy=p[4]-p[1], uz=p[5]-p[2], vx=p[6]-p[0], vy=p[7]-p[1], vz=p[8]-p[2];
+      let nx=uy*vz-uz*vy, ny=uz*vx-ux*vz, nz=ux*vy-uy*vx; const l=Math.hypot(nx,ny,nz)||1;
+      dv.setFloat32(o, nx/l, true); dv.setFloat32(o+4, ny/l, true); dv.setFloat32(o+8, nz/l, true); o += 12;
+      for (const x of p){ dv.setFloat32(o, x, true); o += 4; }
+      dv.setUint16(o, 0, true); o += 2;
+    }
+  }
+  return buf;
+}
+async function stlErzeugen(){
+  const msg = document.getElementById('stl-msg'), links = document.getElementById('stl-links'), btn = document.getElementById('b-stl');
+  if (!(await findeQuelle())){ msg.textContent = t("stlOrdner"); document.getElementById('b-ordner').hidden = false; return; }
+  btn.disabled = true; msg.textContent = t("stlLaedt"); links.innerHTML = "";
+  stlUrls.forEach(u => URL.revokeObjectURL(u)); stlUrls = [];
+  const fehlt = new Set(), dateien = [];
+  try {
+    for (let m=0;m<12;m++){
+      const teile = [];
+      for (const name of monatsTeile(m)){
+        try { const f = await ladeStl(name); const i = teile.length; teile.push({f, dx:(i%8 - 3.5)*36, dy:Math.floor(i/8)*54}); }
+        catch { fehlt.add(name); }
+      }
+      if (!teile.length) continue;
+      const url = URL.createObjectURL(new Blob([schreibeStl(teile)], {type:"model/stl"}));
+      stlUrls.push(url);
+      dateien.push({url, name:`${S.year}_${String(m+1).padStart(2,"0")}_${MON_DATEI[S.lang][m]}_${teile.length}x.stl`});
+      const modul = `modul_monat_${S.lang}_${String(m+1).padStart(2,"0")}`;            // das Monatsmodul dazu
+      try { let teile;
+            try { teile = [{f: await ladeStl(modul), dx:0, dy:0}]; }
+            catch { teile = await modulAusBausteinen(MONATE()[m], true); }                   // fertige Datei fehlt → aus Bausteinen (Nuten rundum)
+            const u = URL.createObjectURL(new Blob([schreibeStl(teile)], {type:"model/stl"}));
+            stlUrls.push(u); dateien.push({url:u, name:`modul_${String(m+1).padStart(2,"0")}_${MON_DATEI[S.lang][m]}.stl`}); }
+      catch { fehlt.add(modul); }
+    }
+    if (!dateien.length) throw new Error("leer");
+    msg.textContent = t("stlFertig", dateien.length) + (fehlt.size ? t("stlFehlt", [...fehlt].join(", ")) : "");
+    links.innerHTML = `<button id="b-alle-stl">${t("stlAlle")}</button>` + dateien.map(f => `<a href="${f.url}" download="${f.name}">${f.name}</a>`).join("");
+    document.getElementById('b-alle-stl').onclick = async () => {
+      for (const a of links.querySelectorAll('a')){ a.click(); await new Promise(r => setTimeout(r, 400)); }
+    };
+  } catch (err) { console.error(err); msg.textContent = t("stlFehler") + (fehlt.size ? t("stlFehlt", [...fehlt].slice(0, 6).join(", ") + (fehlt.size > 6 ? " …" : "")) : ""); }
+  btn.disabled = false;
+}
+document.getElementById('b-stl').onclick = stlErzeugen;
+
+// ---------- Stimmungs- und Lernkalender (eigene Kalender-Arten) ----------
+const PLAN = {
+  stimmung: {pre:"sk", titel:{de:"STIMMUNGSKALENDER", en:"MOOD CALENDAR"}, pro:10,
+             werte:["z_stimmung_super","z_stimmung_gut","z_stimmung_okay","z_stimmung_schlecht","z_stimmung_mies"]},
+  lern:     {pre:"lk", titel:{de:"LERNKALENDER", en:"STUDY CALENDAR"}, pro:1,
+             werte:["15min","30min","45min", ...Array.from({length:77}, (_,i) => { const h = (i + 4) >> 2, r = (i + 4) & 3;
+               return r ? `${h}_${["25","5","75"][r-1]}h` : `${h}h`; })].map(k => "z_stunden_" + k)},
+};
+// Inhalt eines Fachs: eigener Eintrag, sonst im Stimmungskalender in den Fächern 32–36 die Legende
+const planFach = (art, d) => (ICONS[S.plan?.[art]?.[d]] ? S.plan[art][d] : "") || (art === "stimmung" && d > 31 && !(d in (S.plan?.[art] || {})) ? PLAN.stimmung.werte[d-32] : "");
+function planZaehlen(art){ const n = {}; for (let d=1; d<=36; d++){ const k = planFach(art, d); if (k) n[k] = (n[k] || 0) + 1; } return n; }
+const planFarbe = k => STIMMUNG[k] || (k && k.startsWith("z_stunden_") ? "#e07a2c" : "");
+function planRender(art){
+  const P = PLAN[art], plan = (S.plan ||= {stimmung:{}, lern:{}})[art] ||= {};
+  const c = "#5b6b7a", ci = ink(c);
+  let h = `<article class="modul"><div class="kopf"><h3>${P.titel[S.lang]}</h3></div><div class="fach" style="--c:${c};--ci:${ci}">`;
+  for (let d=1; d<=36; d++){
+    const k = planFach(art, d), f = planFarbe(k);
+    h += !k && d > 31 ? `<button class="cell offen" data-plan="${d}" aria-label="${esc(t("leeresFachL"))}"></button>`
+      : `<button class="cell" data-plan="${d}"${f ? ` style="--c:${f};--ci:${ink(f)}"` : ""} aria-label="${d <= 31 ? d : esc(t("leeresFachL"))}${k ? ": " + esc(nm(k)) : ""}">${k ? svgOf(k) : `<span>${d}</span>`}<span class="grip"></span></button>`;
+  }
+  document.getElementById(P.pre + '-modul').innerHTML = h + `</div></article>`;
+  // Druckliste
+  const n = planZaehlen(art), leer = !Object.values(plan).some(Boolean), zeilen = [], hinweise = [];
+  const datei = art === "stimmung" ? `5_Stimmungskalender/${S.lang === "en" ? "mood_calendar" : "stimmungskalender"}_modul.stl`
+                                   : `6_Lernkalender/${S.lang === "en" ? "study_calendar" : "lernkalender"}_modul.stl`;
+  zeilen.push([t("planModul"), "1×", datei]);
+  zeilen.push([t("planZahlen"), "1×", (art === "stimmung" ? "5_Stimmungskalender" : "6_Lernkalender") + "/schubladen_tag_01-31.stl"]);
+  if (art === "stimmung"){
+    for (const k of P.werte){ const stueck = n[k] || 0;
+      zeilen.push([nm(k), stueck ? `${stueck}×` : "–", `${ICONS[k].file} · ${t("planPlatte", Math.max(1, Math.ceil(stueck / P.pro)))}`, k]); }
+    hinweise.push(t("planLegende"));
+  } else {
+    for (const k of P.werte) if (n[k]) zeilen.push([nm(k), `${n[k]}×`, "", k]);
+    const platten = {};                                  // je Platte: so oft drucken, wie die häufigste Zeit darauf vorkommt
+    for (const k of P.werte){ const f = ICONS[k].file; platten[f] = Math.max(platten[f] || 0, n[k] || 0); }
+    for (const [f, c] of Object.entries(platten)) if (c || leer) zeilen.push([t("planStunden"), "", `${f} · ${t("planPlatte", Math.max(1, c))}`]);
+  }
+  if (leer) hinweise.push(t("planNichts"));
+  document.getElementById(P.pre + '-hinweis').textContent = hinweise.join(" ");
+  document.querySelector(`#${P.pre}-liste tbody`).innerHTML = zeilen.map(([a,b,c,k]) => { const f = planFarbe(k);
+    return `<tr><td>${k ? `<span class="mini"${f ? ` style="background:${f}"` : ""}>${svgOf(k)}</span>` : ""}</td><td>${esc(a)}</td><td class="n">${esc(b)}</td><td class="note">${esc(c)}</td></tr>`; }).join("");
+}
+for (const art of Object.keys(PLAN)){
+  const P = PLAN[art], box = document.getElementById(P.pre);
+  box.addEventListener('click', e => { const c = e.target.closest('button[data-plan]'); if (c) auswahlOeffnen(art, +c.dataset.plan); });
+  document.getElementById(P.pre + '-leeren').onclick = () => { S.plan = {...S.plan, [art]: {}}; planRender(art); speichern(); };
+  document.getElementById(P.pre + '-zs').onclick = () => {
+    const n = planZaehlen(art);
+    if (!Object.keys(n).length) for (const k of P.werte) n[k] = 1;
+    const e = {...S.eigen}; for (const [k,c] of Object.entries(n)) e[k] = (e[k] || 0) + c;
+    S.eigen = e; zsRender(); speichern();
+    S.art = "zs"; alles(); window.scrollTo({top:0});
+    document.getElementById('zs-msg').textContent = t("planUebernommen");
+  };
+}
+document.querySelector('.reiter').addEventListener('click', e => {
+  const b = e.target.closest('[data-tab]'); if (!b || b.dataset.tab === S.art) return;
+  S.art = b.dataset.tab; alles(); speichern(); window.scrollTo({top:0});
+});
+document.getElementById('art').onchange = e => { S.art = e.target.value; alles(); speichern(); window.scrollTo({top:0}); };
+
+// STL für einen Stimmungs-/Lernkalender: leere Tage mit ihrer Zahl, markierte mit Stimmung/Zeit.
+// Getrennte Platten je Farbe: Zahlen, und je Stimmung (Stimmungskalender) bzw. alle Stunden (Lernkalender).
+async function planErzeugen(art){
+  const P = PLAN[art], $ = id => document.getElementById(P.pre + id), msg = $('-msg'), links = $('-links'), btn = $('-stl');
+  if (!(await findeQuelle())){ msg.textContent = t("stlOrdner"); $('-ordner-b').hidden = false; return; }
+  btn.disabled = true; msg.textContent = t("stlLaedt"); links.innerHTML = "";
+  const gruppen = new Map();                         // Gruppe → Schubladen in Fach-Reihenfolge
+  for (let d=1; d<=36; d++){
+    const k = planFach(art, d) || (d <= 31 ? "zahl_" + String(d).padStart(2,"0") : "");
+    if (!k) continue;
+    const g = k.startsWith("zahl_") ? t("planZahlenDatei") : art === "stimmung" ? k.replace("z_stimmung_", "") : "stunden";
+    if (!gruppen.has(g)) gruppen.set(g, []);
+    gruppen.get(g).push(k);
+  }
+  const titel = {stimmung: S.lang === "en" ? "mood_calendar" : "stimmungskalender", lern: S.lang === "en" ? "study_calendar" : "lernkalender"}[art];
+  const fehlt = new Set(), dateien = [];
+  try {
+    try { let teile;
+          try { teile = [{f: await ladeStl("modul_" + titel), dx:0, dy:0}]; }
+          catch { teile = await modulAusBausteinen(PLAN[art].titel[S.lang], false); }     // fertige Datei fehlt → aus Bausteinen
+          const u = URL.createObjectURL(new Blob([schreibeStl(teile)], {type:"model/stl"}));
+          stlUrls.push(u); dateien.push({url:u, name:`${titel}_modul.stl`}); }
+    catch { fehlt.add("modul_" + titel); }
+    const zahlenZuerst = [...gruppen].sort(([a],[b]) => (b === t("planZahlenDatei")) - (a === t("planZahlenDatei")));
+    for (const [g, namen] of zahlenZuerst){
+      const teile = [];
+      for (const name of namen){
+        try { const f = await ladeStl(name); const i = teile.length; teile.push({f, dx:(i%8 - 3.5)*36, dy:Math.floor(i/8)*54}); }
+        catch { fehlt.add(name); }
+      }
+      if (!teile.length) continue;
+      const url = URL.createObjectURL(new Blob([schreibeStl(teile)], {type:"model/stl"}));
+      stlUrls.push(url);
+      dateien.push({url, name:`${titel}_${g}_${teile.length}x.stl`});
+    }
+    if (!dateien.length) throw new Error("leer");
+    msg.textContent = t(art === "stimmung" ? "planFertigS" : "planFertigL", dateien.length) + (fehlt.size ? t("stlFehlt", [...fehlt].join(", ")) : "");
+    links.innerHTML = (dateien.length > 1 ? `<button data-alle>${t("stlAlle")}</button>` : "") + dateien.map(f => `<a href="${f.url}" download="${f.name}">${f.name}</a>`).join("");
+    const alle = links.querySelector('[data-alle]');
+    if (alle) alle.onclick = async () => { for (const a of links.querySelectorAll('a')){ a.click(); await new Promise(r => setTimeout(r, 400)); } };
+  } catch (err) { console.error(err); msg.textContent = t("stlFehler") + (fehlt.size ? t("stlFehlt", [...fehlt].slice(0, 6).join(", ") + (fehlt.size > 6 ? " …" : "")) : ""); }
+  btn.disabled = false;
+}
+for (const art of Object.keys(PLAN)){
+  const pre = PLAN[art].pre;
+  document.getElementById(pre + '-stl').onclick = () => planErzeugen(art);
+  document.getElementById(pre + '-ordner-b').onclick = () => document.getElementById(pre + '-ordner').click();
+  document.getElementById(pre + '-ordner').onchange = e => {
+    const m = ordnerDateien(e.target.files);
+    if (m.has("zahl_01.stl")){ stlQuelle = m; document.getElementById(pre + '-ordner-b').hidden = true; planErzeugen(art); }
+    else document.getElementById(pre + '-msg').textContent = t("stlFehler") + " " + t("stlOrdner");
+  };
+}
+
+// ---------- Eigenes Modul (eigene Überschrift, frei belegte Fächer) ----------
+const SCHRIFT = JSON.parse(document.getElementById('schrift').textContent);
+const emTitel = () => ((S.modul?.titel ?? "").trim() || t("emStandard")).toUpperCase();
+const slug = s => s.toLowerCase().replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss").replace(/[^a-z0-9]+/g,"_").replace(/^_|_$/g,"") || "modul";
+function emText(){ return textTeile(emTitel()); }
+function textTeile(titel){                           // Buchstaben-Teile für eine Überschrift (wie die Monatsnamen gesetzt)
+  const Z = SCHRIFT.zeichen, M = SCHRIFT.modul, teile = [], fehlt = new Set();
+  let x = 0, x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  for (const c of titel){
+    const g = Z[c]; if (!g){ fehlt.add(c); continue; }
+    if (g.box){ teile.push({name:"zeichen_" + c.codePointAt(0).toString(16).padStart(4,"0"), x}); x0 = Math.min(x0, x + g.box[0]); x1 = Math.max(x1, x + g.box[2]); y0 = Math.min(y0, g.box[1]); y1 = Math.max(y1, g.box[3]); }
+    x += g.adv;
+  }
+  if (!teile.length) return {teile, fehlt};
+  let k = M.hoehe / (y1 - y0); if ((x1 - x0) * k > M.breite_max) k = M.breite_max / (x1 - x0);   // wie text_cs: Gesamthöhe = 11 mm
+  const dx = -(x0 + x1) / 2 * k, dy = M.hf + M.kopf / 2 - 1 - (y0 + y1) / 2 * k, dz = M.tiefe - 0.01;
+  return {teile: teile.map(g => ({name:g.name, k, dx: dx + g.x * k, dy, dz})), fehlt};
+}
+function emAuswahl(sel, wert){
+  const cats = {}; for (const [k,it] of Object.entries(ICONS)) (cats[it.cat] ||= []).push(k);
+  sel.innerHTML = `<option value="">${esc(t("emLeer"))}</option><optgroup label="${esc(t("zsZahlen"))}">` + Array.from({length:31},(_,i)=>`<option value="zahl_${String(i+1).padStart(2,"0")}">${i+1}</option>`).join("") + `</optgroup>` +
+    Object.entries(cats).map(([c,ks]) => `<optgroup label="${esc(ct(c))}">` + ks.map(k => `<option value="${k}">${esc(nm(k))}</option>`).join("") + `</optgroup>`).join("");
+  sel.value = wert;
+}
+const emFach = d => { const k = S.modul?.faecher?.[d]; return istSchublade(k) ? k : ""; };
+function emRender(){
+  S.modul ||= {titel:"", nuten:false, faecher:{}};
+  const ti = document.getElementById('em-titel'); if (document.activeElement !== ti) ti.value = S.modul.titel || "";
+  ti.placeholder = t("emStandard");
+  document.getElementById('em-nuten').checked = !!S.modul.nuten;
+  const fc = "#5b6b7a";
+  let h = `<article class="modul"><div class="kopf"><h3>${esc(emTitel())}</h3></div><div class="fach" style="--c:${fc};--ci:${ink(fc)}">`;
+  for (let d=1; d<=36; d++){
+    const k = emFach(d), f = planFarbe(k);
+    h += k ? `<button class="cell" data-em="${d}"${f ? ` style="--c:${f};--ci:${ink(f)}"` : ""} aria-label="${d}: ${esc(zsName(k))}">${schubBild(k)}<span class="grip"></span></button>`
+           : `<button class="cell offen" data-em="${d}" aria-label="${d}"></button>`;
+  }
+  document.getElementById('em-modul').innerHTML = h + `</div></article>`;
+  const {fehlt} = emText(), zn = document.getElementById('em-zeichen');
+  zn.hidden = !fehlt.size; zn.textContent = fehlt.size ? t("emZeichen", [...fehlt].join(" ")) : "";
+  // Druckliste
+  const n = {}; for (let d=1; d<=36; d++){ const k = emFach(d); if (k) n[k] = (n[k] || 0) + 1; }
+  const zeilen = [[t("planModul") + " „" + emTitel() + "“", "1×", `${slug(emTitel())}_modul.stl`]];
+  for (const [k,c] of Object.entries(n)) zeilen.push([zsName(k), `${c}×`, schubDatei(k), k]);
+  document.querySelector('#em-liste tbody').innerHTML = zeilen.map(([a,b,c,k]) => { const f = planFarbe(k);
+    return `<tr><td>${k ? `<span class="mini"${f ? ` style="background:${f}"` : ""}>${zsBild(k)}</span>` : ""}</td><td>${esc(a)}</td><td class="n">${esc(b)}</td><td class="note">${esc(c)}</td></tr>`; }).join("");
+}
+document.getElementById('em').addEventListener('change', e => {
+  if (e.target.id === 'em-nuten'){ S.modul = {...S.modul, nuten: e.target.checked}; emRender(); speichern(); }
+});
+document.getElementById('em-titel').addEventListener('input', e => { S.modul = {...S.modul, titel: e.target.value}; emRender(); speichernBald(); });
+document.getElementById('em').addEventListener('click', e => { const c = e.target.closest('button[data-em]'); if (c) auswahlOeffnen("eigen", +c.dataset.em); });
+document.getElementById('em-leeren').onclick = () => { S.modul = {...S.modul, faecher: {}}; emRender(); speichern(); };
+async function modulAusBausteinen(titel, nuten){
+  const teile = [{f: await ladeStl(nuten ? "modul_leer_mit_nuten" : "modul_leer"), dx:0, dy:0}];
+  for (const g of textTeile(titel).teile) teile.push({...g, f: await ladeStl(g.name)});
+  return teile;
+}
+async function emErzeugen(){
+  const msg = document.getElementById('em-msg'), links = document.getElementById('em-links'), btn = document.getElementById('em-stl');
+  const mitSchubladen = Array.from({length:36}, (_,i) => emFach(i+1)).some(Boolean);
+  if (mitSchubladen && !(await findeQuelle())){ msg.textContent = t("stlOrdner"); document.getElementById('em-ordner-b').hidden = false; return; }
+  btn.disabled = true; msg.textContent = t("stlLaedt"); links.innerHTML = "";
+  const fehlt = new Set(), dateien = [], name = slug(emTitel());
+  const fertig = (teile, datei) => { const url = URL.createObjectURL(new Blob([schreibeStl(teile)], {type:"model/stl"})); stlUrls.push(url); dateien.push({url, name:datei}); };
+  try {
+    // 1. Modul mit Überschrift
+    const modul = S.modul.nuten ? "modul_leer_mit_nuten" : "modul_leer", teile = [];
+    try { teile.push({f: await ladeStl(modul), dx:0, dy:0}); } catch { fehlt.add(modul); }
+    if (teile.length){
+      for (const g of emText().teile){ try { teile.push({...g, f: await ladeStl(g.name)}); } catch { fehlt.add(g.name); } }
+      fertig(teile, `${name}_modul.stl`);
+    }
+    // 2. Schubladen in Fach-Reihenfolge (8 pro Reihe wie die Monatsplatten)
+    const sch = [];
+    for (let d=1; d<=36; d++){ const k = emFach(d); if (!k) continue;
+      try { const f = await ladeStl(k); const i = sch.length; sch.push({f, dx:(i%8 - 3.5)*36, dy:Math.floor(i/8)*54}); } catch { fehlt.add(k); } }
+    if (sch.length) fertig(sch, `${name}_${t("emSchubladen")}_${sch.length}x.stl`);
+    if (!dateien.length) throw new Error("leer");
+    msg.textContent = t("emFertig", dateien.length) + (fehlt.size ? t("stlFehlt", [...fehlt].join(", ")) : "");
+    links.innerHTML = (dateien.length > 1 ? `<button data-alle>${t("stlAlle")}</button>` : "") + dateien.map(f => `<a href="${f.url}" download="${f.name}">${f.name}</a>`).join("");
+    const alle = links.querySelector('[data-alle]');
+    if (alle) alle.onclick = async () => { for (const a of links.querySelectorAll('a')){ a.click(); await new Promise(r => setTimeout(r, 400)); } };
+  } catch (err) { console.error(err); msg.textContent = t("stlFehler") + (fehlt.size ? t("stlFehlt", [...fehlt].slice(0, 6).join(", ") + (fehlt.size > 6 ? " …" : "")) : ""); }
+  btn.disabled = false;
+}
+document.getElementById('em-stl').onclick = emErzeugen;
+document.getElementById('em-ordner-b').onclick = () => document.getElementById('em-ordner').click();
+document.getElementById('em-ordner').onchange = e => {
+  const m = ordnerDateien(e.target.files);
+  if (m.has("zahl_01.stl")){ stlQuelle = m; document.getElementById('em-ordner-b').hidden = true; emErzeugen(); }
+  else document.getElementById('em-msg').textContent = t("stlFehler") + " " + t("stlOrdner");
+};
+
+// ---------- Eigene Zusammenstellung ----------
+const zsName = schubName;
+const zsBild = schubBild;
+function zsAuswahl(){                                // Liste aller Schubladen, nach Kategorie gruppiert
+  const sel = document.getElementById('zs-motiv'), alt = sel.value, cats = {};
+  for (const [k,it] of Object.entries(ICONS)) (cats[it.cat] ||= []).push(k);
+  sel.innerHTML = zahlOptionen() +
+    Object.entries(cats).map(([c,ks]) => `<optgroup label="${esc(ct(c))}">` + ks.map(k => `<option value="${k}">${esc(nm(k))}</option>`).join("") + `</optgroup>`).join("");
+  if (alt) sel.value = alt;
+}
+function zsRender(){
+  S.eigen ||= {};
+  const tb = document.querySelector('#zs-liste tbody'), e = Object.entries(S.eigen).filter(([k]) => istSchublade(k));
+  const summe = e.reduce((a,[,n]) => a+n, 0);
+  tb.innerHTML = e.length ? e.map(([k,n]) => `<tr><td><span class="mini"${STIMMUNG[k] ? ` style="background:${STIMMUNG[k]}"` : ""}>${zsBild(k)}</span></td><td>${esc(zsName(k))}</td>
+      <td class="n"><button data-zs="${k}" data-d="-1" aria-label="−">−</button> ${n}× <button data-zs="${k}" data-d="1" aria-label="+">+</button></td>
+      <td><button data-zs="${k}" data-d="x">${t("zsEntf")}</button></td></tr>`).join("") + `<tr><td></td><td colspan="3" class="note">${t("zsSumme", summe)}</td></tr>`
+    : `<tr><td class="note">${t("zsLeer")}</td></tr>`;
+  document.getElementById('zs-stl').disabled = !summe;
+}
+document.getElementById('zs-plus').onclick = () => {
+  const k = document.getElementById('zs-motiv').value, n = Math.max(1, Math.min(99, +document.getElementById('zs-anzahl').value || 1));
+  S.eigen = {...S.eigen, [k]: Math.min(999, (S.eigen?.[k] || 0) + n)}; zsRender(); speichern();
+};
+document.querySelector('#zs-liste').addEventListener('click', e => {
+  const b = e.target.closest('button[data-zs]'); if (!b) return;
+  const k = b.dataset.zs, d = b.dataset.d, n = d === "x" ? 0 : (S.eigen[k] || 0) + +d;
+  S.eigen = {...S.eigen}; if (n > 0) S.eigen[k] = n; else delete S.eigen[k];
+  zsRender(); speichern();
+});
+document.getElementById('zs-leeren').onclick = () => { S.eigen = {}; zsRender(); speichern(); };
+async function zsErzeugen(){
+  const msg = document.getElementById('zs-msg'), links = document.getElementById('zs-links'), btn = document.getElementById('zs-stl');
+  if (!(await findeQuelle())){ msg.textContent = t("stlOrdner"); document.getElementById('zs-ordner-b').hidden = false; return; }
+  btn.disabled = true; msg.textContent = t("stlLaedt"); links.innerHTML = "";
+  const namen = Object.entries(S.eigen || {}).flatMap(([k,n]) => Array(n).fill(k)), fehlt = new Set(), dateien = [];
+  try {
+    for (let p = 0; p < namen.length; p += 36){
+      const teile = [];
+      for (const name of namen.slice(p, p + 36)){
+        try { const f = await ladeStl(name); const i = teile.length; teile.push({f, dx:(i%8 - 3.5)*36, dy:Math.floor(i/8)*54}); }   // wie die Monatsplatten
+        catch { fehlt.add(name); }
+      }
+      if (!teile.length) continue;
+      const url = URL.createObjectURL(new Blob([schreibeStl(teile)], {type:"model/stl"}));
+      stlUrls.push(url);
+      dateien.push({url, name:`eigene_zusammenstellung_${dateien.length + 1}_${teile.length}x.stl`});
+    }
+    if (!dateien.length) throw new Error("leer");
+    msg.textContent = t("zsFertig", dateien.length) + (fehlt.size ? t("stlFehlt", [...fehlt].join(", ")) : "");
+    links.innerHTML = (dateien.length > 1 ? `<button id="zs-alle">${t("stlAlle")}</button>` : "") + dateien.map(f => `<a href="${f.url}" download="${f.name}">${f.name}</a>`).join("");
+    const alle = document.getElementById('zs-alle');
+    if (alle) alle.onclick = async () => { for (const a of links.querySelectorAll('a')){ a.click(); await new Promise(r => setTimeout(r, 400)); } };
+  } catch (err) { console.error(err); msg.textContent = t("stlFehler") + (fehlt.size ? t("stlFehlt", [...fehlt].slice(0, 6).join(", ") + (fehlt.size > 6 ? " …" : "")) : ""); }
+  btn.disabled = false;
+}
+document.getElementById('zs-stl').onclick = zsErzeugen;
+document.getElementById('zs-ordner-b').onclick = () => document.getElementById('zs-ordner').click();
+document.getElementById('zs-ordner').onchange = e => {
+  const m = ordnerDateien(e.target.files);
+  if (m.has("zahl_01.stl")){ stlQuelle = m; document.getElementById('zs-ordner-b').hidden = true; document.getElementById('b-ordner').hidden = true; zsErzeugen(); }
+  else document.getElementById('zs-msg').textContent = t("stlFehler") + " " + t("stlOrdner");
+};
+document.getElementById('b-ordner').onclick = () => document.getElementById('stl-ordner').click();
+document.getElementById('stl-ordner').onchange = e => {
+  const m = ordnerDateien([...e.target.files].filter(f => f.name.endsWith(".stl")));
+  if (m.has("zahl_01.stl")){ stlQuelle = m; document.getElementById('b-ordner').hidden = true; stlErzeugen(); }
+  else document.getElementById('stl-msg').textContent = t("stlFehler") + " " + t("stlOrdner");
+};
+
+// ---------- Steuerung ----------
+const jahrSel = document.getElementById('jahr'), landSel = document.getElementById('land');
+jahrSel.innerHTML = JAHRE.map(y=>`<option value="${y}">${y}</option>`).join("");
+landSel.innerHTML = Object.entries(LAENDER).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
+jahrSel.onchange = () => { KONFLIKTE = []; konflikteRendern(); S.year = +jahrSel.value; S.over = Object.fromEntries(Object.entries(S.over).filter(([k])=>k.startsWith("b")||(()=>{const [m,d]=k.split("-").map(Number);return d<=dim(S.year,m-1);})())); render(); speichern(); };
+landSel.onchange = () => { S.land = landSel.value; render(); speichern(); };
+document.getElementById('staat').onchange = e => { S.staat = e.target.value; KONFLIKTE = []; konflikteRendern(); render(); gruppenRendern(); speichern(); };
+document.getElementById('zaehlung').onchange = e => { S.zaehlung = e.target.value; render(); speichern(); };
+document.getElementById('sprache').onchange = e => { S.lang = e.target.value; alles(); speichern(); };
+const conf = document.getElementById('confirm');
+document.getElementById('b-reset').onclick = () => { conf.hidden = false; document.getElementById('c-no').focus(); };
+document.getElementById('c-no').onclick = () => { conf.hidden = true; };
+document.getElementById('c-yes').onclick = () => { S.over = {}; S.auto = {}; KONFLIKTE = []; conf.hidden = true; render(); konflikteRendern(); speichern(); };
+document.getElementById('frame').addEventListener('input', e => { S.frame = e.target.value; render(); speichernBald(); });
+document.getElementById('preset').onchange = e => { const p = PRESETS[e.target.value]; if (p){ S.colors = p.slice(); render(); speichern(); } e.target.value = ""; };
+document.getElementById('copy').onclick = async () => {
+  const src = document.getElementById('copy-src'), msg = document.getElementById('copy-msg'), text = src.value;
+  // 1. klassisch über markierten Text (klappt auch bei lokal geöffneter Datei und in eingebetteten Ansichten)
+  src.hidden = false; src.focus(); src.select(); src.setSelectionRange(0, text.length);
+  let ok = false;
+  try { ok = document.execCommand("copy"); } catch {}
+  // 2. sonst moderne Zwischenablage (mit Zeitlimit, falls der Browser nicht antwortet)
+  if (!ok && navigator.clipboard?.writeText){
+    try { await Promise.race([navigator.clipboard.writeText(text), new Promise((_, n) => setTimeout(n, 1500))]); ok = true; } catch {}
+  }
+  if (ok){ msg.textContent = t("kopiert"); src.hidden = true; }
+  else { src.focus(); src.select(); msg.textContent = t("markiert"); }       // 3. Text bleibt sichtbar und markiert
+};
+document.getElementById('save-txt').onclick = () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([document.getElementById('copy-src').value], {type:"text/plain;charset=utf-8"}));
+  a.download = `${S.lang === "en" ? "print_list" : "druckliste"}_${S.year}.txt`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+};
+
+// ---------- Schnell einsetzen (Kästchen) ----------
+const GRUPPEN = [
+  {id:"gesetzlich", an:true}, {id:"feste", an:true}, {id:"jahreszeiten"}, {id:"islamisch"}, {id:"juedisch"},
+  {id:"orthodox"}, {id:"hindu"}, {id:"laender"}, {id:"international"}, {id:"aktion"}
+];
+const gName = id => L[S.lang].gruppen[id][0];
+const gWrap = document.getElementById('gruppen');
+function gruppenRendern(){
+  const an = S.gruppen || GRUPPEN.filter(g=>g.an).map(g=>g.id);
+  gWrap.innerHTML = GRUPPEN.map((g,i)=>{ let [n,info] = L[S.lang].gruppen[g.id];
+    if (typeof info === "function") info = info([...new Set((FEIERTAGE.jahr(S.year).laender||[]).map(r=>r[5]).filter(c=>c && c!==S.staat))].join(", "));
+    return `<label class="gruppe"><input type="checkbox" value="${g.id}" ${an.includes(g.id)?"checked":""}><span class="rang">${i+1}</span><span>${n}<small>${info}</small></span></label>`; }).join("");
+}
+function gewaehlt(){ return [...gWrap.querySelectorAll('input:checked')].map(i=>i.value); }
+gWrap.addEventListener('change', ()=>{ S.gruppen = gewaehlt(); renderListe(); speichernBald(); });
+document.getElementById('b-alle').onclick = ()=>{ gWrap.querySelectorAll('input').forEach(i=>i.checked=true); S.gruppen=gewaehlt(); renderListe(); speichernBald(); };
+document.getElementById('b-keine').onclick = ()=>{ gWrap.querySelectorAll('input').forEach(i=>i.checked=false); S.gruppen=gewaehlt(); renderListe(); speichernBald(); };
+const gueltig = (y,d) => { const [m,tg]=d.split("-").map(Number); return tg <= dim(y,m-1); };
+function kandidaten(){
+  const y = S.year, ev = FEIERTAGE.jahr(y), c = {}, an = gewaehlt();
+  for (const g of GRUPPEN){
+    if (!an.includes(g.id)) continue;
+    for (const r of (g.id === "gesetzlich" ? gesetzlicheListe(ev) : (ev[g.id]||[]))){
+      const [d,k,laender] = r;
+      if (g.id === "laender" && r[5] === S.staat) continue;   // eigenes Land steht schon bei den gesetzlichen Feiertagen
+      if (laender && !laender.includes(S.land)) continue;
+      if (!gueltig(y,d) || !ICONS[k]) continue;
+      (c[d] ||= []); if (!c[d].some(x=>x.k===k)) c[d].push({k, g:g.id});
+    }
+  }
+  return c;
+}
+let KONFLIKTE = [];
+const KOMBI = {};
+for (const k of Object.keys(ICONS)) if (k.startsWith("k_")) { const [a,b] = k.slice(2).split("__"); KOMBI[a+"|"+b] = k; KOMBI[b+"|"+a] = k; }
+const KOMBI3 = {};
+for (const k of Object.keys(ICONS)) if (k.startsWith("k3_")) KOMBI3[k.slice(3).split("__").sort().join("|")] = k;
+function dreierFuer(liste){
+  const ks = liste.map(x=>x.k);
+  for (const [sig,k] of Object.entries(KOMBI3)) if (sig.split("|").every(s=>ks.includes(s))) return k;
+  return null;
+}
+function kombiFuer(liste){
+  const d3 = dreierFuer(liste); if (d3) return d3;              // erstes Paar (in Vorrang-Reihenfolge), für das es eine Doppel-Schublade gibt
+  for (let i=0;i<liste.length;i++) for (let j=i+1;j<liste.length;j++){ const k = KOMBI[liste[i].k+"|"+liste[j].k]; if (k) return k; }
+  return null;
+}
+function alleKombis(liste){
+  const r=[]; const d3 = dreierFuer(liste); if (d3) r.push(d3); for (let i=0;i<liste.length;i++) for (let j=i+1;j<liste.length;j++){ const k = KOMBI[liste[i].k+"|"+liste[j].k]; if (k && !r.includes(k)) r.push(k); }
+  return r;
+}
+let letzteMeldung = null;
+function meldung(){
+  if (!letzteMeldung) { document.getElementById('ein-msg').textContent = ""; return; }
+  const {n, konf, fehlt, ch} = letzteMeldung;
+  document.getElementById('ein-msg').textContent = t("eingesetzt", n) + (konf ? t("doppelteTage", konf) : ".") +
+    (fehlt.length ? t("fehlen", S.year, fehlt.join(", ")) : "") + (ch ? t("chHinweis") : "");
+}
+document.getElementById('b-einsetzen').onclick = () => {
+  const behalten = document.getElementById('opt-behalten').checked;
+  S.auto ||= {};
+  const c = kandidaten(); let n = 0; KONFLIKTE = [];
+  for (const [d, liste] of Object.entries(c)){
+    const eigene = S.over[d] && !S.auto[d];
+    if (eigene && behalten){
+      if (!liste.some(x=>x.k===S.over[d])) KONFLIKTE.push({d, liste:[{k:S.over[d], g:"_eigen"}, ...liste]});
+      continue;
+    }
+    const doppel = document.getElementById('opt-doppel').checked && liste.length > 1 ? kombiFuer(liste) : null;
+    S.over[d] = doppel || liste[0].k; S.auto[d] = true; n++;
+    if (liste.length > 1) KONFLIKTE.push({d, liste});
+  }
+  letzteMeldung = { n, konf: KONFLIKTE.length, fehlt: FEIERTAGE.fehlt(S.year).filter(()=>gewaehlt().includes("hindu")),
+                    ch: S.staat === "CH" && gewaehlt().includes("gesetzlich") };
+  meldung(); render(); konflikteRendern(); speichern();
+};
+function konflikteRendern(){
+  const box = document.getElementById('konflikte');
+  if (!KONFLIKTE.length){ box.hidden = true; box.innerHTML = ""; return; }
+  box.hidden = false;
+  const gLabel = g => g === "_eigen" ? t("deine") : gName(g);
+  box.innerHTML = `<div class="label">${t("konfT")}</div>` + KONFLIKTE.map(({d,liste})=>
+    `<div class="konflikt" data-d="${d}"><span class="datum">${datumTxt(d)}</span>` + liste.map(x=>
+      `<button data-k="${x.k}" aria-pressed="${S.over[d]===x.k}"><span class="mini">${svgOf(x.k)}</span>${esc(nm(x.k))}<span class="note">· ${esc(gLabel(x.g))}</span></button>`).join("") +
+      alleKombis(liste.filter(x=>!x.k.startsWith("k_"))).map(k=>`<button data-k="${k}" aria-pressed="${S.over[d]===k}"><span class="mini">${svgOf(k)}</span>${esc(nm(k))}<span class="note">· ${t("doppelS")}</span></button>`).join("") + `</div>`
+  ).join("");
+}
+document.getElementById('konflikte').addEventListener('click', e => {
+  const b = e.target.closest('button[data-k]'); if (!b) return;
+  const d = b.closest('.konflikt').dataset.d;
+  S.over[d] = b.dataset.k; S.auto ||= {}; S.auto[d] = true;
+  render(); konflikteRendern(); speichern();
+});
+
+// ---------- Speichern ----------
+const LS = "schubladen-kalender-v1";
+let ref = null, timer = null, statusKey = "s_browser", statusS = "local";
+const statusEl = document.getElementById('status'), statusT = document.getElementById('status-t');
+function status(s, k){ statusS = s; statusKey = k; statusEl.dataset.s = s; statusT.textContent = t(k); }
+function lokal(){ try { localStorage.setItem(LS, JSON.stringify(S)); return true; } catch { return false; } }
+async function speichern(){
+  clearTimeout(timer);
+  lokal();
+  if (!ref) { status("local", "s_local"); return; }
+  try { await ref.set({config: JSON.stringify(S), v: 1}); status("db", "s_db"); }
+  catch { status("local", "s_fail"); }
+}
+function speichernBald(){ clearTimeout(timer); timer = setTimeout(speichern, 600); }
+function uebernehmen(o){ if (o && typeof o === "object"){ S = Object.assign(structuredClone(DEFAULT), o); if (!Array.isArray(S.colors)||S.colors.length!==12) S.colors = DEFAULT.colors.slice(); if (!L[S.lang]) S.lang = "de"; for (const k of Object.keys(S.over||{})) if (!ICONS[S.over[k]]) delete S.over[k]; if (!EV.staaten[S.staat]) S.staat = "DE"; if (!JAHRE.includes(S.year)) S.year = DEFAULT.year; } }
+function alles(){ texte(); zsAuswahl(); zsRender(); planRender("stimmung"); planRender("lern"); emRender(); render(); gruppenRendern(); konflikteRendern(); meldung(); status(statusS, statusKey); }
+try { const raw = localStorage.getItem(LS); if (raw) uebernehmen(JSON.parse(raw)); } catch {}
+alles();
+status("local", "s_browser");
+(async () => {
+  try {
+    if (!window.claude?.use) return;
+    const [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+    const id = user ? await user.id() : null;
+    if (!db || !id) return;
+    ref = db.doc(`data/users/${id}/kalender`);
+    const snap = await ref.get();
+    if (snap.exists && snap.data()?.config) { uebernehmen(JSON.parse(snap.data().config)); alles(); lokal(); }
+    status("db", "s_konto");
+  } catch { /* bleibt bei Browser-Speicher */ }
+})();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# von den Werkzeugen erzeugt (nicht ins Repository)
+einzelne_schubladen/
+skripte/eigene_schubladen*.stl
+
+# System
+.DS_Store
+Thumbs.db

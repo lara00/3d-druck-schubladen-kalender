@@ -1,0 +1,70 @@
+WEITERE FEIER- UND AKTIONSTAGE
+==============================
+
+Vier Druckplatten in 4_Extra_Schubladen/welt_feiertage/. Reihenfolge auf der Platte:
+von links nach rechts, Reihe für Reihe (Platz 1 = vorne links).
+Bewegliche Tage sind für 2027 angegeben. Jüdische Feiertage beginnen am Vorabend.
+Den Internationalen Frauentag (8.3.) findest du auf der Feiertags-Platte (schubladen_feiertage_20x.stl, Platz 4).
+
+Religionen  (schubladen_religionen_11x.stl)
+------------------------------------------------------------------------
+ 1  Rosch ha-Schana (Apfel)                      2.10.2027 (ab Vorabend)
+ 2  Jom Kippur (Schofar)                         11.10.2027 (ab Vorabend)
+ 3  Sukkot (Laubhütte)                           16.10.2027 (ab Vorabend)
+ 4  Chanukka (Leuchter)                          25.12.2027 (ab Vorabend, 8 Tage)
+ 5  Pessach (Matze)                              22.4.2027 (ab Vorabend)
+ 6  Purim (Maske)                                23.3.2027 (ab Vorabend)
+ 7  Orthodoxes Ostern                            2.5.2027
+ 8  Orthodoxe Weihnachten                        7.1.
+ 9  Diwali (Öllampe)                             29.10.2027
+10  Holi (Farben)                                22.3.2027
+11  Vesakh (Lotus)                               20.5.2027 (je nach Land)
+
+Länder & regional  (schubladen_laender_12x.stl)
+------------------------------------------------------------------------
+ 1  Österreich: Nationalfeiertag                 26.10.
+ 2  Schweiz: Bundesfeier                         1.8.
+ 3  Fronleichnam (DE regional, AT, CH)           27.5.2027
+ 4  Mariä Himmelfahrt (AT, BY/SL)                15.8.
+ 5  Mariä Empfängnis (AT)                        8.12.
+ 6  Buß- und Bettag (Sachsen)                    17.11.2027
+ 7  Frankreich: Nationalfeiertag                 14.7.
+ 8  Niederlande: Königstag                       27.4.
+ 9  USA: Unabhängigkeitstag                      4.7.
+10  USA: Thanksgiving                            25.11.2027
+11  Irland: St. Patrick's Day                    17.3.
+12  Mexiko: Tag der Toten                        1.–2.11.
+
+Internationale Tage  (schubladen_international_13x.stl)
+------------------------------------------------------------------------
+ 1  Chinesisches Neujahr                         6.2.2027
+ 2  Weltwassertag                                22.3.
+ 3  Tag der Erde                                 22.4.
+ 4  Welttag des Buches                           23.4.
+ 5  Tag des Baumes                               25.4.
+ 6  Weltumwelttag                                5.6.
+ 7  Fête de la Musique                           21.6.
+ 8  Tag der Freundschaft                         30.7.
+ 9  Weltkindertag (DE; in Thüringen Feiertag)    20.9.
+10  Welttierschutztag                            4.10.
+11  Weltspartag                                  30.10.
+12  Weltlachtag                                  2.5.2027 (1. Sonntag im Mai)
+13  Internationaler Männertag                    19.11. (in AT/DE oft auch 3.11.)
+
+Lustige Aktionstage  (schubladen_aktionstage_12x.stl)
+------------------------------------------------------------------------
+ 1  Tag der Pizza                                9.2.
+ 2  Pi-Tag                                       14.3.
+ 3  Weltraum-Tag                                 4.5.
+ 4  Weltpinguintag                               25.4.
+ 5  Welttag der Schokolade                       7.7.
+ 6  Welt-Emoji-Tag                               17.7.
+ 7  Tag der Pommes                               13.7.
+ 8  Tag des Speiseeises                          18.7.2027 (3. So im Juli)
+ 9  Weltkatzentag                                8.8.
+10  Internationaler Hundetag                     26.8.
+11  Tag des Kaffees                              1.10.
+12  Tag des Kekses                               4.12.
+
+Hinweis: Lustige Aktionstage sind meist aus den USA und keine offiziellen Feiertage.
+Termine von Vesakh und Holi können je nach Land/Gemeinde um einen Tag abweichen.

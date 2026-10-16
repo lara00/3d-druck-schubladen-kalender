@@ -1,0 +1,35 @@
+STIMMUNGSKALENDER – DRUCKLISTE
+==============================
+
+Ein Modul für einen Monat. Jeden Abend tauschst du die Zahl des Tages gegen die Schublade
+mit deiner Stimmung. Am Monatsende siehst du auf einen Blick, wie der Monat war.
+
+  Datei                                   Anzahl  Farbe
+  stimmungskalender_modul.stl             1×      beliebig (steht allein)
+    oder stimmungskalender_modul_mit_nuten.stl    (mit Nuten, an die Monatsmodule ansteckbar)
+  schubladen_tag_01-31.stl                1×      beliebig – die Zahlen für den Start
+  stimmung_5_super_10x.stl                1×      grün
+  stimmung_4_gut_10x.stl                  1×      hellgrün
+  stimmung_3_okay_10x.stl                 1×      gelb
+  stimmung_2_schlecht_10x.stl             1×      orange
+  stimmung_1_mies_10x.stl                 1×      rot
+
+  Je Stimmung 10 Schubladen, zusammen 50 – mehr als ein Monat braucht. Wenn eine Stimmung
+  knapp wird, die Platte einfach noch einmal drucken.
+  Die 5 übrigen Fächer (unten rechts) sind Platz für je eine Stimmung als Legende.
+  Englische Beschriftung: mood_calendar_modul.stl / mood_calendar_modul_mit_nuten.stl
+
+Verbinder (nur für die Variante mit Nuten): 1_Monatskalender/3_Verbinder
+Drucker-Einstellungen wie beim Monatskalender (siehe ../LIES_MICH.txt).
+
+
+MOOD CALENDAR – PRINT LIST (English)
+------------------------------------
+One module for one month. Every evening swap the day's number for the drawer with your mood.
+
+  mood_calendar_modul.stl (or …_mit_nuten.stl to connect to the month modules)   1×
+  schubladen_tag_01-31.stl   1×   numbers to start with
+  stimmung_5_super_10x.stl   1×   green        stimmung_2_schlecht_10x.stl   1×   orange
+  stimmung_4_gut_10x.stl     1×   light green  stimmung_1_mies_10x.stl       1×   red
+  stimmung_3_okay_10x.stl    1×   yellow
+  10 drawers per mood (50 in total). The 5 spare compartments hold one of each mood as a legend.

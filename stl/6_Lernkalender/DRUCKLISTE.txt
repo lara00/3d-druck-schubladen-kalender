@@ -1,0 +1,32 @@
+LERNKALENDER – DRUCKLISTE
+=========================
+
+Ein Modul für einen Monat. Jeden Tag steckst du die Schublade mit den Stunden ein, die du
+gelernt hast. Am Monatsende siehst du, wie viel du geschafft hast.
+
+  Datei                                   Anzahl
+  lernkalender_modul.stl                  1×      (steht allein)
+    oder lernkalender_modul_mit_nuten.stl         (mit Nuten, an die Monatsmodule ansteckbar)
+  schubladen_tag_01-31.stl                1×      die Zahlen für den Start (und für Tage ohne Lernen)
+  schubladen_stunden_15min-7h30_30x.stl   nach Bedarf   15, 30, 45 min, 1 h, 1:15 … 7:30
+  schubladen_stunden_7h45-15h_30x.stl     nach Bedarf   7:45 … 15 h
+  schubladen_stunden_15h15-20h_20x.stl    nach Bedarf   15:15 … 20 h
+
+  Jede Zeit gibt es einmal (in Viertelstunden, 80 Schubladen auf 3 Platten). Wie oft du sie brauchst, rechnet der
+  Konfigurator aus (Kalender-Art „Lernkalender“). Oder nur die Zeiten, die du oft brauchst,
+  über „Eigene Zusammenstellung“ drucken.
+  Tipp: in einer zweiten Farbe drucken, dann heben sich Lerntage von freien Tagen ab.
+  Englische Beschriftung: study_calendar_modul.stl / study_calendar_modul_mit_nuten.stl
+
+Verbinder (nur für die Variante mit Nuten): 1_Monatskalender/3_Verbinder
+Drucker-Einstellungen wie beim Monatskalender (siehe ../LIES_MICH.txt).
+
+
+STUDY CALENDAR – PRINT LIST (English)
+-------------------------------------
+One module for one month. Every day put in the drawer with the hours you studied.
+
+  study_calendar_modul.stl (or …_mit_nuten.stl to connect to the month modules)   1×
+  schubladen_tag_01-31.stl     1×   numbers to start with
+  schubladen_stunden_15min-7h30_30x.stl, _7h45-15h_30x.stl, _15h15-20h_20x.stl
+                               15 min to 20 h in quarter hours – the configurator calculates how many

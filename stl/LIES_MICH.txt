@@ -1,0 +1,125 @@
+ALLES ZUM DRUCKEN – ÜBERSICHT
+=============================
+
+Alle Schubladen haben dieselbe Größe und Rastung und passen in ALLE Regale:
+Monatskalender, Adventskalender und Testmodul.
+
+Drucker-Einstellung (Prusa Core One L):
+  Drucker "0.6 nozzle"  +  Druckprofil "@COREONE L 0.6" (z. B. 0.32mm SPEED)
+  Kein Stützmaterial, Infill 10–15 %, Teile so drucken, wie sie in der Datei liegen.
+
+
+1_Monatskalender      365-Tage-Kalender, 12 Monatsmodule (je 6 × 6 Fächer)
+                      Schubladen: eine Platte mit 1–31, für den ganzen Kalender 12× drucken
+                      → genaue Liste + Abhak-Tabelle: DRUCKLISTE.txt
+                      Gesamt ca. 83 × 57 × 5,5 cm
+                      4_Abschlussleisten: glatter Rand rundherum (optional, 14 Leisten)
+                      1_Module_EN: dieselben 12 Module mit englischen Monatsnamen
+                      (JANUARY … DECEMBER) – statt 1_Module drucken, wenn du es englisch willst
+
+2_Adventskalender     advent_regal.stl            Regal 6 × 4 Fächer (20,5 × 11,4 × 4,8 cm)
+                      advent_schubladen_1-24.stl  alle 24 Schubladen auf einem Bett
+
+3_Testmodul           testmodul_2x2.stl                    kleines Regal 2 × 2 Fächer, Nut mittig auf jeder Seite
+                      test_abschlussleisten_4x.stl         Rand fürs Testmodul (oben, unten, links, rechts), flach drucken
+                      test_schubladen_1-12.stl             Zahlen 1–12
+                      test_verbinder_passungen_6x.stl      Verbinder 1/2/3 Kerben (stramm/mittel/locker)
+                                                           → MITTEL (2 Kerben) hat am besten gepasst
+
+4_Extra_Schubladen    schubladen_leer_12x.stl              ohne Muster (zum Bemalen/Beschriften)
+                      schubladen_muster_12x.stl            Streifen, Diagonal, Punkte, Wellen, Zickzack, Karo,
+                                                           Rauten, Gitter, Kreise, Sterne, Waben, Rahmen
+                      schubladen_symbole_7x.stl            ! ? Play To-do Kaffee Einkaufstasche leer
+                      schubladen_jahreszeiten_feste_6x.stl Frühling Sommer Herbst Winter Geburtstag Geschenk
+                      schubladen_wochentage_7x.stl         MO DI MI DO FR SA SO
+                      schubladen_bildsymbole_12x.stl       Smiley, Herz, Stern, Sonne, Schneeflocke, Flugzeug, Noten, Blume, Blitz,
+                                                           Kleeblatt, Schirm, Haus
+                      schubladen_wochentage_en_7x.stl      MO TU WE TH FR SA SU (englisch)
+                      schubladen_laender_feiertage_21x.stl Feiertage weiterer Länder: Flaggen mit Länderkürzel
+                                                           (LI LU BE ES GR PL IT PT TR CZ HR CA), Gründonnerstag,
+                                                           Gedenktag, Befreiung, Verfassung, Bank Holiday, Europatag …
+                      schubladen_flaggen_9x.stl            Flaggen für die übrigen Länder: DE AT CH NL FR DK GB IE US
+                                                           → zusammen gibt es für alle 21 Länder eine Flagge
+                      LAENDER_FEIERTAGE.txt                welches Symbol = welcher Tag + Feiertage 2027 je Land
+                      schubladen_feiertage_20x.stl         alle Feier- und Festtage (Deutschland) als Symbole
+                      FEIERTAGE.txt                        welches Symbol = welcher Tag + Daten 2027
+                      schubladen_islamische_tage_11x.stl   islamische Fest- und Gedenktage als Symbole
+                      ISLAMISCHE_TAGE.txt                  welches Symbol = welcher Tag + Daten 2027
+                      schubladen_termine_12x.stl           Prüfung, Arztbesuch, Zahnarzt, Termin (Uhr), Friseur, Sport,
+                                                           Urlaub, Party, Müllabfuhr, Rechnung (€), Werkstatt, Tierarzt
+                      schubladen_sport_12x.stl             Schwimmen, Radfahren, Laufen, Fußball, Fitness, Yoga, Wandern,
+                                                           Ski, Tennis, Basketball, Tanzen, Klettern
+                      schubladen_hobby_12x.stl             Gitarre, Malen, Kochen, Backen, Gaming, Fotografieren, Angeln,
+                                                           Garten, Camping, Strand, Konzert, Spieleabend
+                      schubladen_alltag_12x.stl            Wäsche, Putzen, Blumen gießen, Medikament, Schule, Arbeit, Auto,
+                                                           Zug, Paket, Kino, Lesen, Telefonieren
+                      weitere_symbole/                     132 weitere Symbole auf 12 Platten:
+                                                           Tiere, Natur & Wetter, Essen & Trinken, Unterwegs, Zuhause,
+                                                           Büro & Schule, Zeichen, Feiern & Erfolg, Kleidung & Pflege (je 10),
+                                                           Gesichter (30, auf zwei Platten),
+                                                           (Stimmungs- und Stunden-Schubladen: siehe 5_Stimmungskalender, 6_Lernkalender)
+                                                           Studium (12): Abgabe, Deadline, Klausur, Mündliche Prüfung, Vorlesung,
+                                                           Lernen, Referat, Uni, Hausarbeit, Abschluss, Lerngruppe, Labor
+                                                           → Reihenfolge auf der Platte wie im Konfigurator
+                      buchstaben_gross_29x.stl             A–Z + Ä Ö Ü     (Platte 21 × 27 cm → passt auf den Core One L)
+                      buchstaben_klein_30x.stl             a–z + ä ö ü ß   (Platte 21 × 27 cm → passt auf den Core One L)
+                      welt_feiertage/                      48 weitere Tage auf 4 Platten: Religionen (jüdisch, orthodox,
+                                                           Diwali, Holi, Vesakh), Länder (AT, CH, FR, NL, USA, IE, MX,
+                                                           regionale DE-Feiertage), internationale Tage, lustige Aktionstage
+                                                           → WEITERE_FEIERTAGE.txt: Symbol, Tag und Datum 2027
+                      doppel_schubladen_23x.stl            zwei Tage auf einer Front, für alle Tage, die 2026–2030
+                                                           zusammenfallen → DOPPEL_SCHUBLADEN.txt
+                      doppel_schubladen_2_28x.stl          dasselbe für die weiteren Länder (z. B. Türkei, Italien, Spanien)
+                      doppel_schubladen_3_11x.stl          Nationalfeiertage anderer Länder, die mit anderen Tagen zusammenfallen
+                      doppel_schubladen_4_2x.stl           zwei Ergänzungen (islamische Tage 2029/2030)
+                      dreifach_schubladen_2x.stl           25.12.2027: Weihnachten + Chanukka + Isra und Miradsch;
+                                                           25.4. (IT/PT): Befreiung + Tag des Baumes + Weltpinguintag
+                      wochentag_zahlen/                    Zahlen 1–31 mit Wochentag darüber (MO 1 … SO 31), je Wochentag eine Platte
+                                                           (zahlen_mo … zahlen_so, englisch zusätzlich tu/we/th/su). Passt nur für ein Jahr –
+                                                           im Konfigurator „Tag im Monat mit Wochentag“ wählen, der sucht die richtigen aus
+                      monat_zahlen/                        Zahlen mit Monatskürzel darüber (JAN 1 … DEZ 31), je Monat eine Platte
+                                                           (Februar mit 29; englisch zusätzlich mar/may/oct/dec). Passt jedes Jahr –
+                                                           im Konfigurator „Tag im Monat mit Monat“ wählen
+                      tage_im_jahr/                        Schubladen 1–366 (Tag des Jahres), je 36 Stück pro Datei (= ein Modul), 11 Dateien
+                                                           366 ist für Schaltjahre (2028)
+
+5_Stimmungskalender   eigener Kalender für einen Monat: jeden Abend die Zahl gegen die Stimmung tauschen
+                      stimmungskalender_modul.stl (oder _mit_nuten), Zahlen 1–31, je Stimmung eine Platte
+                      mit 10 Schubladen zum Drucken in ihrer Farbe (super grün … mies rot)
+                      → genaue Liste: 5_Stimmungskalender/DRUCKLISTE.txt
+
+6_Lernkalender        eigener Kalender für einen Monat: jeden Tag die gelernten Stunden einstecken
+                      lernkalender_modul.stl (oder _mit_nuten), Zahlen 1–31, Stunden 15 min bis 20 h in Viertelstunden (3 Platten)
+                      → genaue Liste: 6_Lernkalender/DRUCKLISTE.txt
+
+Eigenes Modul         im Konfigurator (index.html) Kalender-Art „Eigenes Modul“ wählen: Überschrift selbst eingeben,
+                      die 36 Fächer mit beliebigen Schubladen füllen und Modul + Schubladen als STL herunterladen.
+                      Bausteine dafür: einzeln/modul_leer*.stl und einzeln/zeichen_*.stl (je Buchstabe ein Teil)
+
+Einzelne Schubladen   (Download unter „Releases“ auf GitHub, oder selbst erzeugen: python3 -m werkzeuge.einzeln) alle 1710 Schubladen als einzelne Dateien, nach Kategorie sortiert
+
+index.html (eine Ebene höher)  im Browser öffnen: Schubladen pro Tag planen, Farben wählen, Druckliste erzeugen
+                      (Deutsch oder Englisch umschaltbar; Zahlen wahlweise als Tag im Monat oder Tag im Jahr;
+                      gesetzliche Feiertage für 21 Länder: Deutschland je Bundesland, Österreich, Schweiz,
+                      Liechtenstein, Luxemburg, Belgien, Niederlande, Frankreich, Italien, Spanien, Portugal,
+                      Polen, Tschechien, Dänemark, Griechenland, Kroatien, Türkei, Großbritannien, Irland,
+                      USA, Kanada)
+
+../skripte            Python-Skripte zum Ändern, Übersicht: skripte/LIES_MICH.md
+                      wichtigste Stellschrauben in basis/kalender.py:
+                        RAST_H  = 0.75  Rastung (0.6 leichter / 0.9 fester)
+                        V_SPIEL = 0.10  Verbinder (0.05 stramm / 0.15 locker)
+
+
+ENGLISH – SHORT VERSION
+-----------------------
+All drawers share the same size and detent and fit every shelf (month calendar, advent calendar, test module).
+Printer: Prusa CORE One L, "0.6 nozzle" printer + "@COREONE L 0.6" print profile, no supports, 10–15 % infill.
+
+1_Monatskalender/1_Module_EN   12 month modules with English month names (instead of 1_Module)
+1_Monatskalender/2_Schubladen  plate A 12×, plate B (one per month) 1×      3_Verbinder: 68 connectors
+4_Extra_Schubladen             extra drawers: blank, patterns, symbols (weitere_symbole = 112 more: animals, food, faces, signs, university …), weekdays (schubladen_wochentage_en_7x = English),
+                               holidays, country holidays (flags), letters, appointments, days of the year 1–366,
+                               double drawers – the .txt files list which symbol is which day (German + English names)
+index.html (one level up)      open in a browser, switch language to English at the top: plan which drawer goes
+                               where, pick your country (21 countries), quick-fill holidays, get the print list

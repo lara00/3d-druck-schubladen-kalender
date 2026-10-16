@@ -1,0 +1,3325 @@
+{
+ "leer": {
+  "name": "Leer",
+  "cat": "Basis",
+  "text": "",
+  "cat_en": "Basics",
+  "name_en": "Blank"
+ },
+ "m_streifen": {
+  "name": "Streifen",
+  "cat": "Muster",
+  "cat_en": "Patterns",
+  "name_en": "Stripes"
+ },
+ "m_diagonal": {
+  "name": "Diagonal",
+  "cat": "Muster",
+  "cat_en": "Patterns",
+  "name_en": "Diagonal"
+ },
+ "m_punkte": {
+  "name": "Punkte",
+  "cat": "Muster",
+  "cat_en": "Patterns",
+  "name_en": "Dots"
+ },
+ "m_wellen": {
+  "name": "Wellen",
+  "cat": "Muster",
+  "cat_en": "Patterns",
+  "name_en": "Waves"
+ },
+ "m_zickzack": {
+  "name": "Zickzack",
+  "cat": "Muster",
+  "cat_en": "Patterns",
+  "name_en": "Zigzag"
+ },
+ "m_karo": {
+  "name": "Karo",
+  "cat": "Muster",
+  "cat_en": "Patterns",
+  "name_en": "Checks"
+ },
+ "m_rauten": {
+  "name": "Rauten",
+  "cat": "Muster",
+  "cat_en": "Patterns",
+  "name_en": "Diamonds"
+ },
+ "m_gitter": {
+  "name": "Gitter",
+  "cat": "Muster",
+  "cat_en": "Patterns",
+  "name_en": "Grid"
+ },
+ "m_kreise": {
+  "name": "Kreise",
+  "cat": "Muster",
+  "cat_en": "Patterns",
+  "name_en": "Circles"
+ },
+ "m_sterne": {
+  "name": "Sterne",
+  "cat": "Muster",
+  "cat_en": "Patterns",
+  "name_en": "Stars"
+ },
+ "m_waben": {
+  "name": "Waben",
+  "cat": "Muster",
+  "cat_en": "Patterns",
+  "name_en": "Honeycomb"
+ },
+ "m_rahmen": {
+  "name": "Rahmen",
+  "cat": "Muster",
+  "cat_en": "Patterns",
+  "name_en": "Frame"
+ },
+ "s_ausrufezeichen": {
+  "name": "Ausrufezeichen",
+  "cat": "Symbole",
+  "cat_en": "Symbols",
+  "name_en": "Exclamation mark"
+ },
+ "s_fragezeichen": {
+  "name": "Fragezeichen",
+  "cat": "Symbole",
+  "cat_en": "Symbols",
+  "name_en": "Question mark"
+ },
+ "s_play": {
+  "name": "Play",
+  "cat": "Symbole",
+  "cat_en": "Symbols",
+  "name_en": "Play"
+ },
+ "s_todo": {
+  "name": "To-do",
+  "cat": "Symbole",
+  "cat_en": "Symbols",
+  "name_en": "To-do"
+ },
+ "s_kaffeetasse": {
+  "name": "Kaffee",
+  "cat": "Symbole",
+  "cat_en": "Symbols",
+  "name_en": "Coffee"
+ },
+ "s_einkaufstasche": {
+  "name": "Einkaufen",
+  "cat": "Symbole",
+  "cat_en": "Symbols",
+  "name_en": "Shopping"
+ },
+ "j_fruehling": {
+  "name": "Frühling",
+  "cat": "Jahreszeiten & Feste",
+  "cat_en": "Seasons & celebrations",
+  "name_en": "Spring"
+ },
+ "j_sommer": {
+  "name": "Sommer",
+  "cat": "Jahreszeiten & Feste",
+  "cat_en": "Seasons & celebrations",
+  "name_en": "Summer"
+ },
+ "j_herbst": {
+  "name": "Herbst",
+  "cat": "Jahreszeiten & Feste",
+  "cat_en": "Seasons & celebrations",
+  "name_en": "Autumn"
+ },
+ "j_winter": {
+  "name": "Winter",
+  "cat": "Jahreszeiten & Feste",
+  "cat_en": "Seasons & celebrations",
+  "name_en": "Winter"
+ },
+ "j_geburtstag": {
+  "name": "Geburtstag",
+  "cat": "Jahreszeiten & Feste",
+  "cat_en": "Seasons & celebrations",
+  "name_en": "Birthday"
+ },
+ "j_geschenk": {
+  "name": "Geschenk",
+  "cat": "Jahreszeiten & Feste",
+  "cat_en": "Seasons & celebrations",
+  "name_en": "Gift"
+ },
+ "w_mo": {
+  "name": "MO (Montag)",
+  "cat": "Wochentage",
+  "cat_en": "Weekdays (German)",
+  "name_en": "MO (Monday, German)"
+ },
+ "w_di": {
+  "name": "DI (Dienstag)",
+  "cat": "Wochentage",
+  "cat_en": "Weekdays (German)",
+  "name_en": "DI (Tuesday, German)"
+ },
+ "w_mi": {
+  "name": "MI (Mittwoch)",
+  "cat": "Wochentage",
+  "cat_en": "Weekdays (German)",
+  "name_en": "MI (Wednesday, German)"
+ },
+ "w_do": {
+  "name": "DO (Donnerstag)",
+  "cat": "Wochentage",
+  "cat_en": "Weekdays (German)",
+  "name_en": "DO (Thursday, German)"
+ },
+ "w_fr": {
+  "name": "FR (Freitag)",
+  "cat": "Wochentage",
+  "cat_en": "Weekdays (German)",
+  "name_en": "FR (Friday, German)"
+ },
+ "w_sa": {
+  "name": "SA (Samstag)",
+  "cat": "Wochentage",
+  "cat_en": "Weekdays (German)",
+  "name_en": "SA (Saturday, German)"
+ },
+ "w_so": {
+  "name": "SO (Sonntag)",
+  "cat": "Wochentage",
+  "cat_en": "Weekdays (German)",
+  "name_en": "SO (Sunday, German)"
+ },
+ "we_mo": {
+  "name": "MO (Montag, englisch)",
+  "name_en": "MO (Monday)",
+  "cat": "Wochentage (englisch)",
+  "cat_en": "Weekdays (English)"
+ },
+ "we_tu": {
+  "name": "TU (Dienstag, englisch)",
+  "name_en": "TU (Tuesday)",
+  "cat": "Wochentage (englisch)",
+  "cat_en": "Weekdays (English)"
+ },
+ "we_we": {
+  "name": "WE (Mittwoch, englisch)",
+  "name_en": "WE (Wednesday)",
+  "cat": "Wochentage (englisch)",
+  "cat_en": "Weekdays (English)"
+ },
+ "we_th": {
+  "name": "TH (Donnerstag, englisch)",
+  "name_en": "TH (Thursday)",
+  "cat": "Wochentage (englisch)",
+  "cat_en": "Weekdays (English)"
+ },
+ "we_fr": {
+  "name": "FR (Freitag, englisch)",
+  "name_en": "FR (Friday)",
+  "cat": "Wochentage (englisch)",
+  "cat_en": "Weekdays (English)"
+ },
+ "we_sa": {
+  "name": "SA (Samstag, englisch)",
+  "name_en": "SA (Saturday)",
+  "cat": "Wochentage (englisch)",
+  "cat_en": "Weekdays (English)"
+ },
+ "we_su": {
+  "name": "SU (Sonntag, englisch)",
+  "name_en": "SU (Sunday)",
+  "cat": "Wochentage (englisch)",
+  "cat_en": "Weekdays (English)"
+ },
+ "t_0": {
+  "name": "Smiley",
+  "cat": "Bildsymbole",
+  "cat_en": "Picture symbols",
+  "name_en": "Smiley"
+ },
+ "t_1": {
+  "name": "Herz",
+  "cat": "Bildsymbole",
+  "cat_en": "Picture symbols",
+  "name_en": "Heart"
+ },
+ "t_2": {
+  "name": "Stern",
+  "cat": "Bildsymbole",
+  "cat_en": "Picture symbols",
+  "name_en": "Star"
+ },
+ "t_3": {
+  "name": "Sonne",
+  "cat": "Bildsymbole",
+  "cat_en": "Picture symbols",
+  "name_en": "Sun"
+ },
+ "t_4": {
+  "name": "Schneeflocke",
+  "cat": "Bildsymbole",
+  "cat_en": "Picture symbols",
+  "name_en": "Snowflake"
+ },
+ "t_5": {
+  "name": "Flugzeug",
+  "cat": "Bildsymbole",
+  "cat_en": "Picture symbols",
+  "name_en": "Airplane"
+ },
+ "t_6": {
+  "name": "Noten",
+  "cat": "Bildsymbole",
+  "cat_en": "Picture symbols",
+  "name_en": "Music notes"
+ },
+ "t_7": {
+  "name": "Blume",
+  "cat": "Bildsymbole",
+  "cat_en": "Picture symbols",
+  "name_en": "Flower"
+ },
+ "t_8": {
+  "name": "Blitz",
+  "cat": "Bildsymbole",
+  "cat_en": "Picture symbols",
+  "name_en": "Lightning"
+ },
+ "t_9": {
+  "name": "Kleeblatt",
+  "cat": "Bildsymbole",
+  "cat_en": "Picture symbols",
+  "name_en": "Clover"
+ },
+ "t_10": {
+  "name": "Regenschirm",
+  "cat": "Bildsymbole",
+  "cat_en": "Picture symbols",
+  "name_en": "Umbrella"
+ },
+ "t_11": {
+  "name": "Haus",
+  "cat": "Bildsymbole",
+  "cat_en": "Picture symbols",
+  "name_en": "House"
+ },
+ "f_neujahr": {
+  "name": "Neujahr",
+  "cat": "Feiertage (DE)",
+  "art": "b",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "New Year's Day"
+ },
+ "f_drei_koenige": {
+  "name": "Heilige Drei Könige",
+  "cat": "Feiertage (DE)",
+  "art": "r",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Epiphany"
+ },
+ "f_valentinstag": {
+  "name": "Valentinstag",
+  "cat": "Feiertage (DE)",
+  "art": "f",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Valentine's Day"
+ },
+ "f_frauentag": {
+  "name": "Internationaler Frauentag",
+  "cat": "Feiertage (DE)",
+  "art": "r",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "International Women's Day"
+ },
+ "f_karfreitag": {
+  "name": "Karfreitag",
+  "cat": "Feiertage (DE)",
+  "art": "b",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Good Friday"
+ },
+ "f_ostersonntag": {
+  "name": "Ostersonntag",
+  "cat": "Feiertage (DE)",
+  "art": "f",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Easter Sunday"
+ },
+ "f_ostermontag": {
+  "name": "Ostermontag",
+  "cat": "Feiertage (DE)",
+  "art": "b",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Easter Monday"
+ },
+ "f_tag_der_arbeit": {
+  "name": "Tag der Arbeit",
+  "cat": "Feiertage (DE)",
+  "art": "b",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Labour Day"
+ },
+ "f_muttertag": {
+  "name": "Muttertag",
+  "cat": "Feiertage (DE)",
+  "art": "f",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Mother's Day"
+ },
+ "f_himmelfahrt": {
+  "name": "Christi Himmelfahrt / Vatertag",
+  "cat": "Feiertage (DE)",
+  "art": "b",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Ascension Day / Father's Day"
+ },
+ "f_pfingstmontag": {
+  "name": "Pfingstmontag",
+  "cat": "Feiertage (DE)",
+  "art": "b",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Whit Monday"
+ },
+ "f_einheit": {
+  "name": "Tag der Deutschen Einheit",
+  "cat": "Feiertage (DE)",
+  "art": "b",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "German Unity Day"
+ },
+ "f_reformationstag": {
+  "name": "Reformationstag",
+  "cat": "Feiertage (DE)",
+  "art": "r",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Reformation Day"
+ },
+ "f_halloween": {
+  "name": "Halloween",
+  "cat": "Feiertage (DE)",
+  "art": "f",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Halloween"
+ },
+ "f_allerheiligen": {
+  "name": "Allerheiligen",
+  "cat": "Feiertage (DE)",
+  "art": "r",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "All Saints' Day"
+ },
+ "f_nikolaus": {
+  "name": "Nikolaus",
+  "cat": "Feiertage (DE)",
+  "art": "f",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "St. Nicholas Day"
+ },
+ "f_heiligabend": {
+  "name": "Heiligabend",
+  "cat": "Feiertage (DE)",
+  "art": "f",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Christmas Eve"
+ },
+ "f_weihnachten_1": {
+  "name": "1. Weihnachtstag",
+  "cat": "Feiertage (DE)",
+  "art": "b",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Christmas Day"
+ },
+ "f_weihnachten_2": {
+  "name": "2. Weihnachtstag",
+  "cat": "Feiertage (DE)",
+  "art": "b",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "Boxing Day / St. Stephen's Day"
+ },
+ "f_silvester": {
+  "name": "Silvester",
+  "cat": "Feiertage (DE)",
+  "art": "f",
+  "cat_en": "Holidays (Germany)",
+  "name_en": "New Year's Eve"
+ },
+ "i_isra_miraj": {
+  "name": "Isra und Miradsch (Nacht zum)",
+  "cat": "Islamische Tage",
+  "cat_en": "Islamic days",
+  "name_en": "Isra and Mi'raj (night before)"
+ },
+ "i_baraa": {
+  "name": "Laylat al-Bara'a (Nacht zum)",
+  "cat": "Islamische Tage",
+  "cat_en": "Islamic days",
+  "name_en": "Laylat al-Bara'a (night before)"
+ },
+ "i_ramadan": {
+  "name": "Beginn des Ramadan",
+  "cat": "Islamische Tage",
+  "cat_en": "Islamic days",
+  "name_en": "Start of Ramadan"
+ },
+ "i_qadr": {
+  "name": "Laylat al-Qadr (Nacht zum)",
+  "cat": "Islamische Tage",
+  "cat_en": "Islamic days",
+  "name_en": "Laylat al-Qadr (night before)"
+ },
+ "i_zuckerfest": {
+  "name": "Zuckerfest / Eid al-Fitr",
+  "cat": "Islamische Tage",
+  "cat_en": "Islamic days",
+  "name_en": "Eid al-Fitr"
+ },
+ "i_arafat": {
+  "name": "Tag von Arafat",
+  "cat": "Islamische Tage",
+  "cat_en": "Islamic days",
+  "name_en": "Day of Arafah"
+ },
+ "i_opferfest": {
+  "name": "Opferfest / Eid al-Adha",
+  "cat": "Islamische Tage",
+  "cat_en": "Islamic days",
+  "name_en": "Eid al-Adha"
+ },
+ "i_neujahr": {
+  "name": "Islamisches Neujahr (1449)",
+  "cat": "Islamische Tage",
+  "cat_en": "Islamic days",
+  "name_en": "Islamic New Year (1449)"
+ },
+ "i_aschura": {
+  "name": "Aschura",
+  "cat": "Islamische Tage",
+  "cat_en": "Islamic days",
+  "name_en": "Ashura"
+ },
+ "i_mawlid": {
+  "name": "Mawlid an-Nabi",
+  "cat": "Islamische Tage",
+  "cat_en": "Islamic days",
+  "name_en": "Mawlid an-Nabi"
+ },
+ "i_moschee": {
+  "name": "Moschee – frei verwendbar (z. B. Festgebet)",
+  "cat": "Islamische Tage",
+  "cat_en": "Islamic days",
+  "name_en": "Mosque – free use (e.g. Eid prayer)"
+ },
+ "x_pruefung": {
+  "name": "Prüfung",
+  "cat": "Termine",
+  "cat_en": "Appointments",
+  "name_en": "Exam"
+ },
+ "x_arzt": {
+  "name": "Arztbesuch",
+  "cat": "Termine",
+  "cat_en": "Appointments",
+  "name_en": "Doctor's appointment"
+ },
+ "x_zahnarzt": {
+  "name": "Zahnarzt",
+  "cat": "Termine",
+  "cat_en": "Appointments",
+  "name_en": "Dentist"
+ },
+ "x_termin": {
+  "name": "Termin / Uhrzeit",
+  "cat": "Termine",
+  "cat_en": "Appointments",
+  "name_en": "Appointment / time"
+ },
+ "x_friseur": {
+  "name": "Friseur",
+  "cat": "Termine",
+  "cat_en": "Appointments",
+  "name_en": "Hairdresser"
+ },
+ "x_sport": {
+  "name": "Sport",
+  "cat": "Termine",
+  "cat_en": "Appointments",
+  "name_en": "Sports"
+ },
+ "x_urlaub": {
+  "name": "Urlaub",
+  "cat": "Termine",
+  "cat_en": "Appointments",
+  "name_en": "Holiday / vacation"
+ },
+ "x_party": {
+  "name": "Party",
+  "cat": "Termine",
+  "cat_en": "Appointments",
+  "name_en": "Party"
+ },
+ "x_muell": {
+  "name": "Müllabfuhr",
+  "cat": "Termine",
+  "cat_en": "Appointments",
+  "name_en": "Bin collection"
+ },
+ "x_rechnung": {
+  "name": "Rechnung / Bezahlen",
+  "cat": "Termine",
+  "cat_en": "Appointments",
+  "name_en": "Bill / payment"
+ },
+ "x_werkstatt": {
+  "name": "Werkstatt",
+  "cat": "Termine",
+  "cat_en": "Appointments",
+  "name_en": "Car service"
+ },
+ "x_tierarzt": {
+  "name": "Tierarzt",
+  "cat": "Termine",
+  "cat_en": "Appointments",
+  "name_en": "Vet"
+ },
+ "y_sport_schwimmen": {
+  "name": "Schwimmen",
+  "name_en": "Swimming",
+  "cat": "Sport",
+  "cat_en": "Sport"
+ },
+ "y_sport_radfahren": {
+  "name": "Radfahren",
+  "name_en": "Cycling",
+  "cat": "Sport",
+  "cat_en": "Sport"
+ },
+ "y_sport_laufen": {
+  "name": "Laufen",
+  "name_en": "Running",
+  "cat": "Sport",
+  "cat_en": "Sport"
+ },
+ "y_sport_fussball": {
+  "name": "Fußball",
+  "name_en": "Football",
+  "cat": "Sport",
+  "cat_en": "Sport"
+ },
+ "y_sport_fitness": {
+  "name": "Fitness (Kettlebell)",
+  "name_en": "Fitness (kettlebell)",
+  "cat": "Sport",
+  "cat_en": "Sport"
+ },
+ "y_sport_yoga": {
+  "name": "Yoga",
+  "name_en": "Yoga",
+  "cat": "Sport",
+  "cat_en": "Sport"
+ },
+ "y_sport_wandern": {
+  "name": "Wandern",
+  "name_en": "Hiking",
+  "cat": "Sport",
+  "cat_en": "Sport"
+ },
+ "y_sport_ski": {
+  "name": "Skifahren",
+  "name_en": "Skiing",
+  "cat": "Sport",
+  "cat_en": "Sport"
+ },
+ "y_sport_tennis": {
+  "name": "Tennis",
+  "name_en": "Tennis",
+  "cat": "Sport",
+  "cat_en": "Sport"
+ },
+ "y_sport_basketball": {
+  "name": "Basketball",
+  "name_en": "Basketball",
+  "cat": "Sport",
+  "cat_en": "Sport"
+ },
+ "y_sport_tanzen": {
+  "name": "Tanzen",
+  "name_en": "Dancing",
+  "cat": "Sport",
+  "cat_en": "Sport"
+ },
+ "y_sport_klettern": {
+  "name": "Klettern",
+  "name_en": "Climbing",
+  "cat": "Sport",
+  "cat_en": "Sport"
+ },
+ "y_hobby_gitarre": {
+  "name": "Musik (Gitarre)",
+  "name_en": "Music (guitar)",
+  "cat": "Hobby & Freizeit",
+  "cat_en": "Hobbies & leisure"
+ },
+ "y_hobby_malen": {
+  "name": "Malen",
+  "name_en": "Painting",
+  "cat": "Hobby & Freizeit",
+  "cat_en": "Hobbies & leisure"
+ },
+ "y_hobby_kochen": {
+  "name": "Kochen",
+  "name_en": "Cooking",
+  "cat": "Hobby & Freizeit",
+  "cat_en": "Hobbies & leisure"
+ },
+ "y_hobby_backen": {
+  "name": "Backen",
+  "name_en": "Baking",
+  "cat": "Hobby & Freizeit",
+  "cat_en": "Hobbies & leisure"
+ },
+ "y_hobby_gaming": {
+  "name": "Gaming",
+  "name_en": "Gaming",
+  "cat": "Hobby & Freizeit",
+  "cat_en": "Hobbies & leisure"
+ },
+ "y_hobby_fotografie": {
+  "name": "Fotografieren",
+  "name_en": "Photography",
+  "cat": "Hobby & Freizeit",
+  "cat_en": "Hobbies & leisure"
+ },
+ "y_hobby_angeln": {
+  "name": "Angeln",
+  "name_en": "Fishing",
+  "cat": "Hobby & Freizeit",
+  "cat_en": "Hobbies & leisure"
+ },
+ "y_hobby_garten": {
+  "name": "Garten",
+  "name_en": "Gardening",
+  "cat": "Hobby & Freizeit",
+  "cat_en": "Hobbies & leisure"
+ },
+ "y_hobby_camping": {
+  "name": "Camping",
+  "name_en": "Camping",
+  "cat": "Hobby & Freizeit",
+  "cat_en": "Hobbies & leisure"
+ },
+ "y_hobby_strand": {
+  "name": "Strand",
+  "name_en": "Beach",
+  "cat": "Hobby & Freizeit",
+  "cat_en": "Hobbies & leisure"
+ },
+ "y_hobby_konzert": {
+  "name": "Konzert / Singen",
+  "name_en": "Concert / singing",
+  "cat": "Hobby & Freizeit",
+  "cat_en": "Hobbies & leisure"
+ },
+ "y_hobby_spieleabend": {
+  "name": "Spieleabend",
+  "name_en": "Games night",
+  "cat": "Hobby & Freizeit",
+  "cat_en": "Hobbies & leisure"
+ },
+ "y_alltag_waesche": {
+  "name": "Wäsche waschen",
+  "name_en": "Laundry",
+  "cat": "Alltag",
+  "cat_en": "Everyday"
+ },
+ "y_alltag_putzen": {
+  "name": "Putzen",
+  "name_en": "Cleaning",
+  "cat": "Alltag",
+  "cat_en": "Everyday"
+ },
+ "y_alltag_giessen": {
+  "name": "Blumen gießen",
+  "name_en": "Water the plants",
+  "cat": "Alltag",
+  "cat_en": "Everyday"
+ },
+ "y_alltag_medikament": {
+  "name": "Medikament",
+  "name_en": "Medicine",
+  "cat": "Alltag",
+  "cat_en": "Everyday"
+ },
+ "y_alltag_schule": {
+  "name": "Schule",
+  "name_en": "School",
+  "cat": "Alltag",
+  "cat_en": "Everyday"
+ },
+ "y_alltag_arbeit": {
+  "name": "Arbeit",
+  "name_en": "Work",
+  "cat": "Alltag",
+  "cat_en": "Everyday"
+ },
+ "y_alltag_auto": {
+  "name": "Auto",
+  "name_en": "Car",
+  "cat": "Alltag",
+  "cat_en": "Everyday"
+ },
+ "y_alltag_zug": {
+  "name": "Zug / Bahn",
+  "name_en": "Train",
+  "cat": "Alltag",
+  "cat_en": "Everyday"
+ },
+ "y_alltag_paket": {
+  "name": "Paket / Post",
+  "name_en": "Parcel / post",
+  "cat": "Alltag",
+  "cat_en": "Everyday"
+ },
+ "y_alltag_kino": {
+  "name": "Kino",
+  "name_en": "Cinema",
+  "cat": "Alltag",
+  "cat_en": "Everyday"
+ },
+ "y_alltag_buch": {
+  "name": "Lesen",
+  "name_en": "Reading",
+  "cat": "Alltag",
+  "cat_en": "Everyday"
+ },
+ "y_alltag_telefon": {
+  "name": "Telefonieren",
+  "name_en": "Phone call",
+  "cat": "Alltag",
+  "cat_en": "Everyday"
+ },
+ "z_tiere_fisch": {
+  "name": "Fisch",
+  "name_en": "Fish",
+  "cat": "Tiere",
+  "cat_en": "Animals"
+ },
+ "z_tiere_vogel": {
+  "name": "Vogel",
+  "name_en": "Bird",
+  "cat": "Tiere",
+  "cat_en": "Animals"
+ },
+ "z_tiere_schmetterling": {
+  "name": "Schmetterling",
+  "name_en": "Butterfly",
+  "cat": "Tiere",
+  "cat_en": "Animals"
+ },
+ "z_tiere_schnecke": {
+  "name": "Schnecke",
+  "name_en": "Snail",
+  "cat": "Tiere",
+  "cat_en": "Animals"
+ },
+ "z_tiere_hase": {
+  "name": "Hase",
+  "name_en": "Rabbit",
+  "cat": "Tiere",
+  "cat_en": "Animals"
+ },
+ "z_tiere_maus": {
+  "name": "Maus",
+  "name_en": "Mouse",
+  "cat": "Tiere",
+  "cat_en": "Animals"
+ },
+ "z_tiere_eule": {
+  "name": "Eule",
+  "name_en": "Owl",
+  "cat": "Tiere",
+  "cat_en": "Animals"
+ },
+ "z_tiere_marienkaefer": {
+  "name": "Marienkäfer",
+  "name_en": "Ladybird",
+  "cat": "Tiere",
+  "cat_en": "Animals"
+ },
+ "z_tiere_biene": {
+  "name": "Biene",
+  "name_en": "Bee",
+  "cat": "Tiere",
+  "cat_en": "Animals"
+ },
+ "z_tiere_schildkroete": {
+  "name": "Schildkröte",
+  "name_en": "Turtle",
+  "cat": "Tiere",
+  "cat_en": "Animals"
+ },
+ "z_natur_wolke": {
+  "name": "Wolke",
+  "name_en": "Cloud",
+  "cat": "Natur & Wetter",
+  "cat_en": "Nature & weather"
+ },
+ "z_natur_regen": {
+  "name": "Regen",
+  "name_en": "Rain",
+  "cat": "Natur & Wetter",
+  "cat_en": "Nature & weather"
+ },
+ "z_natur_mond": {
+  "name": "Mond & Sterne",
+  "name_en": "Moon & stars",
+  "cat": "Natur & Wetter",
+  "cat_en": "Nature & weather"
+ },
+ "z_natur_regenbogen": {
+  "name": "Regenbogen",
+  "name_en": "Rainbow",
+  "cat": "Natur & Wetter",
+  "cat_en": "Nature & weather"
+ },
+ "z_natur_berge": {
+  "name": "Berge",
+  "name_en": "Mountains",
+  "cat": "Natur & Wetter",
+  "cat_en": "Nature & weather"
+ },
+ "z_natur_tanne": {
+  "name": "Tanne",
+  "name_en": "Fir tree",
+  "cat": "Natur & Wetter",
+  "cat_en": "Nature & weather"
+ },
+ "z_natur_pilz": {
+  "name": "Pilz",
+  "name_en": "Mushroom",
+  "cat": "Natur & Wetter",
+  "cat_en": "Nature & weather"
+ },
+ "z_natur_blatt": {
+  "name": "Blatt",
+  "name_en": "Leaf",
+  "cat": "Natur & Wetter",
+  "cat_en": "Nature & weather"
+ },
+ "z_natur_wind": {
+  "name": "Wind",
+  "name_en": "Wind",
+  "cat": "Natur & Wetter",
+  "cat_en": "Nature & weather"
+ },
+ "z_natur_thermometer": {
+  "name": "Thermometer",
+  "name_en": "Thermometer",
+  "cat": "Natur & Wetter",
+  "cat_en": "Nature & weather"
+ },
+ "z_essen_kirschen": {
+  "name": "Kirschen",
+  "name_en": "Cherries",
+  "cat": "Essen & Trinken",
+  "cat_en": "Food & drink"
+ },
+ "z_essen_erdbeere": {
+  "name": "Erdbeere",
+  "name_en": "Strawberry",
+  "cat": "Essen & Trinken",
+  "cat_en": "Food & drink"
+ },
+ "z_essen_banane": {
+  "name": "Banane",
+  "name_en": "Banana",
+  "cat": "Essen & Trinken",
+  "cat_en": "Food & drink"
+ },
+ "z_essen_karotte": {
+  "name": "Karotte",
+  "name_en": "Carrot",
+  "cat": "Essen & Trinken",
+  "cat_en": "Food & drink"
+ },
+ "z_essen_birne": {
+  "name": "Birne",
+  "name_en": "Pear",
+  "cat": "Essen & Trinken",
+  "cat_en": "Food & drink"
+ },
+ "z_essen_brot": {
+  "name": "Brot",
+  "name_en": "Bread",
+  "cat": "Essen & Trinken",
+  "cat_en": "Food & drink"
+ },
+ "z_essen_spiegelei": {
+  "name": "Spiegelei / Frühstück",
+  "name_en": "Fried egg / breakfast",
+  "cat": "Essen & Trinken",
+  "cat_en": "Food & drink"
+ },
+ "z_essen_burger": {
+  "name": "Burger",
+  "name_en": "Burger",
+  "cat": "Essen & Trinken",
+  "cat_en": "Food & drink"
+ },
+ "z_essen_weinglas": {
+  "name": "Weinglas",
+  "name_en": "Wine glass",
+  "cat": "Essen & Trinken",
+  "cat_en": "Food & drink"
+ },
+ "z_essen_teekanne": {
+  "name": "Tee",
+  "name_en": "Tea",
+  "cat": "Essen & Trinken",
+  "cat_en": "Food & drink"
+ },
+ "z_unterwegs_bus": {
+  "name": "Bus",
+  "name_en": "Bus",
+  "cat": "Unterwegs",
+  "cat_en": "Getting around"
+ },
+ "z_unterwegs_segelboot": {
+  "name": "Segelboot",
+  "name_en": "Sailing boat",
+  "cat": "Unterwegs",
+  "cat_en": "Getting around"
+ },
+ "z_unterwegs_lkw": {
+  "name": "Lkw / Umzug",
+  "name_en": "Truck / moving",
+  "cat": "Unterwegs",
+  "cat_en": "Getting around"
+ },
+ "z_unterwegs_ampel": {
+  "name": "Ampel",
+  "name_en": "Traffic light",
+  "cat": "Unterwegs",
+  "cat_en": "Getting around"
+ },
+ "z_unterwegs_anker": {
+  "name": "Anker",
+  "name_en": "Anchor",
+  "cat": "Unterwegs",
+  "cat_en": "Getting around"
+ },
+ "z_unterwegs_kompass": {
+  "name": "Kompass",
+  "name_en": "Compass",
+  "cat": "Unterwegs",
+  "cat_en": "Getting around"
+ },
+ "z_unterwegs_ortsmarker": {
+  "name": "Ort / Treffpunkt",
+  "name_en": "Location / meeting point",
+  "cat": "Unterwegs",
+  "cat_en": "Getting around"
+ },
+ "z_unterwegs_tankstelle": {
+  "name": "Tanken",
+  "name_en": "Refuel",
+  "cat": "Unterwegs",
+  "cat_en": "Getting around"
+ },
+ "z_unterwegs_fahrkarte": {
+  "name": "Ticket / Fahrkarte",
+  "name_en": "Ticket",
+  "cat": "Unterwegs",
+  "cat_en": "Getting around"
+ },
+ "z_unterwegs_heissluftballon": {
+  "name": "Heißluftballon",
+  "name_en": "Hot-air balloon",
+  "cat": "Unterwegs",
+  "cat_en": "Getting around"
+ },
+ "z_zuhause_schluessel": {
+  "name": "Schlüssel",
+  "name_en": "Key",
+  "cat": "Zuhause",
+  "cat_en": "Home"
+ },
+ "z_zuhause_gluehbirne": {
+  "name": "Glühbirne / Idee",
+  "name_en": "Light bulb / idea",
+  "cat": "Zuhause",
+  "cat_en": "Home"
+ },
+ "z_zuhause_kerze": {
+  "name": "Kerze",
+  "name_en": "Candle",
+  "cat": "Zuhause",
+  "cat_en": "Home"
+ },
+ "z_zuhause_bett": {
+  "name": "Bett / Ausschlafen",
+  "name_en": "Bed / sleep in",
+  "cat": "Zuhause",
+  "cat_en": "Home"
+ },
+ "z_zuhause_wecker": {
+  "name": "Wecker",
+  "name_en": "Alarm clock",
+  "cat": "Zuhause",
+  "cat_en": "Home"
+ },
+ "z_zuhause_fernseher": {
+  "name": "Fernsehen",
+  "name_en": "TV",
+  "cat": "Zuhause",
+  "cat_en": "Home"
+ },
+ "z_zuhause_buegeleisen": {
+  "name": "Bügeln",
+  "name_en": "Ironing",
+  "cat": "Zuhause",
+  "cat_en": "Home"
+ },
+ "z_zuhause_sofa": {
+  "name": "Sofa / Entspannen",
+  "name_en": "Sofa / relax",
+  "cat": "Zuhause",
+  "cat_en": "Home"
+ },
+ "z_zuhause_kuehlschrank": {
+  "name": "Kühlschrank",
+  "name_en": "Fridge",
+  "cat": "Zuhause",
+  "cat_en": "Home"
+ },
+ "z_zuhause_hammer": {
+  "name": "Heimwerken",
+  "name_en": "DIY",
+  "cat": "Zuhause",
+  "cat_en": "Home"
+ },
+ "z_buero_bleistift": {
+  "name": "Bleistift",
+  "name_en": "Pencil",
+  "cat": "Büro & Schule",
+  "cat_en": "Office & school"
+ },
+ "z_buero_brief": {
+  "name": "Brief / E-Mail",
+  "name_en": "Letter / e-mail",
+  "cat": "Büro & Schule",
+  "cat_en": "Office & school"
+ },
+ "z_buero_kalender": {
+  "name": "Kalender",
+  "name_en": "Calendar",
+  "cat": "Büro & Schule",
+  "cat_en": "Office & school"
+ },
+ "z_buero_laptop": {
+  "name": "Laptop",
+  "name_en": "Laptop",
+  "cat": "Büro & Schule",
+  "cat_en": "Office & school"
+ },
+ "z_buero_bueroklammer": {
+  "name": "Büroklammer",
+  "name_en": "Paper clip",
+  "cat": "Büro & Schule",
+  "cat_en": "Office & school"
+ },
+ "z_buero_lupe": {
+  "name": "Lupe / Suchen",
+  "name_en": "Magnifier / search",
+  "cat": "Büro & Schule",
+  "cat_en": "Office & school"
+ },
+ "z_buero_taschenrechner": {
+  "name": "Taschenrechner",
+  "name_en": "Calculator",
+  "cat": "Büro & Schule",
+  "cat_en": "Office & school"
+ },
+ "z_buero_ordner": {
+  "name": "Ordner",
+  "name_en": "Folder",
+  "cat": "Büro & Schule",
+  "cat_en": "Office & school"
+ },
+ "z_buero_schultuete": {
+  "name": "Schultüte / Einschulung",
+  "name_en": "School cone / first day",
+  "cat": "Büro & Schule",
+  "cat_en": "Office & school"
+ },
+ "z_buero_glocke": {
+  "name": "Glocke / Erinnerung",
+  "name_en": "Bell / reminder",
+  "cat": "Büro & Schule",
+  "cat_en": "Office & school"
+ },
+ "z_gesichter_lachen": {
+  "name": "Lachen",
+  "name_en": "Laughing",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter_traurig": {
+  "name": "Traurig",
+  "name_en": "Sad",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter_zwinkern": {
+  "name": "Zwinkern",
+  "name_en": "Wink",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter_ueberrascht": {
+  "name": "Überrascht",
+  "name_en": "Surprised",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter_verliebt": {
+  "name": "Verliebt",
+  "name_en": "In love",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter_muede": {
+  "name": "Müde",
+  "name_en": "Sleepy",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter_cool": {
+  "name": "Cool",
+  "name_en": "Cool",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter_wuetend": {
+  "name": "Wütend",
+  "name_en": "Angry",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter_neutral": {
+  "name": "Neutral",
+  "name_en": "Neutral",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter_kuss": {
+  "name": "Kuss",
+  "name_en": "Kiss",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_traenenlachen": {
+  "name": "Tränen lachen",
+  "name_en": "Tears of joy",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_grinsen": {
+  "name": "Grinsen",
+  "name_en": "Grin",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_schuechtern": {
+  "name": "Schüchtern",
+  "name_en": "Shy",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_nachdenklich": {
+  "name": "Nachdenklich",
+  "name_en": "Thinking",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_verwirrt": {
+  "name": "Verwirrt",
+  "name_en": "Confused",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_gelangweilt": {
+  "name": "Gelangweilt",
+  "name_en": "Bored",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_gestresst": {
+  "name": "Gestresst",
+  "name_en": "Stressed",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_krank": {
+  "name": "Krank",
+  "name_en": "Sick",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_weinen": {
+  "name": "Weinen",
+  "name_en": "Crying",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_schockiert": {
+  "name": "Schockiert",
+  "name_en": "Shocked",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_strahlend": {
+  "name": "Strahlend",
+  "name_en": "Beaming",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_zunge": {
+  "name": "Albern",
+  "name_en": "Silly",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_zufrieden": {
+  "name": "Zufrieden",
+  "name_en": "Content",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_sternaugen": {
+  "name": "Begeistert",
+  "name_en": "Star-struck",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_augenrollen": {
+  "name": "Genervt",
+  "name_en": "Eye roll",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_fertig": {
+  "name": "Fix und fertig",
+  "name_en": "Knocked out",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_engel": {
+  "name": "Engel",
+  "name_en": "Angel",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_teufel": {
+  "name": "Teufelchen",
+  "name_en": "Little devil",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_partygesicht": {
+  "name": "Partylaune",
+  "name_en": "Party mood",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_gesichter2_nerd": {
+  "name": "Nerd",
+  "name_en": "Nerd",
+  "cat": "Gesichter",
+  "cat_en": "Faces"
+ },
+ "z_stimmung_super": {
+  "name": "Stimmung 5 – super (grün)",
+  "name_en": "Mood 5 – great (green)",
+  "cat": "Stimmung",
+  "cat_en": "Mood"
+ },
+ "z_stimmung_gut": {
+  "name": "Stimmung 4 – gut (hellgrün)",
+  "name_en": "Mood 4 – good (light green)",
+  "cat": "Stimmung",
+  "cat_en": "Mood"
+ },
+ "z_stimmung_okay": {
+  "name": "Stimmung 3 – okay (gelb)",
+  "name_en": "Mood 3 – okay (yellow)",
+  "cat": "Stimmung",
+  "cat_en": "Mood"
+ },
+ "z_stimmung_schlecht": {
+  "name": "Stimmung 2 – schlecht (orange)",
+  "name_en": "Mood 2 – bad (orange)",
+  "cat": "Stimmung",
+  "cat_en": "Mood"
+ },
+ "z_stimmung_mies": {
+  "name": "Stimmung 1 – mies (rot)",
+  "name_en": "Mood 1 – awful (red)",
+  "cat": "Stimmung",
+  "cat_en": "Mood"
+ },
+ "z_stunden_15min": {
+  "name": "15 Minuten",
+  "name_en": "15 minutes",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_30min": {
+  "name": "30 Minuten",
+  "name_en": "30 minutes",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_45min": {
+  "name": "45 Minuten",
+  "name_en": "45 minutes",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_1h": {
+  "name": "1 Stunde",
+  "name_en": "1 hour",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_1_25h": {
+  "name": "1:15 Stunden",
+  "name_en": "1:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_1_5h": {
+  "name": "1:30 Stunden",
+  "name_en": "1:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_1_75h": {
+  "name": "1:45 Stunden",
+  "name_en": "1:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_2h": {
+  "name": "2 Stunden",
+  "name_en": "2 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_2_25h": {
+  "name": "2:15 Stunden",
+  "name_en": "2:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_2_5h": {
+  "name": "2:30 Stunden",
+  "name_en": "2:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_2_75h": {
+  "name": "2:45 Stunden",
+  "name_en": "2:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_3h": {
+  "name": "3 Stunden",
+  "name_en": "3 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_3_25h": {
+  "name": "3:15 Stunden",
+  "name_en": "3:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_3_5h": {
+  "name": "3:30 Stunden",
+  "name_en": "3:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_3_75h": {
+  "name": "3:45 Stunden",
+  "name_en": "3:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_4h": {
+  "name": "4 Stunden",
+  "name_en": "4 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_4_25h": {
+  "name": "4:15 Stunden",
+  "name_en": "4:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_4_5h": {
+  "name": "4:30 Stunden",
+  "name_en": "4:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_4_75h": {
+  "name": "4:45 Stunden",
+  "name_en": "4:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_5h": {
+  "name": "5 Stunden",
+  "name_en": "5 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_5_25h": {
+  "name": "5:15 Stunden",
+  "name_en": "5:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_5_5h": {
+  "name": "5:30 Stunden",
+  "name_en": "5:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_5_75h": {
+  "name": "5:45 Stunden",
+  "name_en": "5:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_6h": {
+  "name": "6 Stunden",
+  "name_en": "6 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_6_25h": {
+  "name": "6:15 Stunden",
+  "name_en": "6:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_6_5h": {
+  "name": "6:30 Stunden",
+  "name_en": "6:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_6_75h": {
+  "name": "6:45 Stunden",
+  "name_en": "6:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_7h": {
+  "name": "7 Stunden",
+  "name_en": "7 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_7_25h": {
+  "name": "7:15 Stunden",
+  "name_en": "7:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_7_5h": {
+  "name": "7:30 Stunden",
+  "name_en": "7:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_7_75h": {
+  "name": "7:45 Stunden",
+  "name_en": "7:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_8h": {
+  "name": "8 Stunden",
+  "name_en": "8 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_8_25h": {
+  "name": "8:15 Stunden",
+  "name_en": "8:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_8_5h": {
+  "name": "8:30 Stunden",
+  "name_en": "8:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_8_75h": {
+  "name": "8:45 Stunden",
+  "name_en": "8:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_9h": {
+  "name": "9 Stunden",
+  "name_en": "9 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_9_25h": {
+  "name": "9:15 Stunden",
+  "name_en": "9:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_9_5h": {
+  "name": "9:30 Stunden",
+  "name_en": "9:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_9_75h": {
+  "name": "9:45 Stunden",
+  "name_en": "9:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_10h": {
+  "name": "10 Stunden",
+  "name_en": "10 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_10_25h": {
+  "name": "10:15 Stunden",
+  "name_en": "10:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_10_5h": {
+  "name": "10:30 Stunden",
+  "name_en": "10:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_10_75h": {
+  "name": "10:45 Stunden",
+  "name_en": "10:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_11h": {
+  "name": "11 Stunden",
+  "name_en": "11 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_11_25h": {
+  "name": "11:15 Stunden",
+  "name_en": "11:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_11_5h": {
+  "name": "11:30 Stunden",
+  "name_en": "11:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_11_75h": {
+  "name": "11:45 Stunden",
+  "name_en": "11:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_12h": {
+  "name": "12 Stunden",
+  "name_en": "12 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_12_25h": {
+  "name": "12:15 Stunden",
+  "name_en": "12:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_12_5h": {
+  "name": "12:30 Stunden",
+  "name_en": "12:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_12_75h": {
+  "name": "12:45 Stunden",
+  "name_en": "12:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_13h": {
+  "name": "13 Stunden",
+  "name_en": "13 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_13_25h": {
+  "name": "13:15 Stunden",
+  "name_en": "13:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_13_5h": {
+  "name": "13:30 Stunden",
+  "name_en": "13:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_13_75h": {
+  "name": "13:45 Stunden",
+  "name_en": "13:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_14h": {
+  "name": "14 Stunden",
+  "name_en": "14 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_14_25h": {
+  "name": "14:15 Stunden",
+  "name_en": "14:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_14_5h": {
+  "name": "14:30 Stunden",
+  "name_en": "14:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_14_75h": {
+  "name": "14:45 Stunden",
+  "name_en": "14:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_15h": {
+  "name": "15 Stunden",
+  "name_en": "15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_15_25h": {
+  "name": "15:15 Stunden",
+  "name_en": "15:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_15_5h": {
+  "name": "15:30 Stunden",
+  "name_en": "15:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_15_75h": {
+  "name": "15:45 Stunden",
+  "name_en": "15:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_16h": {
+  "name": "16 Stunden",
+  "name_en": "16 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_16_25h": {
+  "name": "16:15 Stunden",
+  "name_en": "16:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_16_5h": {
+  "name": "16:30 Stunden",
+  "name_en": "16:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_16_75h": {
+  "name": "16:45 Stunden",
+  "name_en": "16:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_17h": {
+  "name": "17 Stunden",
+  "name_en": "17 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_17_25h": {
+  "name": "17:15 Stunden",
+  "name_en": "17:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_17_5h": {
+  "name": "17:30 Stunden",
+  "name_en": "17:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_17_75h": {
+  "name": "17:45 Stunden",
+  "name_en": "17:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_18h": {
+  "name": "18 Stunden",
+  "name_en": "18 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_18_25h": {
+  "name": "18:15 Stunden",
+  "name_en": "18:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_18_5h": {
+  "name": "18:30 Stunden",
+  "name_en": "18:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_18_75h": {
+  "name": "18:45 Stunden",
+  "name_en": "18:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_19h": {
+  "name": "19 Stunden",
+  "name_en": "19 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_19_25h": {
+  "name": "19:15 Stunden",
+  "name_en": "19:15 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_19_5h": {
+  "name": "19:30 Stunden",
+  "name_en": "19:30 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_19_75h": {
+  "name": "19:45 Stunden",
+  "name_en": "19:45 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_stunden_20h": {
+  "name": "20 Stunden",
+  "name_en": "20 hours",
+  "cat": "Stunden",
+  "cat_en": "Hours"
+ },
+ "z_zeichen_haken": {
+  "name": "Häkchen / Erledigt",
+  "name_en": "Tick / done",
+  "cat": "Zeichen",
+  "cat_en": "Signs"
+ },
+ "z_zeichen_kreuz": {
+  "name": "Kreuz / Abgesagt",
+  "name_en": "Cross / cancelled",
+  "cat": "Zeichen",
+  "cat_en": "Signs"
+ },
+ "z_zeichen_plus": {
+  "name": "Plus",
+  "name_en": "Plus",
+  "cat": "Zeichen",
+  "cat_en": "Signs"
+ },
+ "z_zeichen_pfeil": {
+  "name": "Pfeil",
+  "name_en": "Arrow",
+  "cat": "Zeichen",
+  "cat_en": "Signs"
+ },
+ "z_zeichen_wiederholen": {
+  "name": "Wiederholen",
+  "name_en": "Repeat",
+  "cat": "Zeichen",
+  "cat_en": "Signs"
+ },
+ "z_zeichen_warnung": {
+  "name": "Achtung",
+  "name_en": "Warning",
+  "cat": "Zeichen",
+  "cat_en": "Signs"
+ },
+ "z_zeichen_verbot": {
+  "name": "Verbot / Nein",
+  "name_en": "Prohibited / no",
+  "cat": "Zeichen",
+  "cat_en": "Signs"
+ },
+ "z_zeichen_info": {
+  "name": "Info",
+  "name_en": "Info",
+  "cat": "Zeichen",
+  "cat_en": "Signs"
+ },
+ "z_zeichen_zielflagge": {
+  "name": "Zielflagge",
+  "name_en": "Chequered flag",
+  "cat": "Zeichen",
+  "cat_en": "Signs"
+ },
+ "z_zeichen_zielscheibe": {
+  "name": "Ziel",
+  "name_en": "Target",
+  "cat": "Zeichen",
+  "cat_en": "Signs"
+ },
+ "z_feiern_krone": {
+  "name": "Krone",
+  "name_en": "Crown",
+  "cat": "Feiern & Erfolg",
+  "cat_en": "Celebration & success"
+ },
+ "z_feiern_pokal": {
+  "name": "Pokal",
+  "name_en": "Trophy",
+  "cat": "Feiern & Erfolg",
+  "cat_en": "Celebration & success"
+ },
+ "z_feiern_medaille": {
+  "name": "Medaille",
+  "name_en": "Medal",
+  "cat": "Feiern & Erfolg",
+  "cat_en": "Celebration & success"
+ },
+ "z_feiern_diamant": {
+  "name": "Diamant",
+  "name_en": "Diamond",
+  "cat": "Feiern & Erfolg",
+  "cat_en": "Celebration & success"
+ },
+ "z_feiern_anstossen": {
+  "name": "Anstoßen",
+  "name_en": "Cheers",
+  "cat": "Feiern & Erfolg",
+  "cat_en": "Celebration & success"
+ },
+ "z_feiern_hufeisen": {
+  "name": "Hufeisen / Glück",
+  "name_en": "Horseshoe / luck",
+  "cat": "Feiern & Erfolg",
+  "cat_en": "Celebration & success"
+ },
+ "z_feiern_ringe": {
+  "name": "Hochzeit / Jahrestag",
+  "name_en": "Wedding / anniversary",
+  "cat": "Feiern & Erfolg",
+  "cat_en": "Celebration & success"
+ },
+ "z_feiern_feuerwerk": {
+  "name": "Feuerwerk",
+  "name_en": "Fireworks",
+  "cat": "Feiern & Erfolg",
+  "cat_en": "Celebration & success"
+ },
+ "z_feiern_zauberhut": {
+  "name": "Zauberei",
+  "name_en": "Magic",
+  "cat": "Feiern & Erfolg",
+  "cat_en": "Celebration & success"
+ },
+ "z_feiern_daumen": {
+  "name": "Daumen hoch",
+  "name_en": "Thumbs up",
+  "cat": "Feiern & Erfolg",
+  "cat_en": "Celebration & success"
+ },
+ "z_pflege_tshirt": {
+  "name": "T-Shirt",
+  "name_en": "T-shirt",
+  "cat": "Kleidung & Pflege",
+  "cat_en": "Clothes & care"
+ },
+ "z_pflege_kleid": {
+  "name": "Kleid",
+  "name_en": "Dress",
+  "cat": "Kleidung & Pflege",
+  "cat_en": "Clothes & care"
+ },
+ "z_pflege_schuh": {
+  "name": "Schuh",
+  "name_en": "Shoe",
+  "cat": "Kleidung & Pflege",
+  "cat_en": "Clothes & care"
+ },
+ "z_pflege_muetze": {
+  "name": "Mütze",
+  "name_en": "Beanie",
+  "cat": "Kleidung & Pflege",
+  "cat_en": "Clothes & care"
+ },
+ "z_pflege_socke": {
+  "name": "Socke",
+  "name_en": "Sock",
+  "cat": "Kleidung & Pflege",
+  "cat_en": "Clothes & care"
+ },
+ "z_pflege_brille": {
+  "name": "Brille / Optiker",
+  "name_en": "Glasses / optician",
+  "cat": "Kleidung & Pflege",
+  "cat_en": "Clothes & care"
+ },
+ "z_pflege_zahnbuerste": {
+  "name": "Zähneputzen",
+  "name_en": "Brush teeth",
+  "cat": "Kleidung & Pflege",
+  "cat_en": "Clothes & care"
+ },
+ "z_pflege_dusche": {
+  "name": "Duschen",
+  "name_en": "Shower",
+  "cat": "Kleidung & Pflege",
+  "cat_en": "Clothes & care"
+ },
+ "z_pflege_schnuller": {
+  "name": "Baby (Schnuller)",
+  "name_en": "Baby (dummy)",
+  "cat": "Kleidung & Pflege",
+  "cat_en": "Clothes & care"
+ },
+ "z_pflege_kinderwagen": {
+  "name": "Kinderwagen",
+  "name_en": "Pram",
+  "cat": "Kleidung & Pflege",
+  "cat_en": "Clothes & care"
+ },
+ "z_studium_abgabe": {
+  "name": "Abgabe",
+  "name_en": "Submission",
+  "cat": "Studium",
+  "cat_en": "University"
+ },
+ "z_studium_deadline": {
+  "name": "Deadline / Frist",
+  "name_en": "Deadline",
+  "cat": "Studium",
+  "cat_en": "University"
+ },
+ "z_studium_klausur": {
+  "name": "Klausur",
+  "name_en": "Written exam",
+  "cat": "Studium",
+  "cat_en": "University"
+ },
+ "z_studium_muendlich": {
+  "name": "Mündliche Prüfung",
+  "name_en": "Oral exam",
+  "cat": "Studium",
+  "cat_en": "University"
+ },
+ "z_studium_vorlesung": {
+  "name": "Vorlesung",
+  "name_en": "Lecture",
+  "cat": "Studium",
+  "cat_en": "University"
+ },
+ "z_studium_lernen": {
+  "name": "Lernen",
+  "name_en": "Studying",
+  "cat": "Studium",
+  "cat_en": "University"
+ },
+ "z_studium_referat": {
+  "name": "Referat / Präsentation",
+  "name_en": "Presentation",
+  "cat": "Studium",
+  "cat_en": "University"
+ },
+ "z_studium_uni": {
+  "name": "Uni / Campus",
+  "name_en": "University / campus",
+  "cat": "Studium",
+  "cat_en": "University"
+ },
+ "z_studium_hausarbeit": {
+  "name": "Hausarbeit",
+  "name_en": "Term paper",
+  "cat": "Studium",
+  "cat_en": "University"
+ },
+ "z_studium_abschluss": {
+  "name": "Abschluss",
+  "name_en": "Graduation",
+  "cat": "Studium",
+  "cat_en": "University"
+ },
+ "z_studium_lerngruppe": {
+  "name": "Lerngruppe",
+  "name_en": "Study group",
+  "cat": "Studium",
+  "cat_en": "University"
+ },
+ "z_studium_labor": {
+  "name": "Labor / Praktikum",
+  "name_en": "Lab / practical",
+  "cat": "Studium",
+  "cat_en": "University"
+ },
+ "bg_0": {
+  "name": "A",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "A"
+ },
+ "bg_1": {
+  "name": "B",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "B"
+ },
+ "bg_2": {
+  "name": "C",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "C"
+ },
+ "bg_3": {
+  "name": "D",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "D"
+ },
+ "bg_4": {
+  "name": "E",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "E"
+ },
+ "bg_5": {
+  "name": "F",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "F"
+ },
+ "bg_6": {
+  "name": "G",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "G"
+ },
+ "bg_7": {
+  "name": "H",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "H"
+ },
+ "bg_8": {
+  "name": "I",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "I"
+ },
+ "bg_9": {
+  "name": "J",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "J"
+ },
+ "bg_10": {
+  "name": "K",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "K"
+ },
+ "bg_11": {
+  "name": "L",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "L"
+ },
+ "bg_12": {
+  "name": "M",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "M"
+ },
+ "bg_13": {
+  "name": "N",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "N"
+ },
+ "bg_14": {
+  "name": "O",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "O"
+ },
+ "bg_15": {
+  "name": "P",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "P"
+ },
+ "bg_16": {
+  "name": "Q",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "Q"
+ },
+ "bg_17": {
+  "name": "R",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "R"
+ },
+ "bg_18": {
+  "name": "S",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "S"
+ },
+ "bg_19": {
+  "name": "T",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "T"
+ },
+ "bg_20": {
+  "name": "U",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "U"
+ },
+ "bg_21": {
+  "name": "V",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "V"
+ },
+ "bg_22": {
+  "name": "W",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "W"
+ },
+ "bg_23": {
+  "name": "X",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "X"
+ },
+ "bg_24": {
+  "name": "Y",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "Y"
+ },
+ "bg_25": {
+  "name": "Z",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "Z"
+ },
+ "bg_26": {
+  "name": "Ä",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "Ä"
+ },
+ "bg_27": {
+  "name": "Ö",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "Ö"
+ },
+ "bg_28": {
+  "name": "Ü",
+  "cat": "Buchstaben groß",
+  "cat_en": "Capital letters",
+  "name_en": "Ü"
+ },
+ "bk_0": {
+  "name": "a",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "a"
+ },
+ "bk_1": {
+  "name": "b",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "b"
+ },
+ "bk_2": {
+  "name": "c",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "c"
+ },
+ "bk_3": {
+  "name": "d",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "d"
+ },
+ "bk_4": {
+  "name": "e",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "e"
+ },
+ "bk_5": {
+  "name": "f",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "f"
+ },
+ "bk_6": {
+  "name": "g",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "g"
+ },
+ "bk_7": {
+  "name": "h",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "h"
+ },
+ "bk_8": {
+  "name": "i",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "i"
+ },
+ "bk_9": {
+  "name": "j",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "j"
+ },
+ "bk_10": {
+  "name": "k",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "k"
+ },
+ "bk_11": {
+  "name": "l",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "l"
+ },
+ "bk_12": {
+  "name": "m",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "m"
+ },
+ "bk_13": {
+  "name": "n",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "n"
+ },
+ "bk_14": {
+  "name": "o",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "o"
+ },
+ "bk_15": {
+  "name": "p",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "p"
+ },
+ "bk_16": {
+  "name": "q",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "q"
+ },
+ "bk_17": {
+  "name": "r",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "r"
+ },
+ "bk_18": {
+  "name": "s",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "s"
+ },
+ "bk_19": {
+  "name": "t",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "t"
+ },
+ "bk_20": {
+  "name": "u",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "u"
+ },
+ "bk_21": {
+  "name": "v",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "v"
+ },
+ "bk_22": {
+  "name": "w",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "w"
+ },
+ "bk_23": {
+  "name": "x",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "x"
+ },
+ "bk_24": {
+  "name": "y",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "y"
+ },
+ "bk_25": {
+  "name": "z",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "z"
+ },
+ "bk_26": {
+  "name": "ä",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "ä"
+ },
+ "bk_27": {
+  "name": "ö",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "ö"
+ },
+ "bk_28": {
+  "name": "ü",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "ü"
+ },
+ "bk_29": {
+  "name": "ß",
+  "cat": "Buchstaben klein",
+  "cat_en": "Small letters",
+  "name_en": "ß"
+ },
+ "w_religionen_rosch_haschana": {
+  "name": "Rosch ha-Schana (Apfel)",
+  "cat": "Religionen",
+  "cat_en": "Religions",
+  "name_en": "Rosh Hashanah (apple)"
+ },
+ "w_religionen_jom_kippur": {
+  "name": "Jom Kippur (Schofar)",
+  "cat": "Religionen",
+  "cat_en": "Religions",
+  "name_en": "Yom Kippur (shofar)"
+ },
+ "w_religionen_sukkot": {
+  "name": "Sukkot (Laubhütte)",
+  "cat": "Religionen",
+  "cat_en": "Religions",
+  "name_en": "Sukkot (booth)"
+ },
+ "w_religionen_chanukka": {
+  "name": "Chanukka (Leuchter)",
+  "cat": "Religionen",
+  "cat_en": "Religions",
+  "name_en": "Hanukkah (menorah)"
+ },
+ "w_religionen_pessach": {
+  "name": "Pessach (Matze)",
+  "cat": "Religionen",
+  "cat_en": "Religions",
+  "name_en": "Passover (matzah)"
+ },
+ "w_religionen_purim": {
+  "name": "Purim (Maske)",
+  "cat": "Religionen",
+  "cat_en": "Religions",
+  "name_en": "Purim (mask)"
+ },
+ "w_religionen_orth_ostern": {
+  "name": "Orthodoxes Ostern",
+  "cat": "Religionen",
+  "cat_en": "Religions",
+  "name_en": "Orthodox Easter"
+ },
+ "w_religionen_orth_weihnachten": {
+  "name": "Orthodoxe Weihnachten",
+  "cat": "Religionen",
+  "cat_en": "Religions",
+  "name_en": "Orthodox Christmas"
+ },
+ "w_religionen_diwali": {
+  "name": "Diwali (Öllampe)",
+  "cat": "Religionen",
+  "cat_en": "Religions",
+  "name_en": "Diwali (oil lamp)"
+ },
+ "w_religionen_holi": {
+  "name": "Holi (Farben)",
+  "cat": "Religionen",
+  "cat_en": "Religions",
+  "name_en": "Holi (colours)"
+ },
+ "w_religionen_vesakh": {
+  "name": "Vesakh (Lotus)",
+  "cat": "Religionen",
+  "cat_en": "Religions",
+  "name_en": "Vesak (lotus)"
+ },
+ "w_laender_at_nationalfeiertag": {
+  "name": "Österreich: Nationalfeiertag",
+  "cat": "Länder & regional",
+  "cat_en": "Countries & regional",
+  "name_en": "Austria: National Day"
+ },
+ "w_laender_ch_bundesfeier": {
+  "name": "Schweiz: Bundesfeier",
+  "cat": "Länder & regional",
+  "cat_en": "Countries & regional",
+  "name_en": "Switzerland: National Day"
+ },
+ "w_laender_fronleichnam": {
+  "name": "Fronleichnam (DE regional, AT, CH)",
+  "cat": "Länder & regional",
+  "cat_en": "Countries & regional",
+  "name_en": "Corpus Christi"
+ },
+ "w_laender_mariae_himmelfahrt": {
+  "name": "Mariä Himmelfahrt (AT, BY/SL)",
+  "cat": "Länder & regional",
+  "cat_en": "Countries & regional",
+  "name_en": "Assumption Day"
+ },
+ "w_laender_mariae_empfaengnis": {
+  "name": "Mariä Empfängnis (AT)",
+  "cat": "Länder & regional",
+  "cat_en": "Countries & regional",
+  "name_en": "Immaculate Conception"
+ },
+ "w_laender_buss_bettag": {
+  "name": "Buß- und Bettag (Sachsen)",
+  "cat": "Länder & regional",
+  "cat_en": "Countries & regional",
+  "name_en": "Day of Repentance (Saxony)"
+ },
+ "w_laender_fr_nationalfeiertag": {
+  "name": "Frankreich: Nationalfeiertag",
+  "cat": "Länder & regional",
+  "cat_en": "Countries & regional",
+  "name_en": "France: Bastille Day"
+ },
+ "w_laender_nl_koningsdag": {
+  "name": "Niederlande: Königstag",
+  "cat": "Länder & regional",
+  "cat_en": "Countries & regional",
+  "name_en": "Netherlands: King's Day"
+ },
+ "w_laender_us_independence": {
+  "name": "USA: Unabhängigkeitstag",
+  "cat": "Länder & regional",
+  "cat_en": "Countries & regional",
+  "name_en": "USA: Independence Day"
+ },
+ "w_laender_us_thanksgiving": {
+  "name": "USA: Thanksgiving",
+  "cat": "Länder & regional",
+  "cat_en": "Countries & regional",
+  "name_en": "USA: Thanksgiving"
+ },
+ "w_laender_ie_st_patrick": {
+  "name": "Irland: St. Patrick's Day",
+  "cat": "Länder & regional",
+  "cat_en": "Countries & regional",
+  "name_en": "Ireland: St. Patrick's Day"
+ },
+ "w_laender_mx_dia_muertos": {
+  "name": "Mexiko: Tag der Toten",
+  "cat": "Länder & regional",
+  "cat_en": "Countries & regional",
+  "name_en": "Mexico: Day of the Dead"
+ },
+ "w_international_chin_neujahr": {
+  "name": "Chinesisches Neujahr",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "Chinese New Year"
+ },
+ "w_international_weltwassertag": {
+  "name": "Weltwassertag",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "World Water Day"
+ },
+ "w_international_tag_der_erde": {
+  "name": "Tag der Erde",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "Earth Day"
+ },
+ "w_international_welttag_buch": {
+  "name": "Welttag des Buches",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "World Book Day"
+ },
+ "w_international_tag_des_baumes": {
+  "name": "Tag des Baumes",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "Arbor Day"
+ },
+ "w_international_weltumwelttag": {
+  "name": "Weltumwelttag",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "World Environment Day"
+ },
+ "w_international_fete_musique": {
+  "name": "Fête de la Musique",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "Fête de la Musique"
+ },
+ "w_international_freundschaft": {
+  "name": "Tag der Freundschaft",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "Friendship Day"
+ },
+ "w_international_weltkindertag": {
+  "name": "Weltkindertag (DE; in Thüringen Feiertag)",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "Children's Day"
+ },
+ "w_international_welttierschutztag": {
+  "name": "Welttierschutztag",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "World Animal Day"
+ },
+ "w_international_weltspartag": {
+  "name": "Weltspartag",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "World Savings Day"
+ },
+ "w_international_weltlachtag": {
+  "name": "Weltlachtag",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "World Laughter Day"
+ },
+ "w_international_maennertag": {
+  "name": "Internationaler Männertag",
+  "cat": "Internationale Tage",
+  "cat_en": "International days",
+  "name_en": "International Men's Day"
+ },
+ "w_aktionstage_pizza": {
+  "name": "Tag der Pizza",
+  "cat": "Lustige Aktionstage",
+  "cat_en": "Fun days",
+  "name_en": "Pizza Day"
+ },
+ "w_aktionstage_pi": {
+  "name": "Pi-Tag",
+  "cat": "Lustige Aktionstage",
+  "cat_en": "Fun days",
+  "name_en": "Pi Day"
+ },
+ "w_aktionstage_weltraum": {
+  "name": "Weltraum-Tag",
+  "cat": "Lustige Aktionstage",
+  "cat_en": "Fun days",
+  "name_en": "Space Day"
+ },
+ "w_aktionstage_pinguin": {
+  "name": "Weltpinguintag",
+  "cat": "Lustige Aktionstage",
+  "cat_en": "Fun days",
+  "name_en": "World Penguin Day"
+ },
+ "w_aktionstage_schokolade": {
+  "name": "Welttag der Schokolade",
+  "cat": "Lustige Aktionstage",
+  "cat_en": "Fun days",
+  "name_en": "World Chocolate Day"
+ },
+ "w_aktionstage_emoji": {
+  "name": "Welt-Emoji-Tag",
+  "cat": "Lustige Aktionstage",
+  "cat_en": "Fun days",
+  "name_en": "World Emoji Day"
+ },
+ "w_aktionstage_pommes": {
+  "name": "Tag der Pommes",
+  "cat": "Lustige Aktionstage",
+  "cat_en": "Fun days",
+  "name_en": "French Fry Day"
+ },
+ "w_aktionstage_eis": {
+  "name": "Tag des Speiseeises",
+  "cat": "Lustige Aktionstage",
+  "cat_en": "Fun days",
+  "name_en": "Ice Cream Day"
+ },
+ "w_aktionstage_katze": {
+  "name": "Weltkatzentag",
+  "cat": "Lustige Aktionstage",
+  "cat_en": "Fun days",
+  "name_en": "International Cat Day"
+ },
+ "w_aktionstage_hund": {
+  "name": "Internationaler Hundetag",
+  "cat": "Lustige Aktionstage",
+  "cat_en": "Fun days",
+  "name_en": "International Dog Day"
+ },
+ "w_aktionstage_kaffee": {
+  "name": "Tag des Kaffees",
+  "cat": "Lustige Aktionstage",
+  "cat_en": "Fun days",
+  "name_en": "Coffee Day"
+ },
+ "w_aktionstage_keks": {
+  "name": "Tag des Kekses",
+  "cat": "Lustige Aktionstage",
+  "cat_en": "Fun days",
+  "name_en": "Cookie Day"
+ },
+ "k_j_fruehling__i_zuckerfest": {
+  "name": "Frühling + Zuckerfest",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Spring + Eid al-Fitr"
+ },
+ "k_j_sommer__w_international_fete_musique": {
+  "name": "Sommer + Fête de la Musique",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Summer + Fête de la Musique"
+ },
+ "k_w_international_tag_des_baumes__w_aktionstage_pinguin": {
+  "name": "Tag des Baumes + Weltpinguintag",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Arbor Day + World Penguin Day"
+ },
+ "k_f_reformationstag__f_halloween": {
+  "name": "Reformationstag + Halloween",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Reformation Day + Halloween"
+ },
+ "k_f_weihnachten_1__i_isra_miraj": {
+  "name": "1. Weihnachtstag + Isra und Miradsch",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Christmas Day + Isra and Mi'raj"
+ },
+ "k_f_weihnachten_1__w_religionen_chanukka": {
+  "name": "1. Weihnachtstag + Chanukka",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Christmas Day + Hanukkah"
+ },
+ "k_i_isra_miraj__w_religionen_chanukka": {
+  "name": "Isra und Miradsch + Chanukka",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Isra and Mi'raj + Hanukkah"
+ },
+ "k_w_religionen_pessach__w_international_tag_der_erde": {
+  "name": "Pessach + Tag der Erde",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Passover + Earth Day"
+ },
+ "k_w_religionen_orth_ostern__w_international_weltlachtag": {
+  "name": "Orthodoxes Ostern + Weltlachtag",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Orthodox Easter + World Laughter Day"
+ },
+ "k_w_religionen_holi__w_international_weltwassertag": {
+  "name": "Holi + Weltwassertag",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Holi + World Water Day"
+ },
+ "k_f_himmelfahrt__i_neujahr": {
+  "name": "Christi Himmelfahrt + Islamisches Neujahr",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Ascension Day / Father's Day + Islamic New Year"
+ },
+ "k_f_pfingstmontag__w_international_weltumwelttag": {
+  "name": "Pfingstmontag + Weltumwelttag",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Whit Monday + World Environment Day"
+ },
+ "k_f_ostersonntag__w_religionen_orth_ostern": {
+  "name": "Ostersonntag + Orthodoxes Ostern",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Easter Sunday + Orthodox Easter"
+ },
+ "k_f_silvester__i_baraa": {
+  "name": "Silvester + Laylat al-Bara'a",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "New Year's Eve + Laylat al-Bara'a"
+ },
+ "k_i_arafat__w_aktionstage_weltraum": {
+  "name": "Tag von Arafat + Weltraum-Tag",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Day of Arafah + Space Day"
+ },
+ "k_f_valentinstag__i_zuckerfest": {
+  "name": "Valentinstag + Zuckerfest",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Valentine's Day + Eid al-Fitr"
+ },
+ "k_j_winter__i_baraa": {
+  "name": "Winter + Laylat al-Bara'a",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Winter + Laylat al-Bara'a"
+ },
+ "k_i_arafat__w_international_welttag_buch": {
+  "name": "Tag von Arafat + Welttag des Buches",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Day of Arafah + World Book Day"
+ },
+ "k_f_ostermontag__w_international_tag_der_erde": {
+  "name": "Ostermontag + Tag der Erde",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Easter Monday + Earth Day"
+ },
+ "k_f_weihnachten_2__i_ramadan": {
+  "name": "2. Weihnachtstag + Beginn des Ramadan",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Boxing Day / St. Stephen's Day + Start of Ramadan"
+ },
+ "k_f_muttertag__i_aschura": {
+  "name": "Muttertag + Aschura",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Mother's Day + Ashura"
+ },
+ "k_j_winter__w_religionen_chanukka": {
+  "name": "Winter + Chanukka",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Winter + Hanukkah"
+ },
+ "k_i_mawlid__w_aktionstage_pommes": {
+  "name": "Mawlid an-Nabi + Tag der Pommes",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Mawlid an-Nabi + French Fry Day"
+ },
+ "k_f_neujahr__n_flagge_CZ": {
+  "name": "Neujahr + Nationalfeiertag Tschechien",
+  "name_en": "New Year's Day + National Day Czechia",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_i_zuckerfest__w_international_weltwassertag": {
+  "name": "Zuckerfest / Eid al-Fitr + Weltwassertag",
+  "name_en": "Eid al-Fitr + World Water Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_kelch__w_religionen_pessach": {
+  "name": "Gründonnerstag + Pessach (Matze)",
+  "name_en": "Maundy Thursday + Passover",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_w_international_weltkindertag__w_international_welttag_buch": {
+  "name": "Weltkindertag (DE; in Thüringen Feiertag) + Welttag des Buches",
+  "name_en": "Children's Day + World Book Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_paragraph__w_international_weltlachtag": {
+  "name": "Verfassungstag + Weltlachtag",
+  "name_en": "Constitution Day + World Laughter Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_f_tag_der_arbeit__w_aktionstage_weltraum": {
+  "name": "Tag der Arbeit + Weltraum-Tag",
+  "name_en": "Labour Day + Space Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_lorbeer__w_international_welttierschutztag": {
+  "name": "Gedenktag (Lorbeer) + Welttierschutztag",
+  "name_en": "Commemoration + World Animal Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_liegestuhl__w_laender_at_nationalfeiertag": {
+  "name": "Bank Holiday (freier Tag) + Österreich: Nationalfeiertag",
+  "name_en": "Bank Holiday + Austria: National Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_f_allerheiligen__n_flagge_IT": {
+  "name": "Allerheiligen + Nationalfeiertag Italien",
+  "name_en": "All Saints' Day + National Day Italy",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_europa__f_muttertag": {
+  "name": "Europatag + Muttertag",
+  "name_en": "Europe Day + Mother's Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_f_pfingstmontag__i_opferfest": {
+  "name": "Pfingstmontag + Opferfest / Eid al-Adha",
+  "name_en": "Whit Monday + Eid al-Adha",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_lorbeer__i_opferfest": {
+  "name": "Gedenktag (Lorbeer) + Opferfest / Eid al-Adha",
+  "name_en": "Commemoration + Eid al-Adha",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_lorbeer__w_religionen_jom_kippur": {
+  "name": "Gedenktag (Lorbeer) + Jom Kippur (Schofar)",
+  "name_en": "Commemoration + Yom Kippur",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_flagge_TR__w_religionen_diwali": {
+  "name": "Nationalfeiertag Türkei + Diwali (Öllampe)",
+  "name_en": "National Day Türkiye + Diwali",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_paragraph__f_nikolaus": {
+  "name": "Verfassungstag + Nikolaus",
+  "name_en": "Constitution Day + St. Nicholas Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_i_opferfest__w_international_weltlachtag": {
+  "name": "Opferfest / Eid al-Adha + Weltlachtag",
+  "name_en": "Eid al-Adha + World Laughter Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_liegestuhl__w_international_weltumwelttag": {
+  "name": "Bank Holiday (freier Tag) + Weltumwelttag",
+  "name_en": "Bank Holiday + World Environment Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_flagge_PT__w_religionen_sukkot": {
+  "name": "Nationalfeiertag Portugal + Sukkot (Laubhütte)",
+  "name_en": "National Day Portugal + Sukkot",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_liegestuhl__w_international_weltspartag": {
+  "name": "Bank Holiday (freier Tag) + Weltspartag",
+  "name_en": "Bank Holiday + World Savings Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_i_opferfest__w_laender_nl_koningsdag": {
+  "name": "Opferfest / Eid al-Adha + Niederlande: Königstag",
+  "name_en": "Eid al-Adha + Netherlands: King's Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_flagge_TR__w_aktionstage_eis": {
+  "name": "Nationalfeiertag Türkei + Tag des Speiseeises",
+  "name_en": "National Day Türkiye + Ice Cream Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_lorbeer__w_religionen_purim": {
+  "name": "Gedenktag (Lorbeer) + Purim (Maske)",
+  "name_en": "Commemoration + Purim",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_paragraph__i_neujahr": {
+  "name": "Verfassungstag + Islamisches Neujahr (1449)",
+  "name_en": "Constitution Day + Islamic New Year",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_taube__w_international_weltlachtag": {
+  "name": "Befreiung / Frieden + Weltlachtag",
+  "name_en": "Liberation / Peace + World Laughter Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_flagge_BE__w_aktionstage_eis": {
+  "name": "Nationalfeiertag Belgien + Tag des Speiseeises",
+  "name_en": "National Day Belgium + Ice Cream Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_flagge_CZ__w_religionen_rosch_haschana": {
+  "name": "Nationalfeiertag Tschechien + Rosch ha-Schana (Apfel)",
+  "name_en": "National Day Czechia + Rosh Hashanah",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_flagge_ES__w_religionen_sukkot": {
+  "name": "Nationalfeiertag Spanien + Sukkot (Laubhütte)",
+  "name_en": "National Day Spain + Sukkot",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_lorbeer__i_ramadan": {
+  "name": "Gedenktag (Lorbeer) + Beginn des Ramadan",
+  "name_en": "Commemoration + Start of Ramadan",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_flagge_DK__w_international_weltumwelttag": {
+  "name": "Nationalfeiertag Dänemark + Weltumwelttag",
+  "name_en": "National Day Denmark + World Environment Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_w_laender_mariae_himmelfahrt__n_flagge_LI": {
+  "name": "Mariä Himmelfahrt (AT, BY/SL) + Nationalfeiertag Liechtenstein",
+  "name_en": "Assumption Day + National Day Liechtenstein",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_mohn__n_flagge_PL": {
+  "name": "Gedenktag (Mohnblume) + Nationalfeiertag Polen",
+  "name_en": "Remembrance + National Day Poland",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_f_himmelfahrt__n_flagge_HR": {
+  "name": "Christi Himmelfahrt / Vatertag + Nationalfeiertag Kroatien",
+  "name_en": "Ascension Day / Father's Day + National Day Croatia",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_f_pfingstmontag__n_flagge_PT": {
+  "name": "Pfingstmontag + Nationalfeiertag Portugal",
+  "name_en": "Whit Monday + National Day Portugal",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_flagge_GR__n_flagge_CZ": {
+  "name": "Nationalfeiertag Griechenland + Nationalfeiertag Tschechien",
+  "name_en": "National Day Greece + National Day Czechia",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_i_opferfest__n_flagge_HR": {
+  "name": "Opferfest / Eid al-Adha + Nationalfeiertag Kroatien",
+  "name_en": "Eid al-Adha + National Day Croatia",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_lorbeer__n_flagge_ES": {
+  "name": "Gedenktag (Lorbeer) + Nationalfeiertag Spanien",
+  "name_en": "Commemoration + National Day Spain",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_kelch__n_flagge_GR": {
+  "name": "Gründonnerstag + Nationalfeiertag Griechenland",
+  "name_en": "Maundy Thursday + National Day Greece",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_liegestuhl__n_flagge_TR": {
+  "name": "Bank Holiday (freier Tag) + Nationalfeiertag Türkei",
+  "name_en": "Bank Holiday + National Day Türkiye",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_n_liegestuhl__n_flagge_CZ": {
+  "name": "Bank Holiday (freier Tag) + Nationalfeiertag Tschechien",
+  "name_en": "Bank Holiday + National Day Czechia",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers"
+ },
+ "k_i_isra_miraj__w_aktionstage_keks": {
+  "name": "Isra und Miradsch (Nacht zum) + Tag des Kekses",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Isra and Mi'raj + Cookie Day"
+ },
+ "k_i_neujahr__w_aktionstage_weltraum": {
+  "name": "Islamisches Neujahr (1449) + Weltraum-Tag",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "name_en": "Islamic New Year + Space Day"
+ },
+ "k3_f_weihnachten_1__w_religionen_chanukka__i_isra_miraj": {
+  "name": "1. Weihnachtstag + Chanukka + Isra und Miradsch",
+  "cat": "Doppel-Schubladen",
+  "breit": true,
+  "cat_en": "Double drawers",
+  "name_en": "Christmas Day + Hanukkah + Isra and Mi'raj"
+ },
+ "k3_n_taube__w_international_tag_des_baumes__w_aktionstage_pinguin": {
+  "name": "Befreiung / Frieden + Tag des Baumes + Weltpinguintag",
+  "name_en": "Liberation / Peace + Arbor Day + World Penguin Day",
+  "cat": "Doppel-Schubladen",
+  "cat_en": "Double drawers",
+  "breit": true
+ },
+ "n_kelch": {
+  "name": "Gründonnerstag",
+  "name_en": "Maundy Thursday",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_mohn": {
+  "name": "Gedenktag (Mohnblume)",
+  "name_en": "Remembrance (poppy)",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_taube": {
+  "name": "Befreiung / Frieden",
+  "name_en": "Liberation / Peace",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_paragraph": {
+  "name": "Verfassungstag",
+  "name_en": "Constitution Day",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_lorbeer": {
+  "name": "Gedenktag (Lorbeer)",
+  "name_en": "Commemoration (laurel)",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_liegestuhl": {
+  "name": "Bank Holiday (freier Tag)",
+  "name_en": "Bank Holiday",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_drachen": {
+  "name": "Rosenmontag (orthodox)",
+  "name_en": "Clean Monday",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_europa": {
+  "name": "Europatag",
+  "name_en": "Europe Day",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_feiertag": {
+  "name": "Feiertag (allgemein)",
+  "name_en": "Public holiday (general)",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_LI": {
+  "name": "Nationalfeiertag Liechtenstein",
+  "name_en": "National Day Liechtenstein",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_LU": {
+  "name": "Nationalfeiertag Luxemburg",
+  "name_en": "National Day Luxembourg",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_BE": {
+  "name": "Nationalfeiertag Belgien",
+  "name_en": "National Day Belgium",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_ES": {
+  "name": "Nationalfeiertag Spanien",
+  "name_en": "National Day Spain",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_GR": {
+  "name": "Nationalfeiertag Griechenland",
+  "name_en": "National Day Greece",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_PL": {
+  "name": "Nationalfeiertag Polen",
+  "name_en": "National Day Poland",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_IT": {
+  "name": "Nationalfeiertag Italien",
+  "name_en": "National Day Italy",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_PT": {
+  "name": "Nationalfeiertag Portugal",
+  "name_en": "National Day Portugal",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_TR": {
+  "name": "Nationalfeiertag Türkei",
+  "name_en": "National Day Türkiye",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_CZ": {
+  "name": "Nationalfeiertag Tschechien",
+  "name_en": "National Day Czechia",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_HR": {
+  "name": "Nationalfeiertag Kroatien",
+  "name_en": "National Day Croatia",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_CA": {
+  "name": "Nationalfeiertag Kanada",
+  "name_en": "National Day Canada",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_DE": {
+  "name": "Nationalfeiertag Deutschland",
+  "name_en": "National Day Germany",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_AT": {
+  "name": "Nationalfeiertag Österreich",
+  "name_en": "National Day Austria",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_CH": {
+  "name": "Nationalfeiertag Schweiz",
+  "name_en": "National Day Switzerland",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_NL": {
+  "name": "Nationalfeiertag Niederlande",
+  "name_en": "National Day Netherlands",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_FR": {
+  "name": "Nationalfeiertag Frankreich",
+  "name_en": "National Day France",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_DK": {
+  "name": "Nationalfeiertag Dänemark",
+  "name_en": "National Day Denmark",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_GB": {
+  "name": "Nationalfeiertag Großbritannien",
+  "name_en": "National Day United Kingdom",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_IE": {
+  "name": "Nationalfeiertag Irland",
+  "name_en": "National Day Ireland",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ },
+ "n_flagge_US": {
+  "name": "Nationalfeiertag USA",
+  "name_en": "National Day USA",
+  "cat": "Länder-Feiertage",
+  "cat_en": "Country holidays"
+ }
+}

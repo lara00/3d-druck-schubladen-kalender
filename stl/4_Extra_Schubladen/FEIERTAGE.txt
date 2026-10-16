@@ -1,0 +1,35 @@
+FEIERTAGS-SCHUBLADEN (Deutschland)
+===================================
+
+Reihenfolge auf der Druckplatte: von links nach rechts, Reihe für Reihe.
+Bewegliche Feiertage sind für 2027 angegeben (Ostern 2027 = 28.3.).
+
+Nr  Symbol            Tag                             Datum       Art
+-----------------------------------------------------------------------------------------------
+1   Sektglas          Neujahr                         1.1.        bundesweit
+2   Krone             Heilige Drei Könige             6.1.        regional – BW, BY, ST
+3   Herz              Valentinstag                    14.2.       Festtag (kein Feiertag)
+4   Frauen-Symbol     Internationaler Frauentag       8.3.        regional – BE, MV
+5   Kreuz             Karfreitag                      26.3.2027   bundesweit
+6   Hase              Ostersonntag                    28.3.2027   Festtag (kein Feiertag)
+7   Osterei           Ostermontag                     29.3.2027   bundesweit
+8   Hammer            Tag der Arbeit                  1.5.        bundesweit
+9   Blume             Muttertag                       9.5.2027    Festtag (kein Feiertag)
+10  Wolke             Christi Himmelfahrt / Vatertag  6.5.2027    bundesweit
+11  Flamme            Pfingstmontag                   17.5.2027   bundesweit
+12  Brandenburger Tor Tag der Deutschen Einheit       3.10.       bundesweit
+13  Buch              Reformationstag                 31.10.      regional – BB, HB, HH, MV, NI, SN, ST, SH, TH
+14  Kürbis            Halloween                       31.10.      Festtag (kein Feiertag)
+15  Kerze             Allerheiligen                   1.11.       regional – BW, BY, NW, RP, SL
+16  Stiefel           Nikolaus                        6.12.       Festtag (kein Feiertag)
+17  Glocke            Heiligabend                     24.12.      Festtag (kein Feiertag)
+18  Tannenbaum        1. Weihnachtstag                25.12.      bundesweit
+19  Christbaumkugel   2. Weihnachtstag                26.12.      bundesweit
+20  Rakete            Silvester                       31.12.      Festtag (kein Feiertag)
+
+Bundesländer: BW Baden-Württemberg, BY Bayern, BE Berlin, BB Brandenburg, HB Bremen, HH Hamburg,
+MV Mecklenburg-Vorpommern, NI Niedersachsen, NW Nordrhein-Westfalen, RP Rheinland-Pfalz, SL Saarland,
+SN Sachsen, ST Sachsen-Anhalt, SH Schleswig-Holstein, TH Thüringen.
+
+Tipp: Die Feiertags-Schublade einfach statt der normalen Zahl in das Fach des Tages stecken.
+Die Zahl-Schublade kommt solange in eine Kiste – nächstes Jahr wird getauscht.
